@@ -51,6 +51,7 @@ p{margin:.7em 0}
   transition:all .18s ease}
 .top button:hover{background:var(--pri-l);color:var(--pri);border-color:var(--pri)}
 .top button:active{transform:scale(.98)}
+#btnNav{display:none}
 
 /* ── 布局 ── */
 .layout{display:grid;grid-template-columns:252px minmax(0,1fr);gap:0;max-width:1380px;margin:0 auto}
@@ -304,10 +305,21 @@ footer{border-top:1px solid var(--bd);margin-top:24px;padding:24px 30px 48px;
 .totop a:hover{background:var(--pri);color:#fff;border-color:var(--pri);text-decoration:none}
 @media(max-width:900px){
   .layout{grid-template-columns:1fr}
-  aside{position:static;height:auto;border-right:none;border-bottom:1px solid var(--bd);
-    padding:10px 8px;overflow-x:auto;white-space:nowrap}
+  #btnNav{display:inline-block}
+  aside{position:fixed;left:0;right:0;top:var(--topbar-h,52px);z-index:60;
+    height:auto;max-height:calc(100vh - var(--topbar-h,52px) - 16px);
+    overflow-y:auto;border-right:none;border-bottom:1px solid var(--bd);
+    border-radius:0 0 var(--radius-lg) var(--radius-lg);background:#fff;
+    padding:10px 12px 14px;box-shadow:0 12px 28px rgba(15,23,42,.14);
+    opacity:0;visibility:hidden;transform:translateY(-10px);pointer-events:none;
+    transition:opacity .2s ease,transform .2s ease,visibility .2s}
+  aside.open{opacity:1;visibility:visible;transform:none;pointer-events:auto}
   aside .nt{display:none}
-  aside a{display:inline-block;padding:6px 12px;margin:0 2px}
+  aside a{display:block;padding:9px 12px;margin:2px 0;font-size:13.5px}
+  #navMask{position:fixed;inset:0;z-index:55;background:rgba(15,23,42,.32);
+    opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s}
+  #navMask.open{opacity:1;visibility:visible}
+  section{scroll-margin-top:104px}
   main{padding:22px 18px 60px}
   .search input{width:160px}
 }
@@ -322,6 +334,7 @@ footer{border-top:1px solid var(--bd);margin-top:24px;padding:24px 30px 48px;
 
 <div class="top">
   <button onclick="location.href='/'" title="返回主页">⌂ 主页</button>
+  <button id="btnNav" title="章节目录">☰ 目录</button>
   <div>
     <div class="ttl">提示词与上下文工程</div>
     <div class="sub">生成式软件工程 · 整堂课完整笔记</div>
@@ -335,6 +348,8 @@ footer{border-top:1px solid var(--bd);margin-top:24px;padding:24px 30px 48px;
   </div>
   <button id="btnAll">展开/折叠全部</button>
 </div>
+
+<div id="navMask"></div>
 
 <div class="layout">
 <aside id="nav">
@@ -1200,6 +1215,23 @@ document.getElementById('btnAll').onclick=function(){
   collapsed=!collapsed;
   secs.forEach(function(s,i){if(i>0||collapsed)s.classList.toggle('hide',collapsed);});
   this.textContent=collapsed?'展开全部':'折叠全部';};
+
+/* ── 移动端折叠目录 ── */
+var navEl=document.getElementById('nav'),
+    btnNav=document.getElementById('btnNav'),
+    navMask=document.getElementById('navMask'),
+    topbar=document.querySelector('.top');
+function setTopbarH(){document.documentElement.style.setProperty('--topbar-h',topbar.offsetHeight+'px');}
+function closeNav(){navEl.classList.remove('open');navMask.classList.remove('open');}
+btnNav.addEventListener('click',function(){
+  if(navEl.classList.contains('open')){closeNav();return;}
+  setTopbarH();
+  navEl.classList.add('open');navMask.classList.add('open');});
+navMask.addEventListener('click',closeNav);
+navEl.addEventListener('click',function(e){if(e.target.closest('a'))closeNav();});
+window.addEventListener('resize',function(){
+  if(!window.matchMedia('(max-width:900px)').matches)closeNav();
+  else if(navEl.classList.contains('open'))setTopbarH();});
 })();
 </script>
 
