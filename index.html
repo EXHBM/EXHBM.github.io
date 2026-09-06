@@ -88,7 +88,7 @@
     <p>文章目录 · 持续更新</p>
   </header>
   <main class="list">
-    <a class="card" href="jyy-vibecoding-lec2-note-anime.html">
+    <a class="card" href="jyy-vibecoding-lec2-note-anime/">
       <h2>生成式软工-上下文工程笔记（可视化）</h2>
       <p>上下文工程课程笔记</p>
       <div class="tags">
@@ -99,5 +99,10 @@
     </a>
   </main>
 </div>
+<script>
+/* 本地 file:// 预览时把卡片链接从目录形式改写为 index.html；线上 https 保持文件夹链接，URL 不带文件名 */
+if(location.protocol==='file:'){[].forEach.call(document.querySelectorAll('a.card'),function(a){
+  var h=a.getAttribute('href');if(/\/$/.test(h))a.setAttribute('href',h+'index.html');});}
+</script>
 </body>
 </html>
