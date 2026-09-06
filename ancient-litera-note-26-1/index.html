@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- 由 移植/build/md2note.js 从「古代文学笔记（合订本）.md」转换生成（模板：template/，tag 0.1.1）——SPA 单页：home 视图=古文笔记主页，#p1~#p4=四篇；请勿手改，改 md 后重跑脚本 -->
+<title>古代文学笔记（合订本）</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top">
+  <button onclick="location.hash='#home'" title="返回古文笔记主页">⌂ <span class="bt">主页</span></button>
+  <button id="btnNav" title="章节目录">☰ <span class="bt">目录</span></button>
+  <button id="btnAuto" title="滚动时自动展开目录对应分支">⇕ <span class="bt">自动展开</span></button>
+  <div class="tbox">
+    <div class="ttl">古代文学笔记</div>
+    <div class="sub">合订本 · 四篇 · 树形目录</div>
+  </div>
+  <div class="sp"></div>
+  <div class="search">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+      <circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/>
+    </svg>
+    <input id="q" type="search" placeholder="跨篇全文搜索…" autocomplete="off">
+  </div>
+  <div id="sPanel">
+    <div class="sph" title="点击收起/展开结果列表">
+      <span id="sChev">▾</span>
+      <span id="sCount">0 / 0</span>
+      <button id="sPrev" title="上一个（Shift+Enter）">↑</button>
+      <button id="sNext" title="下一个（Enter）">↓</button>
+      <button id="sClose" title="退出搜索（Esc）">✕</button>
+    </div>
+    <div id="sList"></div>
+  </div>
+</div>
+
+<div id="navMask"></div>
+
+<div class="layout">
+<aside id="nav">
+  <div class="nt">目录</div>
+          <div class="ptabs">
+            <a class="ptab" href="#home" data-v="home">主页</a>
+            <a class="ptab" href="#p1" data-v="p1">第一篇</a>
+            <a class="ptab" href="#p2" data-v="p2">第二篇</a>
+            <a class="ptab" href="#p3" data-v="p3">第三篇</a>
+            <a class="ptab" href="#p4" data-v="p4">第四篇</a>
+          </div>
+          <div class="tree-part" data-part="p1" hidden>
+            <ul class="tree">
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c1">一、整体脉络</a></div></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p1-c2">二、重点知识点</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c3">1. 贾谊</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c4">2. 晁错</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c5">3. 董仲舒</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c6">4. 刘向</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c7">5. 桓宽《盐铁论》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c8">6. 刘安与《淮南子》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c9">7. 司马谈《论六家要旨》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c10">8. 司马迁《报任安书》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c11">9. 赋体演变三阶段</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c12">10. 汉赋四大家</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c13">11. 枚乘《七发》与"七体"</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c14">12. 司马相如</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c15">13. 扬雄</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c16">14. 班固《两都赋》</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p1-c17">三、笔记正文</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c18">贾谊</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c19">晁错</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c20">董仲舒</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c21">刘向</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c22">桓宽《盐铁论》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c23">刘安与《淮南子》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c24">司马谈、司马迁父子</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c25">西汉末年复古之风</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c26">西汉辞赋</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c27">贾谊辞赋</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c28">枚乘与梁园文学集团</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c29">司马相如</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c30">扬雄</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c31">东汉辞赋</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c32">班固与《两都赋》</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p1-c33">四、考点梳理</a></div>
+            <ul>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p1-c34">名词解释</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c35">1. 汉赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c36">2. 骚体赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c37">3. 大赋（新体赋）</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c38">4. 抒情赋（抒情小赋）</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c39">5. 梁园文人集团</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c40">6. 七体</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c41">7. 扬马</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c42">8. 汉赋四大家</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c43">9. 润色鸿业</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c44">10. 劝百讽一</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c45">11. 五常</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c46">12. 送穷</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c47">13. 抑客伸主</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p1-c48">问答题</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c49">1. 贾谊《鵩鸟赋》的艺术特点。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c50">2. 枚乘《七发》的艺术特点及在汉赋发展史上的地位。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c51">3. 司马相如赋的艺术特色。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c52">4. 扬雄赋作的特色。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c53">5. 汉赋兴盛的原因。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c54">6. 汉赋的艺术特征。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c55">7. 贾谊与晁错政论文的比较。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c56">8. 司马谈《论六家要旨》对各家评价。答题要点</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p1-c57">论述题方向</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c58">1. 论述汉赋的发展演变历程。答题方向</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c59">2. 论述司马相如在汉赋发展史上的地位。答题方向</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c60">3. 论述扬雄前后期赋作的变化及其原因。答题方向</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c61">4. 论述《逐贫赋》中的贫穷主题及其文化意义。答题方向</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p1-c62">5. 论述东汉士人地位变化对辞赋创作的影响。答题方向</a></div></li>
+            </ul></li>
+            </ul></li>
+            </ul>
+          </div>
+          <div class="tree-part" data-part="p2" hidden>
+            <ul class="tree">
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c1">一、整体脉络</a></div></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c2">二、重点知识点</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c3">1. 汉大赋"抑客伸主"</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c4">2. 班固《两都赋》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c5">3. 张衡《二京赋》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c6">4. 王延寿《鲁灵光殿赋》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c7">5. 抒情赋的勃兴</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c8">6. 纪行赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c9">7. 述志赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c10">8. 张衡《归田赋》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c11">9. 赵壹《刺世疾邪赋》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c12">10. 司马迁与《史记》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c13">11. 司马迁思想</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c14">12. 《史记》三家注</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c15">13. 《史记》互见法（旁见侧出法）</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c16">14. 班固《汉书》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c17">15. 《吴越春秋》（赵晔）</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c18">16. 《越绝书》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c19">17. 王充《论衡》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c20">18. 王符《潜夫论》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c21">19. 东汉政论散文三大家</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c22">20. 汉乐府</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c23">三、笔记正文</a></div>
+            <ul>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c24">汉大赋——抑客伸主</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c25">一、班固与《两都赋》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c26">二、张衡与《二京赋》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c27">三、王延寿与《鲁灵光殿赋》</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c28">第二节 抒情赋的勃兴</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c29">一、纪行赋</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c30">二、述志赋</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c31">司马迁与《史记》</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c32">一、家世与早期求学</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c33">二、青年漫游经历</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c34">三、交游与接触人物</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c35">四、修史——家学与遗志</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c36">五、《史记》体例与思想</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c37">六、思想内容</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c38">七、《史记》艺术成就</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c39">八、《史记》的地位和影响</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c40">东汉散文</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c41">一、东汉散文的发展与特点</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c42">二、班固《汉书》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c43">三、《汉书》与《史记》的比较</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c44">四、《汉书·苏武传》艺术特点</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c45">五、《吴越春秋》与《越绝书》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c46">六、王充《论衡》与王符《潜夫论》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c47">七、东汉碑文和游记</a></div></li>
+            </ul></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c48">汉乐府诗</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c49">四、考点梳理</a></div>
+            <ul>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c50">名词解释</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c51">1. 抑客伸主</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c52">2. 互见法（旁见侧出法）</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c53">3. 纪行赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c54">4. 述志赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c55">5. 抒情小赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c56">6. 京都赋</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c57">7. 纪传体通史</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c58">8. 纪传体断代史</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c59">9. 三家注</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c60">10. 实录精神</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c61">11. 疾虚妄</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c62">12. 乐府</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c63">问答题</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c64">1. 班固《两都赋》的艺术创新表现在哪些方面？答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c65">2. 张衡《归田赋》在文学史上的地位？答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c66">3. 司马迁的思想渊源有哪些？答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c67">4. 《史记》人物塑造的艺术手法有哪些？答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c68">5. 《史记》与《汉书》在体例和风格上有何异同？答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c69">6. 《苏武传》的艺术特点？答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c70">7. 《吴越春秋》作为历史演义小说雏形体现在哪些方面？答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c71">8. 王充《论衡》的散文特色？答题要点</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p2-c72">论述题方向</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c73">1. 论述汉代大赋从司马相如到张衡的发展演变。可从结构…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c74">2. 论述东汉抒情赋勃兴的社会原因及文学意义。可从外戚…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c75">3. 论述司马迁《史记》"究天人之际，通古今之变，成一…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c76">4. 论述《史记》对后世文学和史学的深远影响。可从纪传…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c77">5. 论述班固《汉书》与司马迁《史记》的比较研究。可从…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p2-c78">6. 论述汉乐府机构的建制沿革及其对诗歌发展的意义。可…</a></div></li>
+            </ul></li>
+            </ul></li>
+            </ul>
+          </div>
+          <div class="tree-part" data-part="p3" hidden>
+            <ul class="tree">
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c1">一、整体脉络</a></div></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c2">二、重点知识点</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c3">1. 乐府诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c4">2. 建安风骨（汉魏风骨）</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c5">3. 三曹</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c6">4. 建安七子</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c7">5. 蔡琰与《悲愤诗》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c8">6. 正始之音</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c9">7. 竹林七贤</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c10">8. 太康文学</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c11">9. 左思风力</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c12">10. 永嘉文学</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c13">11. 古诗十九首</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c14">12. 游仙诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c15">13. 诗体演进</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c16">三、笔记正文</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c17">汉乐府诗歌的保存和分类</a></div></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c18">汉乐府诗的思想内容</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c19">一、反映战争苦难与平民疾苦</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c20">二、表现男女爱恨</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c21">三、坦率谈及乐生恶死</a></div></li>
+            </ul></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c22">汉乐府诗的叙事艺术成就</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c23">汉乐府在诗体演进中的意义</a></div></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c24">东汉文人诗</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c25">一、班固与《咏史》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c26">二、张衡</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c27">三、秦嘉与《赠妇诗》</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c28">四、东汉末年文人诗基调的转变</a></div></li>
+            </ul></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c29">古诗十九首</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c30">魏晋南北朝文学绪论</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c31">建安文学</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c32">建安七子和蔡琰</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c33">正始之音与竹林七贤</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c34">西晋太康文学</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c35">永嘉文学</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c36">四、考点梳理</a></div>
+            <ul>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c37">名词解释</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c38">1. 乐府诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c39">2. 建安风骨</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c40">3. 竹林七贤</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c41">4. 左思风力</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c42">5. 古诗十九首</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c43">6. 游仙诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c44">7. 太康文学</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c45">8. 玄言诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c46">9. 潘江陆海</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c47">10. 洛阳纸贵</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c48">问答题</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c49">1. 简述汉乐府诗的思想内容。答</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c50">2. 简述汉乐府叙事艺术成就。答</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c51">3. 简述古诗十九首的艺术特色。答</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c52">4. 简述曹植的文学成就。答</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c53">5. 简述嵇康的思想与文学风格。答</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c54">6. 简述左思《咏史诗》的创新之处。答</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p3-c55">论述题方向</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c56">1. 论述从汉乐府到建安文学的现实主义传统及其影响。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c57">2. 论述三曹诗歌的各自特色及文学史地位。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c58">3. 论述两汉至魏晋诗歌体式的演变。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c59">4. 论述郭璞游仙诗的特征与文学史意义。答题要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p3-c60">5. 论述魏晋南北朝文学自觉化的表现。答题要点</a></div></li>
+            </ul></li>
+            </ul></li>
+            </ul>
+          </div>
+          <div class="tree-part" data-part="p4" hidden>
+            <ul class="tree">
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c1">一、整体脉络</a></div></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p4-c2">二、重点知识点</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c3">1. 玄言诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c4">2. 兰亭之会与《兰亭集序》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c5">3. 陶渊明</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c6">4. 田园诗与山水诗区别</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c7">5. 南朝乐府民歌</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c8">6. 北朝民歌</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c9">7. 谢灵运</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c10">8. 鲍照</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c11">9. 永明体</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c12">10. 沈约</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c13">11. 谢朓（小谢）</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p4-c14">三、笔记正文</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c15">（一）东晋文学概况与玄言诗</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c16">（二）王羲之与兰亭唱和</a></div></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p4-c17">（三）陶渊明</a></div>
+            <ul>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c18">文学地位与贡献</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c19">魏晋风流代表</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c20">作品结集与流传</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c21">田园诗</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c22">咏怀咏史诗</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c23">行役诗</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c24">赠答诗</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c25">哲理诗</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c26">艺术特征之一：平淡自然与诗意淳美统一</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c27">艺术特征之二：情、景、理统一</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c28">艺术特征之三：豪迈雄健</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c29">艺术渊源</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c30">散文与辞赋</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c31">文学史地位与影响</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c32">意象与象征</a></div></li>
+            </ul></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c33">（四）南朝乐府民歌</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c34">（五）北朝民歌</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c35">（六）南北朝民歌比较</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c36">（七）南朝诗风转变与谢灵运</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c37">（八）鲍照</a></div></li>
+          <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c38">（九）永明体与齐梁诗坛</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p4-c39">四、考点梳理</a></div>
+            <ul>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p4-c40">（一）名词解释</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c41">1. 玄言诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c42">2. 兰亭之会</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c43">3. 田园诗</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c44">4. 吴歌与西曲</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c45">5. 《西洲曲》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c46">6. 《木兰诗》</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c47">7. 永明体</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c48">8. 四声八病</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c49">9. 三易说</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c50">10. 大小谢</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c51">11. 七言歌行</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p4-c52">（二）问答题</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c53">1. 简述玄言诗流行原因及文学史意义。要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c54">2. 简述陶渊明诗歌艺术特征。要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c55">3. 简述陶渊明文学史地位与影响。要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c56">4. 比较南北朝民歌异同。要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c57">5. 简述《木兰诗》艺术特色。要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c58">6. 简述谢灵运山水诗特点与不足。要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c59">7. 简述鲍照诗歌艺术特色与贡献。要点</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c60">8. 简述永明体产生原因及意义。要点</a></div></li>
+            </ul></li>
+          <li class="has"><div class="tnode"><span class="caret">▸</span><a href="#p4-c61">（三）论述题方向</a></div>
+            <ul>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c62">1. 论述从陶渊明到谢灵运的诗风转变及其文学史意义。可…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c63">2. 论述陶渊明诗歌中"平淡自然"与"豪迈雄健"两种风…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c64">3. 论述南北朝民歌差异的成因及其文化意义。从地理环境…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c65">4. 论述鲍照"险俗"风格的内涵及其文学史地位。从"俗…</a></div></li>
+              <li><div class="tnode"><span class="caret leaf"></span><a href="#p4-c66">5. 论述永明体产生的历史必然性及其对近体诗形成的影响…</a></div></li>
+            </ul></li>
+            </ul></li>
+            </ul>
+          </div>
+</aside>
+
+<main id="main">
+    <section class="view" id="home" data-view="home">
+      <div class="wrap">
+        <header>
+          <h1>古代文学笔记（合订本）</h1>
+          <p>四篇 · 从汉代文学到魏晋南北朝 · 点击篇章进入</p>
+        </header>
+        <div class="list">
+            <a class="mini" href="#p1">
+              <div class="mh">第一篇 · 汉代政论文与辞赋</div>
+              <div class="mb">本篇笔记以西汉至东汉的文学发展为主线，系统梳理了汉代散文与辞赋两大文体的发展脉络。笔记内容可分为两大板块：一是西汉政论文，二是汉代辞赋。两大板块…</div>
+            </a>
+            <a class="mini" href="#p2">
+              <div class="mh">第二篇 · 京都赋、《史记》与东汉散文</div>
+              <div class="mb">本篇笔记以汉代文学为核心，围绕赋体散文、史传散文与乐府诗歌三条主线展开，内容横跨西汉至东汉，既有文体演变的纵向梳理，又有作家作品的横向比较，构成…</div>
+            </a>
+            <a class="mini" href="#p3">
+              <div class="mh">第三篇 · 汉乐府、古诗十九首到建安正始</div>
+              <div class="mb">本篇笔记以文学史的时间发展为经线，以重要作家作品和文学现象为纬线，系统梳理了从两汉乐府诗到魏晋南北朝文学的演进历程，内容可分为四大板块。…</div>
+            </a>
+            <a class="mini" href="#p4">
+              <div class="mh">第四篇 · 东晋至齐梁</div>
+              <div class="mb">本篇笔记以时间为经、文学思潮和代表作家为纬，系统梳理东晋至齐梁文学发展，可分四大板块。…</div>
+            </a>
+        </div>
+      </div>
+    </section>
+    <section class="view" id="p1" data-view="p1" data-label="第一篇" hidden>
+    <section class="lv1" id="p1-c1">
+      <div class="chap">CHAPTER 01</div>
+      <h2 class="sh">一、整体脉络</h2>
+<p class="lead">本篇笔记以西汉至东汉的文学发展为主线，系统梳理了汉代散文与辞赋两大文体的发展脉络。笔记内容可分为两大板块：一是西汉政论文，二是汉代辞赋。两大板块之间既有时间上的先后承继关系，也有文体上的并行与互动。</p>
+<p>政论文板块以作家为纲，依次介绍贾谊、晁错、董仲舒、刘向、桓宽、刘安、司马谈父子等人的政论文创作与思想主张。贾谊以《过秦论》闻名，思想主儒家兼有道家、法家，文风气势雄健，被誉为"西汉鸿文"，具战国纵横家遗风；晁错主张重农抑商、移民实边，代表作《论贵粟疏》以实用见长，与贾谊的文采气势形成对比。董仲舒以《春秋繁露》《天人三策》奠定儒家思想与权力结盟的格局，提出"五常"伦理和"推明孔氏，抑黜百家"。刘向编《七略》、整理《战国策》《楚辞》，著《列女传》《说苑》，被视为小说萌芽。桓宽《盐铁论》记录盐铁会议辩论，是西汉后期政论散文最优秀作品。刘安编《淮南子》集黄老学说之大成。司马谈《论六家要旨》以道家为主兼采众长，司马迁《报任安书》揭示《史记》编撰原因。</p>
+<p>辞赋板块从赋体起源出发，梳理骚体赋、汉大赋、抒情小赋三种形态的演变历程。赋本为《诗经》六艺之一，作为文体最早以荀子《赋篇》名篇，在战国纵横散文和楚辞共同影响下发展。赋的兴盛源于西汉国力强盛、统治者提倡及文体自然发展。骚体赋以贾谊《吊屈原赋》《鵩鸟赋》为代表，模仿楚辞，篇幅短小；汉大赋以枚乘《七发》为正式形成标志，司马相如《子虚赋》《上林赋》为典范，最终确立大赋体制；抒情小赋于东汉中期兴起，张衡首开其风。笔记还详述扬雄前后期赋作转变及《逐贫赋》的贫穷主题，最后延伸至东汉辞赋的环境变化、杜笃《论都赋》和班固《两都赋》的创作背景与文学史意义。</p>
+<p>全篇脉络清晰，由政论文到辞赋、由西汉到东汉，既见文体演变之迹，又见作家风格之异，构成一部汉代文学发展的微缩史。各部分之间逻辑紧密：政论文板块展现了汉代思想文化从纵横家遗风向儒生化转变的过程，为辞赋的繁荣提供了思想土壤；辞赋板块则呈现了文学自身从抒情到铺陈再到回归抒情的辩证发展，二者共同构成了汉代文学的全貌。</p>
+    </section>
+
+    <section class="lv1" id="p1-c2">
+      <div class="chap">CHAPTER 02</div>
+      <h2 class="sh">二、重点知识点</h2>
+<ol><li id="p1-c3"><b>贾谊：</b>西汉政论文代表作家，思想主儒家兼有道家、法家。《新书》辑其政论文，《过秦论》收入《史记·秦始皇本纪》，被誉为"西汉鸿文"，具战国纵横家遗风。特色在于"气盛"，主题明确，史论结合，句式灵活奔放。亦为骚体赋代表，存《吊屈原赋》《鵩鸟赋》《旱云赋》三篇，刘熙载评"屈子之赋，贾生得其质"。</li><li id="p1-c4"><b>晁错：</b>主张"重农抑商"，对匈奴主张"移民实边"（牧民住边，平时种地，战时打仗），反对分封、进言削藩，终被"清君侧"所害。代表作《论贵粟疏》，主题为重农贵粟、强本抑末。艺术特点：对比手法，语言简洁明快，浑厚中显犀利，文采逊于贾谊。贾谊与晁错对比：气势文采vs实用。</li><li id="p1-c5"><b>董仲舒：</b>代表作《春秋繁露》《天人三策》。将天命与统治者绑定（出灾害以谴告之，不知自省则出怪异以警惧之），主张先德后刑、春秋大一统思想，首次将仁义礼智信上升为"五常"伦理高度。提出"推明孔氏，抑黜百家"，使儒生获得解释权，君权神授，儒家思想与权力结盟。文风典雅纯正，文学价值不高，但对后世政论文风影响深远（由纵横捭阖风格转向儒生风格）。</li><li id="p1-c6"><b>刘向：</b>编《七略》，整理《战国策》《楚辞》。影响最大的著作为《列女传》《说苑》等，被视为小说的萌芽。文章说教味较浓。</li><li id="p1-c7"><b>桓宽《盐铁论》：</b>六十篇，记录汉昭帝始元六年盐铁会议，讨论盐铁酒类官营与战事等经济政治问题。贤良文学抨击汉武帝政策（反对"言利"、重本抑末），最终废除铁酒专卖。贤良文学推崇董仲舒新儒学，倾向保守和教条化。文风整饬而富于变化，朴实而有逻辑美，是西汉后期政论散文最优秀作品。</li><li id="p1-c8"><b>刘安与《淮南子》：</b>又称《淮南鸿烈》（"鸿烈"指广大光明），今存内书21篇，外书33篇和中书8卷已佚。集黄老学说之大成，提出"无气论"和较系统的宇宙学说。文风新异奇伟宏富，既有战国遗风又有赋体特色。多用历史、神话、传说故事说理（如塞翁失马、高阳魋）。对汉代政治理论和实践进行了科学总结。</li><li id="p1-c9"><b>司马谈《论六家要旨》：</b>以道家为主，兼采众长。评阴阳家"大祥而众忌讳"但"序四时之大顺"；评法家"严而少恩"但"正君臣上下之分"；评名家"俭而善失真"但"名实不可不察"；评儒家"博而寡要，劳而少功"但"列君臣父子之礼，百家弗能易"；评墨家"俭而难遵"但"强本节用不可废"；评道家最高——"其实易行，其辞难知"，"指约而易操，事少而功多，兼儒墨之善，撮名家之要"。</li><li id="p1-c10"><b>司马迁《报任安书》：</b>抒发愤懑，揭示《史记》编撰原因（"通古今之变，成一家之言"）。吴楚材《古文观止》评其有"离骚之风"、"燕赵烈士之风"。</li><li id="p1-c11"><b>赋体演变三阶段：</b>骚体赋（西汉开国至武帝初年，模仿楚辞，篇幅短小，多用"兮"字）→汉大赋/新体赋（武帝初年至东汉中叶，结构宏大，铺张扬厉，"润色鸿业"）→抒情小赋（东汉中期之后，篇幅短小，侧重个人心志，句式多样）。</li><li id="p1-c12"><b>汉赋四大家：</b>司马相如、扬雄、班固、张衡。</li><li id="p1-c13"><b>枚乘《七发》与"七体"：</b>标志汉代新体赋正式形成。通过主客问答铺陈七事（音乐、饮食、车马、游宴、田猎、观涛、论道），劝戒淫奢，启发注重精神追求。开"七体"之先河，后世效仿者有傅毅《七激》、张衡《七辩》、李尤《七款》、马融《七厉》、刘世广《七兴》等。</li><li id="p1-c14"><b>司马相如：</b>被尊为"辞宗"（班固、刘勰）、"赋圣"（林文轩、王应麟、王世贞），代表作《子虚赋》《上林赋》为汉代新体赋典范，最终确立汉大赋体制。鲁迅评"武帝时文人，赋莫若司马相如，文莫若司马迁"。艺术特色：虚构手法、铺排夸张、排比对偶、句式灵活。</li><li id="p1-c15"><b>扬雄：</b>西汉末年最重要赋家，字子云，与司马相如并称"扬马"。前期大赋为主（仕途顺畅），后期转消极避世，晚年自评少作为"雕虫小技"。《逐贫赋》开"送穷"主题先河，反映民族文化心理的深刻转换。赋作特色：扩大题材、开创蕴藉迂徐赋风、炼字奇崛诡丽。</li><li id="p1-c16"><b>班固《两都赋》：</b>东汉代表作，"汉赋四大家"之一。以"抑客伸主"结构（西都宾vs东都主人），盛称洛邑制度之美，折西宾淫侈之论。班固亦为《汉书》作者，著《白虎通义》，为史学家、辞赋家、经学理论家。</li></ol>
+    </section>
+
+    <section class="lv1" id="p1-c17">
+      <div class="chap">CHAPTER 03</div>
+      <h2 class="sh">三、笔记正文</h2>
+    <section class="lv2" id="p1-c18">
+      <h3>贾谊</h3>
+<p>思想以儒家为主，兼有道家、法家。政论文成就突出，《新书》辑录其政论文。《过秦论》收录于《史记·秦始皇本纪》太史公论后，被誉为"西汉鸿文"，具战国纵横家遗风。</p>
+<p>《过秦论》要点：</p><ol start="1"><li>商鞅在秦国崛起中的作用：强大了秦国国力，提高了军事实力和意愿（建功封爵），外交使秦国有了成长环境，法制推动了秦国发展。被杀原因：触犯贵族利益（多户多税、军功封爵），功高震主，变法不需要商鞅本人。</li><li>六国有人才却打不过秦国的原因：心思不同，互相制衡，秦国多明君，秦有称王称帝之志。</li><li>"享国日浅"的作用：衔接，调节节奏，且在位时间确实短暂。</li><li>"先王之道"的内容：与民休息，鼓励生产，称王之道，不作战争。废除原因：由称王到称帝，需灭六国，旧制已不适应。</li><li>"秦王既没，余威振于殊俗"的作用：反语，衔接，与后文陈胜吴广起义制造反差，增强气势。</li><li>"仁义不施，而攻守之势异也"的评价：有一定合理性，但简单地将朝代兴亡归结于道德仁义，受儒家思想影响大，具有高度目的性。</li></ol>
+<p>诸家评价《过秦论》：特色在于"气盛"。以写赋手法说理，全篇对比照应。袁宏道评感情驱动、数字恣肆、信息丰富。特点：主题明确，史论结合，句式灵活奔放，铺陈华丽，气势雄健。</p>
+    </section>
+    <section class="lv2" id="p1-c19">
+      <h3>晁错</h3>
+<p>主张"重农抑商"，对匈奴主张"移民实边"（牧民住边，平时种地，战时打仗），反对分封、进言削藩，终被"清君侧"所害。</p>
+<p>《论贵粟疏》思考要点：</p><ol start="1"><li>对圣王时代的描述不符合客观实际，是理想状态，意在以此为标尺论说现实。</li><li>从民贫则奸邪生、民富则安的链条推导出"明主务民于农桑"的道理。</li><li>对农夫平民持同情态度，描述其劳苦困顿。</li><li>对商贾持批判态度，认为其坐享其成、兼并农夫。</li><li>"拜爵除罪"和"损有余，补不足"的设想有一定合理性但难以完全实现。主题：重农贵粟，强本抑末。艺术特点：对比手法，语言简洁明快，浑厚中显犀利，文采逊于贾谊。贾谊与晁错对比：气势文采vs实用。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c20">
+      <h3>董仲舒</h3>
+<p>代表作《春秋繁露》《天人三策》。天人三策将天命与统治者绑定：天出灾害以谴告之，不知自省则出怪异以警惧之。主张先德后刑、春秋大一统思想。首次将仁义礼智信上升为"五常"伦理高度。提出"推明孔氏，抑黜百家"，使儒生获得解释权，君权神授，儒家思想与权力结盟。尊王攘夷。文风典雅纯正，文学价值不高，但对后世政论文风影响深远（由纵横捭阖风格转向儒生风格）。</p>
+    </section>
+    <section class="lv2" id="p1-c21">
+      <h3>刘向</h3>
+<p>编《七略》，整理《战国策》《楚辞》。影响最大的著作为《列女传》《说苑》等，被视为小说的萌芽。文章说教味较浓。</p>
+    </section>
+    <section class="lv2" id="p1-c22">
+      <h3>桓宽《盐铁论》</h3>
+<p>六十篇，记录汉昭帝始元六年盐铁会议，讨论盐铁酒类官营与战事等经济政治问题。贤良文学抨击汉武帝制定的政策（反对"言利"、重本抑末），最终废除铁酒专卖。30年后桓宽将其整理成书（包括辩论、会后闲话）。贤良文学推崇董仲舒新儒学，倾向保守和教条化。文风整饬而富于变化，朴实而有逻辑美。是西汉后期政论散文最优秀作品。</p>
+    </section>
+    <section class="lv2" id="p1-c23">
+      <h3>刘安与《淮南子》</h3>
+<p>刘安曾奉武帝敕撰《离骚体》，编《淮南子》（又称《淮南鸿烈》，"鸿烈"指广大光明），今传内书21篇，33篇外书和8卷中书已佚。意在充当西汉政治指导之书。集黄老学说之大成，提出"无气论"和较系统的宇宙学说。文风新异奇伟宏富，既有战国遗风又有赋体特色。多用历史、神话、传说故事说理，如"塞翁失马"、"高阳魋"（直于辞而不可用）。对汉代数十年政治理论和实践进行了科学总结。</p>
+    </section>
+    <section class="lv2" id="p1-c24">
+      <h3>司马谈、司马迁父子</h3>
+<p>司马谈于建元、元封年间任太史令，因无法参与封禅而郁郁而终。</p>
+<p>司马谈《论六家要旨》要点：</p><ol start="1"><li>对阴阳、法、名三家：阴阳家"大祥而众忌讳，使人拘而多所畏"但"序四时之大顺，不可失"；法家"严而少恩"但"正君臣上下之分"；名家"使人俭而善失真"但"名实不可不察"。</li><li>对儒家："博而寡要，劳而少功"但"列君臣父子之礼，序夫妇长幼之别，百家弗能易"。</li><li>对墨家："俭而难遵，其事不可遍循"但"强本节用不可废"，赞同其尧舜之道强本节用但难以实践。</li><li>对道家："其实易行，其辞难知"——"指约而易操，事少而功多，兼儒墨之善，撮名家之要"，"与时迁移，应物变化，无为又无不为，无成势，无常形，虚者道之常也"。</li><li>创作动机：通过评论六家总结阐释治国理念，向武帝宣扬黄老思想；以道为主，兼采众长；反映汉武时代除儒外其他家的生存环境。</li></ol>
+<p>司马迁《报任安书》：抒发愤懑，揭示《史记》编撰原因（"通古今之变，成一家之言"）。吴楚材《古文观止》评其"感慨啸歌有燕赵烈士之风"，有"离骚之风"。</p>
+    </section>
+    <section class="lv2" id="p1-c25">
+      <h3>西汉末年复古之风</h3>
+<p>王莽时期兴起古文之风。刘歆作《移让太常博士书》，首先反今文经学而倡古文经学。扬雄由学术复古转向文章复古，主张宗经征圣。</p>
+    </section>
+    <section class="lv2" id="p1-c26">
+      <h3>西汉辞赋</h3>
+<p>赋本为《诗经》六艺之一（赋比兴）。作为文体，最早以赋名篇的是荀子《赋篇》，共10篇。赋体在战国后期纵横散文和楚辞共同影响下进一步发展。</p>
+<p>赋兴盛原因：</p><ol start="1"><li>西汉的兴盛和强大：汉武帝一展雄图沟通世界，汉民族力量空前膨胀，需要赋体歌颂；帝王及贵族享乐淫侈生活滋长。"润色鸿业"出自《两都赋·序》。</li><li>统治者的爱好和提倡：诸侯王如吴王刘濞、梁王刘武、淮南王刘安等招致文士著书立说。淮南小山《招隐士》有代表性。汉武帝提倡，朱买臣"演楚辞"（覆水难收成语主人公），敕刘安作《离骚传》，司马相如被任为郎。宣帝时期亦有多人因词赋入仕。</li><li>文体发展的自然趋势：来源于古诗，奠基于楚辞，处于诗词与散文之间。</li></ol>
+<p>赋体三阶段：</p><ol start="1"><li>骚体赋：模仿楚辞，篇幅短小，多用"兮"字语句。代表：贾谊《吊屈原赋》《鵩鸟赋》。</li><li>汉大赋（新体赋）：典型形式，结构宏大，篇幅长，内容以写物为主，以"润色鸿业"为目的，铺张扬厉，穷形尽貌，绵密细致，富丽堂皇，多采用主客问答式。</li><li>抒情小赋：东汉中期之后，汉帝国衰微，大赋失去现实基础，抒情小赋应运而生。侧重书写个人心志，或托物言志，或咏物抒情，也有针砭现实之作。篇幅短小精悍，不用问答题，句式多样，文辞清丽，多用韵语。</li></ol>
+<p>发展演变历程：</p><ol start="1"><li>西汉开国至武帝初年（形成期）：骚体赋流行，大赋开始形成，楚辞向汉赋过渡的形态。代表作家贾谊、枚乘（其《七发》标志开始成熟）。</li><li>武帝初年至东汉中叶（全盛期）：以新体赋即汉大赋创作为主流。武帝、宣帝时鼎盛，西汉末年以降：劝百讽一、润色鸿业。汉赋四大家。</li><li>东汉中叶至东汉末年（转变期）：大赋衰落，抒情小赋兴起，张衡首开其风，对魏晋创作有很大影响。</li></ol>
+<p>汉赋艺术特征：</p><ol start="1"><li>铺陈夸张，想象丰富：注重对客观事物作具体细致的描写。</li><li>辞藻华丽，词汇丰富，描写细致入微：促进了古代词汇和文学语言的发展。</li><li>结构和句法的特别：汉大赋一般分为序、本体、乱三部分。句式一般以四、六言为主，也有三、五、七言。序和结尾用散文，中间正文以韵文为主，夹杂散文。"劝百讽一"。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c27">
+      <h3>贾谊辞赋</h3>
+<p>据《汉书·艺文志》载有赋七篇，今存《吊屈原赋》《鵩鸟赋》《旱云赋》三篇。刘熙载《艺概·赋概》评："屈子之赋，贾生得其质。"为汉初骚体赋典型代表。具体特征：内容上继承《离骚》讽怨精神，抒情色彩强烈，感情深沉激切；艺术手法继承《离骚》比兴传统，风格接近楚辞；形式上基本保持楚辞形式，常用带"兮"字的语句，句式整齐而有变化；"以文为赋"（王世贞《艺苑卮言》卷二）。</p>
+<p>《吊屈原赋》：贾谊为长沙王太傅，谪去意不自得，度湘水为赋以吊屈原。屈原被谗放逐，作《离骚》，终投汨罗而死。贾谊追伤之，因自喻。艺术特点：</p><ol start="1"><li>铺叙与议论并用。正文以铺排手法描写种种被颠倒的社会现象，适时发出感叹和议论。</li><li>"讯"辞部分以议论手法抱怨屈原不能远离浊世以自保，全赋熔铸激愤情感，抒情色彩强烈。</li><li>继承楚辞比兴传统，多用比喻、象征，形象鲜明内蕴丰富。</li><li>运用对比手法使善恶颠倒的社会现象更加鲜明。</li></ol>
+<p>《鵩鸟赋》：贾谊谪居长沙任长沙王太傅时所作。以道家思想谈论人生哲理，表述天道人事变化无穷、难以参透，企图以道家生死齐一、纵躯委命的达观态度排遣人生苦闷，获得精神解脱。思考要点：</p><ol start="1"><li>"鵩鸟"形象的寓意：作为另一种思考主体，主客问答结构。</li><li>主导思想与《过秦论》不同：纵横vs道，顺其自然、老庄道家、无为无不为。</li><li>庄子《大宗师》"大冶铸金"的含义：第二段物相转化、福祸无常；第三段熔炉比喻——造化者以天地为大炉、以造化为大冶，表现无欲无求、悠逸宁静的生活态度，乐观而豁达的精神世界。</li><li>"其生兮若浮"至"泛乎若不系之舟"：生活无常，道家老庄思想，与大自然融为一体。苏轼"身若不系之舟"受其影响。</li></ol>
+<p>《鵩鸟赋》艺术特点：</p><ol start="1"><li>形式奇特，以人鸟对话展开，受庄子寓言影响，开汉赋主客问答体式之先河。</li><li>以议论为主，抒写对生命忧患的思考，阐发人生哲理。议论中常运用贴切比喻增强形象性，常用感叹语气加强情感性。</li><li>语言凝炼精警，以表达哲理为主，形式上以整齐四言句为主，也有散文化倾向，体现向汉大赋的过渡。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c28">
+      <h3>枚乘与梁园文学集团</h3>
+<p>梁园文学集团指西汉时期以梁孝王刘武、司马相如等为中心形成的文学群体。孝王广筑苑囿，招延四方豪杰文士，枚乘、公孙诡、邹阳、严忌、羊胜等从游于梁园。梁客皆善创作辞赋，枚乘尤为突出。是中国文学史上较早的文学作家集团。</p>
+<p>《七发》：假设楚太子有病，吴客前去探望，以音乐、饮食、车马、游宴、田猎、观涛、论道七事启发楚太子。主旨：声色犬马之乐不如圣贤的"要言妙道"，劝戒淫奢，启发注重精神追求。"七发"之义：《文心雕龙·杂文》"盖七窍所发，发于嗜欲，始邪未正，所以戒膏粱子也"；李善《文选注》"七发者，说七事以启发太子也"。</p>
+<p>《七发》虽未以赋名篇，但以宏大结构、繁富辞藻、铺排描写手法、主客问答体式奠定汉代散体大赋体制：</p><ol start="1"><li>采用主客问答形式结构全篇。</li><li>善于铺陈（如观涛一段）。</li><li>鸿篇巨制：全篇以八个相对独立的部分有机构成浑然一体，气势宏巨。</li><li>散体句式。大赋开始，相比骚体赋可谓鸿篇巨制。</li></ol>
+<p>《七发》的影响与地位：</p><ol start="1"><li>刘勰《文心雕龙·杂文》："枚乘擿艳，首制《七发》，腴辞云构，夸丽风骇。"</li><li>标志汉代新体赋正式形成。</li><li>对后世赋的创作影响颇大，模拟之作频出，形成"七体"。"七体"：赋的体裁之一，特点是通过虚设主客反复问答，按"始邪未正"顺序铺陈七事，由枚乘《七发》首创。如傅毅《七激》、张衡《七辩》、李尤《七款》、马融《七厉》、刘世广《七兴》等。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c29">
+      <h3>司马相如</h3>
+<p>约前179—前118年，字长卿，巴郡安汉县（今四川南充蓬安）人，一说蜀郡（今四川成都）人。西汉伟大文学家、杰出政治家。评价：《史记·司马相如列传》中司马迁全文收录其三篇赋、四篇散文。扬雄："长卿赋不似从人间来，其神化所至邪！"尊称"辞宗"（班固、刘勰）、"赋圣"（林文轩、王应麟、王世贞）。鲁迅《汉文学史纲要》："武帝时文人，赋莫若司马相如，文莫若司马迁。"轶事：出使西南夷——"安边功臣"；琴挑卓文君——"世界十大经典爱情之首"。</p>
+<p>作品：《汉书·艺文志》著录赋二十九篇，今存六篇。代表作《子虚赋》《上林赋》最著名，为汉代新体赋典范。另有《大人赋》《长门赋》《美人赋》等。奠定新体赋在汉代文学中的稳固地位。</p>
+<p>司马相如赋的艺术特色：</p><ol start="1"><li>构思上采用虚构手法：虚构人物，事物描写中的夸张，文章结构采用虚构的主客问答形式。</li><li>表现手法上以铺排夸张、描摹渲染为主：以"体物"为主，集中笔力描绘物类、物象、物态，追求辞藻博富绚丽。</li><li>语言形式上大量运用排比、对偶，形成节奏感和韵律感。字型排列注意形式美，句式长短相间灵活自如。</li></ol>
+<p>《子虚赋》《上林赋》：《子虚赋》作于司马相如为梁孝王宾客时（汉景帝年间），未得景帝赏识。后经狗监杨得意引荐，创作《上林赋》。两篇相距十年，实为同一主题的上下篇。体现汉大赋"润色鸿业"（班固《两都赋序》）、"劝百讽一"（《汉书·司马相如传赞》）的内容特点。此赋对人物设定及感情特质与此前作品明显不同：情感特征不再属于个体性质，人物已非单体个人，而承载群体感受与意识。</p>
+<p>《子虚赋》《上林赋》特征：具有典型汉代散体大赋特征——结构和规模宏大、铺张扬厉、浓厚浪漫色彩、"劝百讽一"赋颂传统（以歌颂汉王朝声威气魄为主要内容）。司马相如最终确立汉代大赋体制。</p>
+<p>《西京杂记》卷二载：司马相如作《上林》《子虚》赋，"意思萧散，不复与外事相关。控引天地，错综古今。忽然如睡，焕然而兴。几百日而后成。"又记相如论作赋之心："合綦组以成文，列锦绣而为质。一经一纬，一宫一商。此赋之迹也。赋家之心，苞括宇宙，总览人物。斯乃得之于内，不可得而传。"鲁迅评："盖汉兴好楚声，武帝左右亲信如朱买臣等多以楚辞进，而相如独变其体，益以玮奇之意，饰以绮丽之辞，句之短长亦不拘成法，与当时甚不同。"</p>
+<p>《长门赋》：陈皇后时得幸颇妒，别在长门宫，愁闷悲思。闻司马相如工为文，奉黄金百斤为相如、文君取酒，求解悲愁之辞。相如为文以悟主上，陈皇后复得亲幸。</p>
+    </section>
+    <section class="lv2" id="p1-c30">
+      <h3>扬雄</h3>
+<p>前53—18年，字子云，蜀郡成都人。历成、哀、平三世皆为黄门郎，王莽时升太中大夫。西汉末年最重要赋家，辞赋今存11篇。早期模仿司马相如风格较重，与司马相如并称"扬马"。</p>
+<p>扬雄辞赋创作以成帝去世为界分前后两期。前期（蛰居成都和游走京师为成帝制作辞赋时期）：代表作《蜀都赋》《反离骚》《甘泉赋》《河东赋》《羽猎赋》《长杨赋》。作品洋溢昂扬乐观情调，表现用世追求和政治理想。以大赋为主，仕途较为顺畅。后期（成帝以后）：仕途不得志，生活拮据，对现实政治失望不满。赋作对现实问题暴露比前期深刻，消极避世思想较浓重。主要作品有《太玄赋》《逐贫赋》《酒赋》《解嘲》等。晚年对赋有新认知，自评少作为"雕虫小技"。</p>
+<p>《逐贫赋》：晚年作品，近人陆侃如《中古文学系年》定为王莽新始建国四年（公元12年），是年扬雄六十五岁。描述想摆脱"贫儿"却根本甩不掉的无奈情景。"送穷"主题：穷鬼（穷子），《金谷园记》载高阳氏子瘦约好衣敝衣食糜，宫中号曰穷子，正月晦日巷死，今人作糜弃破衣祀于巷曰送穷鬼。姚合《晦日送穷》诗："年年到此日，沥酒拜街中。万户千门看，无人不送穷。"</p>
+<p>《逐贫赋》对贫穷的态度：</p><ol start="1"><li>生活观、幸福观——关键不在于怎样生活或生活得怎样，而在于如何解释生活、解释得怎么样。</li><li>随遇而安，安于现状。</li><li>不能或不愿改善生活，而只是改变对自己生活的判断。</li><li>富贵变成道德负号，贫寒成为道德正号。</li><li>中华民族文化心理的深刻转换。</li></ol>
+<p>扬雄赋作特色：艺术上主要继承司马相如赋的写作范式和表现手法，但题材和艺术有自己的特点：</p><ol start="1"><li>扩大赋的题材：不仅描写帝王生活，贵族生活、官僚内幕、古代历史人物等皆摄入，还把目光投向地方都市。</li><li>开创蕴藉迂徐的赋风：讽谏说理成分大大加重，少了相如赋的飘逸恣肆、浑元浩荡，变得理赡辞坚、从容徐缓，有儒雅之风。</li><li>炼字遣词奇崛诡丽，铺陈有度。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c31">
+      <h3>东汉辞赋</h3>
+<p>士人生活环境与地位变化：东汉士人失去作为文学侍从参与上层统治集团重大活动的条件，环境和地位变化给予他们广泛接触社会的机会，现实动荡带来极大震撼。社会黑暗与"党锢"等高压政策使士人普遍受压抑。创作题材：关注热点跨出宫廷苑囿，从更广阔范围寻找有价值的题材，各时期社会问题往往成为创作直接或间接诱因。创作宗旨：讽喻效果与主观愿望差距加大，讽喻不仅不起作用还可能招来灾难，迫使辞赋家重新考虑赋的社会功用。士人普遍受压抑，越来越多运用赋抒发不平，出现一批感情激切的抒情赋。"物不得平则鸣"。大赋向抒情小赋转变。迁都/定都问题成为重要题材。</p>
+<p>杜笃（?-78）《论都赋》：</p><ol start="1"><li>假主客问答论都洛只是权宜之计，唯长安乃"帝王渊囿，守国之利器"，主张返都长安。</li><li>"德衰而复盈，道微而复章，皆莫能迁于雍州而背于咸阳"。</li><li>"利器不可久虚，而国家亦不忘乎西都"。是东汉赋风转变的重要标志：将以往天子、王侯生活题材转化为关乎国家社会的重大问题。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c32">
+      <h3>班固与《两都赋》</h3>
+<p>班固（32—92），字孟坚，扶风安陵（今陕西咸阳东北）人，东汉著名史学家、文学家。出身儒学世家，父班彪、伯父班嗣。九岁能属文诵诗赋，十六岁入太学博览群书。建武三十年（54年）班彪过世，班固开始撰写《汉书》。永元元年（89年）随窦宪北伐匈奴任中护军，大败北单于后撰《封燕然山铭》。后窦宪因擅权被杀，班固受洛阳令种兢陷害入狱，同年死于狱中，年六十一。一生著述颇丰：史学家——《汉书》；辞赋家——"汉赋四大家"，《两都赋》；经学理论家——《白虎通义》。</p>
+<p>《两都赋》写作背景：</p><ol start="1"><li>汉明帝知遇之恩。</li><li>《后汉书》载："乃上《两都赋》，盛称洛邑制度之美，以折西宾淫侈之论。"</li><li>《两都赋序》："赋者，古诗之流也。"西土耆老怀怨思，盛称长安旧制，有陋雒邑之议。故作《两都赋》，"以极众人之所眩曜，折以今之法度"。结构：抑客伸主——西都宾与东都主人。</li></ol>
+    </section>
+    </section>
+
+    <section class="lv1" id="p1-c33">
+      <div class="chap">CHAPTER 04</div>
+      <h2 class="sh">四、考点梳理</h2>
+    <section class="lv2" id="p1-c34">
+      <h3>名词解释</h3>
+<ol><li id="p1-c35"><b>汉赋：</b>汉代盛行的文体，源于《诗经》六义之"赋"，受战国纵横散文和楚辞影响发展而成。分为骚体赋、汉大赋（新体赋）、抒情小赋三种形态。汉大赋以铺陈夸张、辞藻华丽、主客问答为特征，以"润色鸿业"为目的，是汉代文学的代表文体。</li><li id="p1-c36"><b>骚体赋：</b>汉赋发展的第一阶段（西汉开国至武帝初年），模仿楚辞，篇幅短小，多用"兮"字语句，句式整齐而有变化。代表作家贾谊，代表作《吊屈原赋》《鵩鸟赋》。</li><li id="p1-c37"><b>大赋（新体赋）：</b>汉赋典型形式（武帝初年至东汉中叶），结构宏大，篇幅长，内容以写物为主，铺张扬厉，穷形尽貌，富丽堂皇，多采用主客问答式，以"润色鸿业"为目的。代表作家司马相如、扬雄。</li><li id="p1-c38"><b>抒情赋（抒情小赋）：</b>东汉中期之后兴起的赋体，汉帝国衰微后大赋失去现实基础而应运而生。侧重书写个人心志，篇幅短小精悍，不用问答题，句式多样，文辞清丽，多用韵语。张衡首开其风。</li><li id="p1-c39"><b>梁园文人集团：</b>西汉时期以梁孝王刘武为中心形成的文学群体。孝王广筑苑囿，招延四方豪杰文士，枚乘、公孙诡、邹阳、严忌、羊胜等从游于梁园。是中国文学史上较早的文学作家集团，梁客皆善辞赋。</li><li id="p1-c40"><b>七体：</b>赋的体裁之一，通过虚设主客反复问答，按"始邪未正"顺序铺陈七事。由枚乘《七发》首创，后世效仿形成定型文体。如傅毅《七激》、张衡《七辩》等。</li><li id="p1-c41"><b>扬马：</b>扬雄与司马相如的并称。扬雄早期模仿司马相如赋风，二人同为西汉大赋代表作家。</li><li id="p1-c42"><b>汉赋四大家：</b>司马相如、扬雄、班固、张衡，代表汉代辞赋最高成就。</li><li id="p1-c43"><b>润色鸿业：</b>汉大赋的内容特点，指以辞赋歌颂帝王功业、汉王朝声威。语出班固《两都赋序》。</li><li id="p1-c44"><b>劝百讽一：</b>汉赋传统特点，指赋中颂扬之辞百倍于讽谏之辞，讽喻效果微弱。语出《汉书·司马相如传赞》。</li><li id="p1-c45"><b>五常：</b>董仲舒在《天人三策》中首次将仁、义、礼、智、信上升为伦理高度，称为"五常"，成为儒家伦理体系的核心概念。</li><li id="p1-c46"><b>送穷：</b>中国文学中的贫穷主题，源于扬雄《逐贫赋》。民间有正月晦日送穷鬼习俗，富贵变为道德负号，贫寒成为道德正号，反映中华民族文化心理的深刻转换。</li><li id="p1-c47"><b>抑客伸主：</b>班固《两都赋》的结构方式，通过"西都宾"与"东都主人"的主客问答，抑西都宾之论、伸东都主人之旨，盛称洛邑制度之美。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c48">
+      <h3>问答题</h3>
+<ol><li id="p1-c49"><b>贾谊《鵩鸟赋》的艺术特点。答题要点：</b>（1）形式奇特，以人鸟对话展开，受庄子寓言影响，开汉赋主客问答体式之先河。（2）以议论为主，抒写生命忧患思考，阐发人生哲理，议论中运用比喻增强形象性，感叹语气加强情感性。（3）语言凝炼精警，以整齐四言句为主，有散文化倾向，体现向汉大赋的过渡。</li><li id="p1-c50">枚乘《七发》的艺术特点及在汉赋发展史上的地位。答题要点：艺术特点——（1）主客问答形式结构全篇。（2）善于铺陈（如观涛一段）。（3）鸿篇巨制，八个部分有机浑然一体。（4）散体句式。地位——标志汉代新体赋正式形成，对后世影响大，形成"七体"。</li><li id="p1-c51"><b>司马相如赋的艺术特色。答题要点：</b>（1）构思上虚构手法——虚构人物、夸张描写、主客问答结构。（2）表现手法上铺排夸张、描摹渲染，以"体物"为主，追求辞藻博富绚丽。（3）语言形式上排比对偶，节奏感韵律感强，句式长短相间灵活自如。</li><li id="p1-c52"><b>扬雄赋作的特色。答题要点：</b>（1）扩大赋的题材，不仅写帝王生活，贵族生活、官僚内幕、历史人物、地方都市皆摄入。（2）开创蕴藉迂徐赋风，讽谏说理成分加重，理赡辞坚、从容徐缓，有儒雅之风。（3）炼字遣词奇崛诡丽，铺陈有度。</li><li id="p1-c53"><b>汉赋兴盛的原因。答题要点：</b>（1）西汉国力强盛，汉武帝沟通世界，汉民族力量膨胀，需要赋体歌颂；贵族享乐生活滋长。（2）统治者爱好提倡，诸侯王招致文士，汉武帝提倡词赋，以赋入仕。（3）文体自然发展趋势，源于古诗，奠基于楚辞，处于诗词与散文之间。</li><li id="p1-c54"><b>汉赋的艺术特征。答题要点：</b>（1）铺陈夸张，想象丰富，注重对客观事物具体细致描写。（2）辞藻华丽，词汇丰富，描写细致入微，促进古代词汇发展。（3）结构和句法特别，大赋分序、本体、乱三部分，句式以四六言为主，序和结尾用散文，正文以韵文为主。</li><li id="p1-c55"><b>贾谊与晁错政论文的比较。答题要点：</b>贾谊气势文采兼备，"西汉鸿文"，具战国纵横家遗风，特色在于"气盛"；晁错以实用见长，语言简洁明快，浑厚中显犀利，文采逊于贾谊。二人分别代表政论文的文采与实用两个方向。</li><li id="p1-c56"><b>司马谈《论六家要旨》对各家评价。答题要点：</b>对阴阳、法、名三家各有否定与肯定；评儒家"博而寡要"但礼制不可易；评墨家"俭而难遵"但"强本节用不可废"；评道家最高，"其实易行，其辞难知"，兼采众长。以道为主，兼采众长，反映黄老思想。</li></ol>
+    </section>
+    <section class="lv2" id="p1-c57">
+      <h3>论述题方向</h3>
+<ol><li id="p1-c58"><b>论述汉赋的发展演变历程。答题方向：</b>从骚体赋（贾谊）到汉大赋（枚乘《七发》为形成标志，司马相如确立体制，扬雄继承发展）再到抒情小赋（东汉张衡首开），三个阶段的时代背景、代表作家、艺术特征及转变原因。</li><li id="p1-c59">论述司马相如在汉赋发展史上的地位。答题方向：《子虚赋》《上林赋》为典范，最终确立汉大赋体制；虚构手法、铺排夸张、排比对偶等艺术特色；"辞宗""赋圣"尊称；对扬雄等后世作家的影响；鲁迅评价。</li><li id="p1-c60">论述扬雄前后期赋作的变化及其原因。答题方向：前期大赋为主、昂扬乐观、仕途顺畅；后期消极避世、暴露现实深刻；以成帝去世为界；晚年自评"雕虫小技"。原因在于仕途挫折、生活拮据、现实教育。</li><li id="p1-c61">论述《逐贫赋》中的贫穷主题及其文化意义。答题方向：描述摆脱贫穷而不得的无奈；"送穷"习俗；富贵变为道德负号、贫寒成为道德正号；随遇而安的生活观；反映中华民族文化心理的深刻转换。</li><li id="p1-c62">论述东汉士人地位变化对辞赋创作的影响。答题方向：士人失去文学侍从地位，广泛接触社会；题材跨出宫廷，关注社会问题；讽喻效果差距加大，转向抒发不平；大赋衰落、抒情小赋兴起；杜笃《论都赋》、班固《两都赋》的代表作意义。</li></ol>
+    </section>
+    </section>
+      <div class="totop"><a href="#p1-c1">回到顶部</a></div>
+    </section>
+    <section class="view" id="p2" data-view="p2" data-label="第二篇" hidden>
+    <section class="lv1" id="p2-c1">
+      <div class="chap">CHAPTER 01</div>
+      <h2 class="sh">一、整体脉络</h2>
+<p class="lead">本篇笔记以汉代文学为核心，围绕赋体散文、史传散文与乐府诗歌三条主线展开，内容横跨西汉至东汉，既有文体演变的纵向梳理，又有作家作品的横向比较，构成了一个较为完整的汉代文学知识体系。</p>
+<p>笔记首先承接前文"汉大赋——抑客伸主"的线索，依次论述班固《两都赋》、张衡《二京赋》和王延寿《鲁灵光殿赋》三篇京都赋代表作。从班固确立京都赋的讽喻范式，到张衡在规模上追求超越前贤而达"京都赋之极轨"，再到王延寿以宫殿建筑为题材的创制，展现了汉大赋从成熟到鼎盛的演变轨迹。</p>
+<p>随后笔记转入"抒情赋的勃兴"一节，指出东汉士人处于外戚宦官夹缝中，愤懑郁结而以赋抒怀，由此产生纪行赋与述志赋两大类型。纪行赋以班彪《北征赋》、班昭《东征赋》、蔡邕《述行赋》为代表，述志赋以冯衍《显志赋》、张衡《思玄赋》《归田赋》、赵壹《刺世疾邪赋》为代表，展现了赋体从铺陈宏丽向抒情写意转变的新方向。</p>
+<p>笔记的第三大板块是"司马迁与《史记》"，篇幅最重，涵盖司马迁的家世求学、青年漫游、交游经历、修史背景与思想渊源，进而论述《史记》的体例创新、思想内容（批判统治阶级、歌颂明君贤臣与下层人物、经济思想）、艺术成就（人物塑造、叙事艺术、抒情性与悲剧气氛、语言风格）以及地位影响，是全篇的知识重心所在。</p>
+<p>第四板块为"东汉散文"，分别讨论班固《汉书》的思想矛盾与体例特色、《汉书》与《史记》的比较、《苏武传》的艺术特点，以及《吴越春秋》《越绝书》的历史演义特征、王充《论衡》与王符《潜夫论》的政论散文成就、东汉碑文与游记的新兴样式，呈现了东汉散文在史传、政论和文体创新三个层面的新发展。</p>
+<p>最后笔记简述汉乐府诗的起源，介绍了乐府机构的建制沿革与职能演变，为后续乐府诗歌的学习奠定基础。整体而言，笔记以文体为经、作家为纬，从赋体演变到史传散文再到乐府诗歌，层层推进，体现了两汉文学从宏大叙事向个性化抒情发展的总趋势。</p>
+    </section>
+
+    <section class="lv1" id="p2-c2">
+      <div class="chap">CHAPTER 02</div>
+      <h2 class="sh">二、重点知识点</h2>
+<ol><li id="p2-c3"><b>汉大赋"抑客伸主"：</b>主客问答的结构框架，以主人的正面表述压倒客人的夸饰，体现讽喻旨归。</li><li id="p2-c4"><b>班固《两都赋》：</b>分《西都赋》《东都赋》两篇，以"西都宾"与"东都主人"两个假想人物展开对话，批评旧京都意识，确立重声教、崇文德、尚礼治的新京都观。改变了"劝百讽一"方式，下篇通篇讽喻诱导。</li><li id="p2-c5"><b>张衡《二京赋》：</b>模拟班固《两都赋》而作，以"凭虚公子"夸耀西京、"安处先生"赞扬东京，规模宏大，面面俱到，被称为"京都赋之极轨"。张衡为汉赋四大家之一。</li><li id="p2-c6"><b>王延寿《鲁灵光殿赋》：</b>叙述汉代建筑及壁画，王延寿为王逸之子，早逝，约20余岁溺亡。</li><li id="p2-c7"><b>抒情赋的勃兴：</b>东汉士人处外戚宦官夹缝中，以赋宣泄不平，分纪行赋与述志赋两类。</li><li id="p2-c8"><b>纪行赋：</b>通过记叙旅途所见抒发感慨，源于《楚辞》和刘歆《遂初赋》，是后代游记文学的先声。代表：班彪《北征赋》、班昭《东征赋》、蔡邕《述行赋》。</li><li id="p2-c9"><b>述志赋：</b>赋家在宦海沉浮中宣寄情志的作品。代表：冯衍《显志赋》、班固《幽通赋》、张衡《思玄赋》《归田赋》、赵壹《穷鸟赋》《刺世疾邪赋》。</li><li id="p2-c10"><b>张衡《归田赋》：</b>中国文学史上第一篇描写田园隐居乐趣的作品，汉代第一篇比较成熟的骈体赋，抒情小赋，语言清丽朴实，无主客问答与劝百讽一。</li><li id="p2-c11"><b>赵壹《刺世疾邪赋》：</b>抒情直率猛烈，对时政揭露批判深度力度空前，体制活泼自由，早期抒情小赋名篇。</li><li id="p2-c12"><b>司马迁与《史记》：</b>"史家之绝唱，无韵之离骚"（鲁迅语），第一部纪传体通史，本纪12、表10、书8、世家30、列传70，共130篇。</li><li id="p2-c13"><b>司马迁思想：</b>兼宗百家，"究天人之际，通古今之变，成一家之言"；受儒学（孔安国、董仲舒）和道家（自然思想、朴素辩证论、"见盛观衰"）双重影响。</li><li id="p2-c14"><b>《史记》三家注：</b>南朝宋裴骃《史记集解》、唐司马贞《史记索隐》、唐张守节《史记正义》。</li><li id="p2-c15"><b>《史记》互见法（旁见侧出法）：</b>人物事迹分散在不同篇章，主传集中展示主要方面，他传补充其他侧面，以展示人物的丰富性与复杂性。</li><li id="p2-c16"><b>班固《汉书》：</b>我国第一部纪传体断代史，纪12、传70、表8、志10，共100篇。创设《艺文志》（最早目录学）和《地理志》。班彪始作、班固主撰、班昭马续补成。</li><li id="p2-c17"><b>《吴越春秋》（赵晔）：</b>兼有编年体和纪传体特点，历史演义小说的雏形，吸收神话传说与民间故事，开志怪小说先河。</li><li id="p2-c18"><b>《越绝书》：</b>记载古代吴越地方史的杂史，"地方志鼻祖"，作者为袁康和吴平（以隐语推断）。</li><li id="p2-c19"><b>王充《论衡》：</b>以道家自然无为为宗旨，以"气"为核心范畴，反对天人感应与灵魂不死，"疾虚妄"，全书85篇现存84篇。</li><li id="p2-c20"><b>王符《潜夫论》：</b>愤世嫉俗之作，采用正反对照和排比笔法，以温雅弘博见长，批判靡丽浮华文风。</li><li id="p2-c21"><b>东汉政论散文三大家：</b>王充、王符、仲长统。</li><li id="p2-c22"><b>汉乐府：</b>汉代朝廷乐府系统搜集保存的诗歌，武帝时扩充发展，采诗夜诵，李延年为协律都尉；哀帝罢乐府，此后汉代再无乐府建制。</li></ol>
+    </section>
+
+    <section class="lv1" id="p2-c23">
+      <div class="chap">CHAPTER 03</div>
+      <h2 class="sh">三、笔记正文</h2>
+    <section class="lv2" id="p2-c24">
+      <h3>汉大赋——抑客伸主</h3>
+    <section class="lv3" id="p2-c25">
+      <h4>一、班固与《两都赋》</h4>
+<p>《两都赋》设两个假想人物：长安代表"西都宾"，洛阳代表"东都主人"。行文注重技巧，分为《西都赋》《东都赋》两篇，合二为一又相对独立。班固的京都意识与京都美理想集中体现在《东都赋》中：西都宾的狭隘在于过分看重宫廷河山的品物繁盛；《两都赋》宗旨在批评旧京都意识、确立新京都观。直接批评对象是以西土耆老为代表的坚持旧京都观者，间接讽喻对象是天子及其周围决策集团。京都应体现天子风范，而天子风范应集中表现在重声教、崇文德、尚礼治的法度之中，具有鲜明的理想化色彩。</p>
+<p>艺术表现方面：吸收司马相如和扬雄的成功经验，采用上下篇相互对比的结构、主客问答的过渡形式、划分畛域逐次铺叙的展开过程。创新之处：改变"劝百讽一"的表现方式，下篇《东都赋》通篇是讽喻诱导，作者主张自然融入对东都各方面事物的陈述中，表现出较进步的京都观，是对赋的艺术表现和篇章结构关系的重大突破，也是推动汉代文学思想发展的可贵贡献。作品风格与描写内容契合无间：《西都赋》汪洋恣肆，气势华彩充溢；《东都赋》以平正典实见长，法度风范随处可见。大量运用对偶句式使作品增色。</p>
+    </section>
+    <section class="lv3" id="p2-c26">
+      <h4>二、张衡与《二京赋》</h4>
+<p>张衡（78—139），字平子，南阳西鄂人，东汉天文学家、数学家、发明家、地理学家、制图学家、文学家，汉赋四大家之一。历任郎中、太史令、侍中、河间相等职，晚年任尚书，永和四年逝世，享年六十二岁。张衡开创了京都大赋的体制——张衡《二京赋》、左思《三都赋》为文选首篇。模拟班固《两都赋》创作《二京赋》，分东西京。凭虚公子作《西京赋》夸耀，安处先生作《东京赋》否定西京奢侈生活、赞扬盛典礼会，简而不陋。主旨为安处先生所言："苟好剿民以偷乐，忘民怨之为仇。"务求在体制规模方面超越前贤，铺陈过程中面面俱到，不追求素材的代表性与典型意义，以规模宏大被称为京都赋之极轨。</p>
+    </section>
+    <section class="lv3" id="p2-c27">
+      <h4>三、王延寿与《鲁灵光殿赋》</h4>
+<p>王延寿（约140—约165），字文考，一字子山，南郡宜城人，东汉辞赋家，文学家、楚辞学家王逸之子。曾周游鲁国，作《鲁灵光殿赋》，叙述汉代建筑及壁画等。后渡湘水溺死，年仅20余。</p>
+    </section>
+    </section>
+    <section class="lv2" id="p2-c28">
+      <h3>第二节 抒情赋的勃兴</h3>
+<p>以赋抒情是汉代作家对屈原艺术创作的直接继承。贾谊《吊屈原赋》、司马相如《长门赋》、司马迁《悲士不遇赋》、扬雄《逐贫赋》等，西汉时大赋为正宗，抒情赋如涓涓细流。东汉时期，因政治文化等条件变化，士人处于外戚宦官争权夺势的夹缝中，志向才能不得施展，愤懑郁结，纷纷以赋宣泄胸中不平。东汉抒情赋主要有纪行赋和述志赋两类。</p>
+    <section class="lv3" id="p2-c29">
+      <h4>一、纪行赋</h4>
+<p>纪行赋通过记叙旅途所见而抒发感慨，源于《楚辞》和刘歆《遂初赋》。以纪行为线索，兼有抒情述怀、写景叙事，一般篇幅不太长。是汉赋发展过程中开辟的新境界，赋家在抒情言志上别寻新途的大胆尝试，也是后代游记文学的先声。代表作品：班彪《北征赋》，作于两汉交替动乱之际，从长安出发至安定（今宁夏固原）而作；班昭《东征赋》，仿其父之《北征赋》而作，相较更为细腻；蔡邕《述行赋》（蔡中郎，蔡文姬之父），作于东汉桓帝延嘉二年（159年），蔡邕时年27岁，中常侍徐璜等擅权，闻蔡邕善鼓琴强征进京，不得已上路，至偃师称疾而归。对朝政废坏、朝中大臣互相倾轧深致不满，对自己被牵连进政治漩涡耿耿于怀，以被迫赴京所经地点为线索，联想前代兴亡善恶之事，抒发内心抑郁不平，怀古伤今。</p>
+    </section>
+    <section class="lv3" id="p2-c30">
+      <h4>二、述志赋</h4>
+<p>述志赋是赋家在社会动乱、宦海沉浮中用以宣寄情志的作品。代表：冯衍《显志赋》（东汉早期述志赋重要作品）、班固《幽通赋》、张衡《思玄赋》《归田赋》。张衡常思图身之事，以为吉凶倚伏幽微难明，乃作《思玄赋》以宣寄情志。篇幅较长，采用骚体句式，较多学习《离骚》，遭诋毁而不肯屈从俗辈，驰骋想象遍访古圣先贤以探求人生玄妙之理，带有较明显的摹拟成分。</p>
+<p>《归田赋》：创作心境为宦官当权下决定隐退，情绪变化为欣喜快乐—顿作转折—旷达飘逸。无主客问答，亦非劝百讽一，避免铺张扬厉与华丽辞藻——因创作对象和目的不同。田园题材（隐逸文学），语言清丽朴实，抒情小赋。地位：中国文学史上第一篇描写田园隐居乐趣的作品，汉代第一篇比较成熟的骈体赋。特点：对现实的否定与批评，田园环境与心境恰与官场仕途形成对比；篇幅短小，语言清新自然；写游仙归田但实际并非志在隐逸而是单纯排遣心气。</p>
+<p>赵壹与《穷鸟赋》《刺世疾邪赋》。《刺世疾邪赋》抒情直率猛烈，痛快淋漓，对时政揭露批判的深度和力度空前。体制活泼自由，不循常规，篇幅短小，语言刚劲朴素，是早期抒情小赋名篇。抒情赋通常理胜于情。西汉为"悲士不遇"，东汉以知命为解脱。东汉抒情赋从隐逸倾向转向积极参与现实、关心国家命运，从早期自怨自艾转向为社会伸张正义。</p>
+    </section>
+    </section>
+    <section class="lv2" id="p2-c31">
+      <h3>司马迁与《史记》</h3>
+<p>西汉王朝至武帝时期臻于鼎盛，文学创作空前繁荣。《史记》由司马迁撰写，代表古代历史散文最高成就，鲁迅称"史家之绝唱，无韵之离骚"。《史记》兼有前期气势磅礴、感情激切和后期深广宏富、醇厚典雅的特点，内容既有前期历史反思的余绪，又有后期沟通天地人的尝试。司马迁是汉代成就最高的散文家。</p>
+    <section class="lv3" id="p2-c32">
+      <h4>一、家世与早期求学</h4>
+<p>司马迁在史官家庭中长大，"年十岁则诵古文"，从10岁开始诵读籀文文献，打下坚实古文基础。转益多师，向孔安国学习古文《尚书》，向董仲舒学习公羊派《春秋》。任太史令后利用工作便利翻阅国家收藏的各种文献资料，阅读范围广泛，上至三代典籍下至司马相如等人辞赋，诸子百家著作、春秋战国至秦汉史料乃至朝廷公文档案皆有涉猎。对文献认真鉴别真伪比较同异，如认为《尚书·禹贡》可靠而《山海经》不可信，读过鲁恭王坏孔子宅所发现的古文并认为关于孔子弟子的记载基本合乎事实。阅读中主动与古人沟通，读其书识其人，不止一次废书而叹，产生为书的作者立传的冲动。</p>
+    </section>
+    <section class="lv3" id="p2-c33">
+      <h4>二、青年漫游经历</h4>
+<p>司马迁20岁时漫游东南一带，在会稽探访大禹遗址，在长沙水滨凭吊屈原，在登封瞻仰许由坟墓，在楚地参观春申君宫殿。在刘邦发迹的丰沛之地参观萧何、曹参、樊哙、夏侯婴等人故居，听故老讲述楚汉相争轶闻。漫游中流露出对传统文化极深厚的感情，如"适鲁，观仲尼庙堂车服礼器，诸生以时习礼其家，余祗回留之，不能去云"，"余适长沙，观屈原所自沉渊，未尝不垂涕，想见其为人"。有很强好奇心，喜欢探根求源，如实地考察韩信母亲墓地证实传说，在大梁打听到夷门即城东门、信陵君所请侯赢曾当过夷门监。长途漫游使其直接感受各地民风习俗差异，如齐地民性阔达有大国之风，薛地多暴桀子弟，邹鲁多缙绅之士。</p>
+    </section>
+    <section class="lv3" id="p2-c34">
+      <h4>三、交游与接触人物</h4>
+<p>司马迁在漫游和朝廷任职期间接触各阶层人物：周霸讲述项羽传说，公孙秀功讲述荆轲刺秦王情节，朱建之子评议陆贾，苏建介绍卫青不肯招贤荐士情况，樊他广谈起汉初功臣发迹故事，贾谊之孙贾嘉与司马迁有书信来往，冯唐之子冯遂与司马迁至交，亲眼见过名将李广、大侠郭解，并和李广之孙李陵同在朝廷任职。交游丰富了《史记》材料来源，加深了对历史人物的印象理解，使入传人物惟妙惟肖富有生活气息。</p>
+    </section>
+    <section class="lv3" id="p2-c35">
+      <h4>四、修史——家学与遗志</h4>
+<p>《史记》以前的历史著作都带有资料汇编和整理性质，司马迁把自周秦以来的历史记载从编撰学、历史学上进行了总结。思想背景：1.对儒家思想的接受，受父亲司马谈影响，"修旧起废，论《诗》《书》，作《春秋》"事业的继续，着力写"明主、贤君、忠臣、死义之士"，司马谈让其拜孔安国和董仲舒为师。</p><ol start="2"><li>对道家思想的接受，师法道家"自然思想"，朴素辩证论，"见盛而观衰"，宽容因循的政治思想（赞赏文景休养生息，赞同黄老政术）。</li><li>兼宗百家自成一家，"究天人之际，通古今之变，成一家之言"。</li></ol>
+    </section>
+    <section class="lv3" id="p2-c36">
+      <h4>五、《史记》体例与思想</h4>
+<p>第一部纪传体史书，本纪12、书8、表10、世家30、列传70，为通史。总体"天人相分"思想，以发展观点看历史事实，对改革采取赞许态度，"原始察终，见盛观衰"，擅长从经济角度分析人类历史发展。局限：强调英雄人物。版本流传：迁死后其书稍出，宣帝时外孙平通侯杨恽祖述其书遂宣布。褚少孙补《史记》：《汉书·艺文志》载"《太史公》百三十篇"，自注"十篇有录无书"。曹魏张晏注指出亡佚篇目，元成之间褚先生补阙作《武帝纪》《三王世家》《龟策》《日者列传》等。三家注：南朝宋裴骃《史记集解》、唐司马贞《史记索隐》、唐张守节《史记正义》。</p>
+    </section>
+    <section class="lv3" id="p2-c37">
+      <h4>六、思想内容</h4>
+<p>1.对封建统治阶级的批判：暴露统治阶级丑恶面目，尤其汉代帝王和酷吏。揭露刘邦虚伪狡诈无赖品质。对汉武帝暴力统治流露悲愤厌恶：《循吏列传》写孙叔敖、郑子产等五人无一汉代人，《酷吏列传》全写汉代人，除景帝时郅都外其余九人都是武帝时暴力统治执行者。张汤"为人多诈，舞智以御人"；杜周"君为天子决平，不循三尺法，专以人主意指为狱""三尺安出哉？前主所是著为律，后主所是疏为令，当时为是，何古之法乎？"</p>
+<ol start="2"><li>对"明君""贤臣"、反抗强暴的英雄及下层人物的歌颂：对明君的渴望如《五帝本纪》，对有实力才能的贤臣的渴望如《屈原贾生列传》。记载正史官书所不肯收的下层人物并给予较高评价。对虽有卓越表现终因无人奖拔而难以扬名的布衣平民怀有深切同情，为其鸣不平，如《伯夷列传》"闾巷之人，欲砥行立名者，非附青云之士，恶能施于后世哉"，《刺客列传》。</li><li>在经济思想领域有独特见解：《平准书》《河渠书》记述汉初至武帝时期国家财政经济状况和制度政策沿革；《货殖列传》记述全国各地物产风俗及经济状况，为春秋至西汉30多位富商大贾作传。社会经济问题的出发点是对人性的认识，"耳目欲极声色之好，口欲穷刍豢之味，身安逸乐，而心夸矜势能之荣"。</li></ol>
+    </section>
+    <section class="lv3" id="p2-c38">
+      <h4>七、《史记》艺术成就</h4>
+<p>1.历史人物形象的成功塑造：上至帝王将相下至学者商人妇女游侠医生卜者方士倡优，写及人物四千有余，个性突出完整者不下百人。准确捕捉人物特征和精心选材；互见法（旁见侧出法）的运用，一人事迹分散不同地方而以主传为主充分展示人物丰富性和复杂性，如刘邦在本纪主写功业、在别传展示其鄙薄；善于通过矛盾冲突和场面描写刻画人物（鸿门宴、《魏其武安侯列传》灌夫使酒骂座）；善于通过心理、细节、对比、人物对话刻画人物；共性与个性结合各有特色不重复（以牙还牙、以德报德、富贵还乡、士为知己者死等共性）。</p>
+<ol start="2"><li>高超的叙事艺术：五体结构互相补充自成一派；人物传记巧妙编排，历史和逻辑的统一但也有私货（项羽、吕后入本纪，汉惠帝未入本纪，孔子、陈胜入世家），以类相从的合传原则（如屈原贾生列传），婉转多变的叙事脉络在明灭起伏中体现历史和逻辑的统一；重视事件因果关系，强调原始动因；详略得当，起因往往详细结果往往略写；条理清晰；精彩场面描写。</li><li>强烈的抒情性和悲剧气氛：屈原而来的抒情性，个人际遇怨刺沉郁激情；一大批悲剧形象（历史必然要求、相信旧制度合理），按品格又有完美型与缺失型。</li><li>刚柔并济以刚为主的艺术特征：气魄宏伟。</li><li>语言生动晓畅并有个性化：常用谚语俗语，语言通俗简洁，赋予感情。</li></ol>
+    </section>
+    <section class="lv3" id="p2-c39">
+      <h4>八、《史记》的地位和影响</h4>
+<ol start="1"><li>是我国纪传体史学的奠基之作，也是传记文学的开端，为后世史家创立了难以逾越的体例（通史、纪传、通典、通考、纪事本末），第一次以人本位记载历史，表现出对人在历史中地位与作用的高度重视。</li><li>是后世史学和文学学习的范本：求实求真的创作精神和批判精神影响后世，"实录"精神（班固赞"其文直，其事核，不虚美，不隐恶"）；优秀人物形象的人格精神沾溉后世文人（李广悲其数奇而不遇，屈原贾生忠而被谤信而见疑，项羽力拔山兮气盖世，荆轲士为知己者死，朱亥等不爱其躯赴士之厄困）；是古代文章典范之作，唐宋古文运动、明代前后"七子"、清代桐城派都推崇并深受影响。</li><li>对后世小说和戏剧产生影响：具有故事性和戏剧性因素，提供艺术手法借鉴；人物故事为后世历史小说、历史戏剧取材。</li></ol>
+    </section>
+    </section>
+    <section class="lv2" id="p2-c40">
+      <h3>东汉散文</h3>
+    <section class="lv3" id="p2-c41">
+      <h4>一、东汉散文的发展与特点</h4>
+<ol start="1"><li>史传散文：班固《汉书》和赵晔《吴越春秋》有很高文学价值。</li><li>政论散文：以王充《论衡》、王符《潜夫论》为代表积极参与现实的作品。</li><li>新兴散文样式：游记、碑文等崭露头角。</li><li>总体趋势：东汉散文向骈俪化方向发展，同时不少语体散文作家着意追求通俗易懂、浅显明快的风格，对浮华文风有所矫正。</li></ol>
+    </section>
+    <section class="lv3" id="p2-c42">
+      <h4>二、班固《汉书》</h4>
+<p>班固的思想矛盾：在文学方面表现为双重价值标准——一方面"痛君不明，信用群小，国将危亡"肯定屈原忠贞，另一方面又批评屈原"露才扬己""忿怼不容，沉江而死"；论辞赋既从文学角度肯定尚丽的形式特征，又从经学角度标举雅颂精神，对文学特征功能的认识往往陷于自相矛盾。在史学方面集中表现于《汉书》：推崇《史记》"不虚美不隐恶"的实录精神，却又局限于政治与思想的正统观，"论国体则饰主阙而抑忠臣，叙世教则贵取容而贱直节，述时务则谨辞章而略事实"。</p>
+<p>《汉书》写作始末：为《史记》作续篇者包括刘向、刘歆、冯商、扬雄等十多人。班彪"采其旧事，旁贯异闻"为《史记》作《后传》六十五篇；班彪死后年仅22岁的班固整理父亲遗稿决心继承父业，私修国史被捕后班超上书获释，后因窦宪案被种兢陷害落狱而死。班昭、马续继而补成，前后经四人之手。体例：我国第一部纪传体断代史，纪12篇、传70篇、表8篇、志10篇，共一百篇，主要记载高帝元年（前206）到王莽地皇四年（23年）的历史。创设《艺文志》，多裁诗赋学术与经世文章，讲述学术源流，把文学与学术文献纳入史的视野，保存大量珍贵古代文化史资料；创立《地理志》，保存古代地理沿革、经济、文化、风俗习惯等重要资料。史学价值：开创纪传体断代史体例，最受后世称赞的是"十志"，《食货志》是研究秦汉社会生产力和经济制度的第一手资料。思想倾向：带有浓厚封建正统思想（对陈涉、项羽人物类别处理从世家、本纪降为传，为尊者讳甚至有粉饰之词），但比较尊重客观历史事实，对人民疾苦也同样注意。</p>
+    </section>
+    <section class="lv3" id="p2-c43">
+      <h4>三、《汉书》与《史记》的比较</h4>
+<p>体例内容：《史记》为纪传体通史，《汉书》为纪传体断代史；《史记》有世家、列传，《汉书》只称传；《史记》称"书"，《汉书》称"志"；《史记》"太史公曰"，《汉书》"赞"。《汉书》在《史记》基础上补充大量新材料新史实，如《食货志》有关土地制度记载，典章制度更为详细具体，增补许多人物事迹。《史记·平准书》发展为《汉书·食货志》。对《史记》部分篇目内容作调整：一些附传人物如惠帝、蒯通、张骞、董仲舒等独立出来作专门纪传；减少滑稽、日者、龟策三个类传外还减少仓公传；将《史记·项羽本纪》改为《项羽传》，鸿门宴、彭城之败、陈平离间楚使等移到《汉书》第一篇《高帝纪》中，删去鸿门宴中写座位的几句话。《汉书》封建正统思想比《史记》强，批判变少；《史记》反天道迷信，《汉书》则宣扬天道感应。</p>
+<p>人物描写比较：1.《史记》最精彩篇章是楚汉相争和西汉初期人物传记，《汉书》精华在于对西汉盛世各类人物的生动记叙。</p><ol start="2"><li>除"世家"外，《史记》人物传记基本以写单个人为主，很少全面叙述家族兴衰史；《汉书》记叙了许多世袭家族的历史。</li><li>《史记》具有浓郁悲剧色彩有大量悲剧人物传记，《汉书》悲剧人物数量不如《史记》众多但也有名篇。语言上：《史记》语言富于情感，《汉书》更谨严精炼；《史记》偏散，《汉书》偏骈。叙述风格上：《史记》飘逸，《汉书》严谨规矩、典雅温厚。</li></ol>
+    </section>
+    <section class="lv3" id="p2-c44">
+      <h4>四、《汉书·苏武传》艺术特点</h4>
+<ol start="1"><li>结构严谨，材料组织极其细密，中心线索是在单于千方百计逼降下苏武不屈不挠的斗争，如先写出师历史背景和互相扣使者为以后苏武出使做铺垫。</li><li>围绕中心人物选材，详略得当剪裁得体，对官职及两国互扣来使等一般情况一带而过，对突出苏武高尚人格和斗争精神的则详写（如卫律劝降、北海牧羊、李陵劝降）。</li><li>成功的人物描写：语言描写（苏武与卫律、苏武与李陵的对话），行为描写（苏武两次自杀），细节描写（杖节牧羊），对比反衬手法（苏武与卫律、苏武与李陵、苏武与张胜、卫律与李陵的对比）。</li></ol>
+    </section>
+    <section class="lv3" id="p2-c45">
+      <h4>五、《吴越春秋》与《越绝书》</h4>
+<p>赵晔，字长君，会稽山阴人，早年为县吏，认为做仆役工作可耻而弃官去犍为郡资中拜经学大师杜抚为师学习"韩诗"，一去20年音讯全无，家人误认为已亡为之发丧。杜抚去世后经营葬之归乡，州官召补从事不就，后举有道，回乡闭门著述直至老死。《吴越春秋》今存十卷，主要叙述吴越争霸故事，前五卷以吴为主后五卷以越为主。体例上兼有编年体和纪传体史书特点，是历史演义小说的雏形：全书所叙重要事件都明确标示年代但实际并不准确多有讹误；叙事完整，以吴越争霸为主线，各章有自己的重点保持相对独立性，各章之间前后贯通一脉相承。</p>
+<p>《吴越春秋》在正史基础上吸收许多神话传说与民间故事：许多故事荒幻离奇具有浓郁浪漫色彩，如姜嫄履大人迹生后稷和夏禹娶涂山氏的传说、公孙圣在深山散为声响、伍子胥和文种相继被杀后"伍子胥从海上穿山胁而持种去与之俱浮于海"的潮神传说、袁公飞上树变为白猿，开志怪小说先河。注重人物形象刻画，特别注重外貌描写，如伍子胥"身长一丈，腰十围，眉间一尺"，专诸"确颡而深目，虎膺而熊背"，伯嚭"鹰视虎步"。文字量大增，情节复杂险象环生扣人心弦，更富有小说特征和魅力；通过移植联缀把本来互不相关的故事糅合在一起但依然给人以真实感。</p>
+<p>《越绝书》：东汉另一部历史散文，许多内容与《吴越春秋》相同可相互印证，是记载古代吴越地方史的杂史，又名《越绝记》，全书十五卷。以春秋末年至战国初期吴越争霸历史事实为主干，上溯夏禹下迄两汉旁及诸侯列国，对吴越地区的民族政治经济军事天文地理历法语言等多有涉及，被誉为"地方志鼻祖"。关于作者：《隋书·经籍志》认为是子贡；书末序外传记有隐语"以去为姓得衣乃成厥名有米复之以庚"推断为"袁康"，"禹来东征死葬其疆"表明作者是会稽人，"文词属定自于邦贤；以口为姓承之以天楚相屈原与之同名"推断为"同郡吴平"，故《四库全书总目提要》判定作者为袁康和吴平。与《吴越春秋》的区别：各篇之间不是连贯故事而是独立成篇显得比较松散；除讲述历史故事外中间还有地理占气等方面的专章给人驳杂之感。《吴越春秋》和《越绝书》具有鲜明的吴越文化特点：重剑轻死信巫淫祀，曲折的故事情节与荒幻的神话传说，强烈的复仇意识和崇武尚勇的义侠形象。</p>
+    </section>
+    <section class="lv3" id="p2-c46">
+      <h4>六、王充《论衡》与王符《潜夫论》</h4>
+<p>王充（27—约97），字仲任，会稽上虞人，东汉思想家。由元气、精气、和气等自然气化构成庞大的宇宙生成模式，与天人感应论形成对立之势；以道家自然无为为立论宗旨，以"天"为天道观最高范畴，以"气"为核心范畴；主张生死自然、力倡薄葬；反对神化儒学；以事实验证言论，弥补道家空说无着的缺陷；不同于先秦道家、汉初黄老之学及汉代民间道教，是汉代道家思想的重要传承者与发展者。具有自觉的批判意识，一生志在纠正世俗虚谬。《论衡》全书85篇现存84篇缺《招致》篇。从《逢遇》到《物势》共14篇选取当时理论界热点问题分别阐述，涉及人的遭遇、命运、天性、才气、骨相等，体现对现实的积极参与又流露对人类的终极关怀，不是泛论修身齐家治国平天下的道理。反对史书虚妄夸大的记载、天人感应之说、灵魂不死观念，对圣贤之言经典之文也多有辩驳。"疾虚妄"——"故虚妄之言不黜则华文不见息，华文放流则实事不见用。"</p>
+<p>"实论"型散文：用事实说话；同类相证、巧用比喻、从生活经验出发进行逻辑推理；从必然性、偶然性、可然性等多方面展开论述，具有很强说服力；反复诘难多方发挥，文风雄辩；文字接近汉代口语，既准确精练又通俗易懂；用词朴实无华不重雕琢，在文风日趋骈俪化潮流中独树一帜；行文不摹拟前人，完全根据内容需要组织文辞，富有创新精神。</p>
+<p>王符（约85—约163），字节信，安定临泾人，东汉政论家、文学家、思想家，"陇上三大家"之一。《潜夫论》是愤世嫉俗之作，采用正反对照和排比笔法，有很强的说服力和感染力，如《考绩》篇列举名实不相副的种种现象，引桓灵时童谣"举秀才不知书，举孝廉父别居，寒素清白浊如泥，高第良将怯如鸡"。批判靡丽浮华文风，《务本》篇批评"赋颂之徒苟为饶辩屈蹇之辞，竞陈诬罔无然之事"。以温雅弘博见长，不为卓绝诡激之论。王充、王符及后来的仲长统并称东汉政论散文三大家。</p>
+    </section>
+    <section class="lv3" id="p2-c47">
+      <h4>七、东汉碑文和游记</h4>
+<p>东汉叙事散文在样式上有所突破，出现成熟的碑文和游记。东汉碑文和秦代刻石铭文有渊源关系，但不像秦刻石铭文那样凝重呆板，而是不时出现清丽之作。崔瑗《河间相张平子碑》用简洁文字展示张衡的学问品格，文采斐然。胡广《征士法高碑》短小精悍，多用偶句，妙语天成。</p>
+    </section>
+    </section>
+    <section class="lv2" id="p2-c48">
+      <h3>汉乐府诗</h3>
+<p>汉乐府诗是继《诗经》《楚辞》之后中国古代诗歌史上又一壮丽景观：一种新的诗歌类别（说"诗体"不准确）；匠心独运的立题命意；高超熟练的叙事技巧；灵活多样的体制。两汉乐府诗指由汉代朝廷乐府系统或相当于乐府职能的音乐管理机关搜集、保存而流传下来的汉代诗歌。"乐府"随时代逐渐演变，后有"新乐府"。秦乐府钟的发现表明汉之前就有乐府设立。</p>
+<p>乐府在西汉哀帝之前是朝廷常设的音乐管理部门。官署架构与职能划分：少府下设少府令辖乐府，演奏流行曲调（楚声），代表作品有《安世房中歌》《大风歌》；奉常下设太乐令辖太乐，掌郊庙之乐（雅颂古乐）。西汉乐府的扩充和发展在武帝时期，《汉书·礼乐志》载："至武帝定郊祀之礼……乃立乐府，采诗夜诵，有赵、代、秦、楚之讴。以李延年为协律都尉，多举司马相如等数十人造为诗赋，略论律吕，以合八音之调，作十九章之歌。以正月上辛用事甘泉圜丘，使童男女七十人俱歌，昏祠至明。"武帝时乐府职能进一步强化，除组织文人创作朝廷所用歌诗外还广泛搜集各地歌谣，许多民间歌谣在乐府演唱得以流传，文人创作的乐府歌诗不再仅限于享宴所用还在祭天时演唱，乐府诗地位明显提高。据《汉书·百官公卿表》武帝时乐府令下设三丞，至成帝末年乐府人员多达800余人，成为规模庞大的音乐机构。武帝到成帝期间100多年是乐府昌盛期。哀帝登基下诏罢乐府官，大量裁减乐府人员，所留部分划归太乐令统辖，此后汉代再无乐府建制。</p>
+    </section>
+    </section>
+
+    <section class="lv1" id="p2-c49">
+      <div class="chap">CHAPTER 04</div>
+      <h2 class="sh">四、考点梳理</h2>
+    <section class="lv2" id="p2-c50">
+      <h3>名词解释</h3>
+<ol><li id="p2-c51"><b>抑客伸主：</b>汉大赋的基本结构模式，通过主客问答的形式，以主人（代表正统观点）的正面表述压倒客人（代表夸饰或错误观点），最终归于讽喻旨归。</li><li id="p2-c52"><b>互见法（旁见侧出法）：</b>《史记》塑造人物的重要方法，将同一人物的事迹分散在不同篇章中，以主传为主集中展示主要方面，在他传中补充其他侧面，从而充分展示人物的丰富性和复杂性。</li><li id="p2-c53"><b>纪行赋：</b>通过记叙旅途所见而抒发感慨的赋作，源于《楚辞》和刘歆《遂初赋》，以纪行为线索兼有抒情述怀写景叙事，是后代游记文学的先声。</li><li id="p2-c54"><b>述志赋：</b>赋家在社会动乱、宦海沉浮中用以宣寄情志的作品，东汉抒情赋的重要类型。</li><li id="p2-c55"><b>抒情小赋：</b>篇幅短小、语言清新、以抒情为主的赋体，区别于铺陈宏丽的大赋，张衡《归田赋》为汉代第一篇比较成熟的骈体赋。</li><li id="p2-c56"><b>京都赋：</b>以京都为题材的大赋，班固《两都赋》开创，张衡《二京赋》达极轨，左思《三都赋》继之。</li><li id="p2-c57"><b>纪传体通史：</b>以人物传记为中心记载历史的史书体裁，《史记》为第一部。</li><li id="p2-c58"><b>纪传体断代史：</b>以人物传记为中心记载一个朝代历史的史书体裁，《汉书》为第一部。</li><li id="p2-c59"><b>三家注：</b>南朝宋裴骃《史记集解》、唐司马贞《史记索隐》、唐张守节《史记正义》，合称《史记》三家注。</li><li id="p2-c60"><b>实录精神：</b>班固评《史记》"其文直，其事核，不虚美，不隐恶"的求实求真精神。</li><li id="p2-c61"><b>疾虚妄：</b>王充《论衡》的核心宗旨，反对一切虚妄之言，以事实验证言论。</li><li id="p2-c62"><b>乐府：</b>汉代朝廷设立的音乐管理部门，兼有搜集保存民间歌谣的职能，武帝时扩充发展至鼎盛，哀帝时罢废。</li></ol>
+    </section>
+    <section class="lv2" id="p2-c63">
+      <h3>问答题</h3>
+<ol><li id="p2-c64">班固《两都赋》的艺术创新表现在哪些方面？答题要点：改变"劝百讽一"方式，下篇通篇讽喻诱导；作者主张自然融入陈述；上下篇对比结构；主客问答过渡；作品风格与内容契合（《西都赋》汪洋恣肆、《东都赋》平正典实）；大量运用对偶句式。</li><li id="p2-c65"><b>张衡《归田赋》在文学史上的地位？答题要点：</b>中国文学史上第一篇描写田园隐居乐趣的作品；汉代第一篇比较成熟的骈体赋；开创抒情小赋体制；田园题材（隐逸文学）的先声；语言清丽朴实，无主客问答与劝百讽一。</li><li id="p2-c66"><b>司马迁的思想渊源有哪些？答题要点：</b>对儒家思想的接受（受父亲司马谈影响，拜孔安国、董仲舒为师，写明主贤君忠臣死义之士）；对道家思想的接受（自然思想、朴素辩证论、"见盛观衰"、宽容因循政治思想）；兼宗百家自成一家（"究天人之际，通古今之变，成一家之言"）。</li><li id="p2-c67">《史记》人物塑造的艺术手法有哪些？答题要点：准确捕捉人物特征和精心选材；互见法运用；善于通过矛盾冲突和场面描写刻画人物；善于通过心理、细节、对比、对话刻画人物；共性与个性结合。</li><li id="p2-c68">《史记》与《汉书》在体例和风格上有何异同？答题要点：通史与断代史之别；世家列传与传之别；书与志之别；太史公曰与赞之别；《史记》富于情感偏散飘逸，《汉书》谨严精炼偏骈典雅温厚；《史记》批判精神强，《汉书》封建正统思想强；《史记》悲剧色彩浓，《汉书》记叙世袭家族。</li><li id="p2-c69"><b>《苏武传》的艺术特点？答题要点：</b>结构严谨材料组织细密；围绕中心人物选材详略得当；成功的人物描写（语言、行为、细节、对比反衬）。</li><li id="p2-c70">《吴越春秋》作为历史演义小说雏形体现在哪些方面？答题要点：兼有编年体和纪传体特点；叙事完整各章独立又贯通；吸收神话传说与民间故事荒幻离奇；注重人物外貌描写；文字量大增情节复杂更富小说特征；开志怪小说先河。</li><li id="p2-c71"><b>王充《论衡》的散文特色？答题要点：</b>用事实说话的"实论"型散文；同类相证巧用比喻逻辑推理；反复诘难文风雄辩；文字接近口语通俗易懂；朴实无华不重雕琢；不摹拟前人富有创新。</li></ol>
+    </section>
+    <section class="lv2" id="p2-c72">
+      <h3>论述题方向</h3>
+<ol><li id="p2-c73">论述汉代大赋从司马相如到张衡的发展演变。可从结构模式（抑客伸主）、讽喻方式（劝百讽一到通篇讽喻）、规模体制（由大到极轨）、题材内容（京都意识的演进）等方面展开。</li><li id="p2-c74">论述东汉抒情赋勃兴的社会原因及文学意义。可从外戚宦官争权的政治背景、士人愤懑郁结的心理状态、从大赋到抒情赋的文体转变、纪行赋与述志赋的类型特征、从隐逸倾向到积极参与现实的思想变化等方面论述。</li><li id="p2-c75">论述司马迁《史记》"究天人之际，通古今之变，成一家之言"的思想内涵及体现。可结合天人相分思想、发展观点看历史、从经济角度分析历史、"见盛观衰"的方法论、兼宗百家自成一家等方面展开。</li><li id="p2-c76">论述《史记》对后世文学和史学的深远影响。可从纪传体史学奠基、传记文学开端、实录精神与批判精神传承、人物人格精神沾溉后世、文章典范影响唐宋古文运动及明清散文流派、对小说戏剧的影响等方面论述。</li><li id="p2-c77">论述班固《汉书》与司马迁《史记》的比较研究。可从体例内容、思想倾向、人物描写、语言风格、叙述风格等多维度系统比较，分析两人思想矛盾对著作的影响。</li><li id="p2-c78">论述汉乐府机构的建制沿革及其对诗歌发展的意义。可从乐府的设立、官署架构与职能划分、武帝时期的扩充发展、采诗制度的意义、哀帝罢乐府的影响等方面展开。</li></ol>
+    </section>
+    </section>
+      <div class="totop"><a href="#p2-c1">回到顶部</a></div>
+    </section>
+    <section class="view" id="p3" data-view="p3" data-label="第三篇" hidden>
+    <section class="lv1" id="p3-c1">
+      <div class="chap">CHAPTER 01</div>
+      <h2 class="sh">一、整体脉络</h2>
+<p class="lead">本篇笔记以文学史的时间发展为经线，以重要作家作品和文学现象为纬线，系统梳理了从两汉乐府诗到魏晋南北朝文学的演进历程，内容可分为四大板块。</p>
+<p>第一板块为两汉乐府诗。笔记首先介绍东汉乐府的管理机构（太子乐署、黄门鼓吹署）及乐府诗的传承编纂，指出郭茂倩《乐府诗集》十二分类中汉乐府主要保存在郊庙歌辞、鼓吹曲辞、相和歌辞、杂曲歌辞和杂歌谣辞中，以相和歌辞数量最多。继而分析汉乐府的思想内容——"感于哀乐，缘事而发"，涵盖反映战争苦难、表现男女爱恨、坦率谈及乐生恶死三大主题，并列举《相逢行》《上邪》《有所思》《江南》等代表作品。最后总结汉乐府的叙事艺术成就（叙事诗成熟、尚奇倾向、情节完整、语言质朴）及在诗体演进中由四言向杂言、五言过渡的意义。</p>
+<p>第二板块为东汉文人诗。从班固《咏史》（现存最早完整五言诗，"质木无文"）到张衡《同声歌》《四愁诗》（开创七言先声），再到秦嘉《赠妇诗》（五言抒情诗成熟的标志），以及郦炎、赵壹、蔡邕等人诗歌基调由温柔敦厚向猛烈批判的转变，最终落脚于古诗十九首——东汉文人诗的巅峰之作，被刘勰誉为"五言之冠冕"。</p>
+<p>第三板块为魏晋南北朝文学绪论。概述门阀制度、战乱分裂的社会背景及玄学、佛学、道教兴起的思想文化特点，指出文学自觉化（独立成科、个人书写、文体分类、文学批评）和追求美的创造为这一时期文学的核心特征。</p>
+<p>第四板块为具体文学流派。建安文学以三曹（曹操、曹丕、曹植）、建安七子、蔡琰为代表，形成"建安风骨"；正始文学以竹林七贤（阮籍、嵇康）为代表，文风深远含蓄；西晋太康文学以三张、二陆、两潘、一左为代表，呈现渐趋雅化、益尚华美、崇尚真情的特征；永嘉文学则以刘琨的慷慨悲歌和郭璞的游仙诗为代表。各板块之间以时代更替和诗体演变为线索，逻辑清晰，层次分明。</p>
+    </section>
+
+    <section class="lv1" id="p3-c2">
+      <div class="chap">CHAPTER 02</div>
+      <h2 class="sh">二、重点知识点</h2>
+<ol><li id="p3-c3"><b>乐府诗：</b>汉代音乐管理机构采集配乐演唱的诗歌，郭茂倩《乐府诗集》分为十二类，汉乐府主要保存在相和歌辞中，核心精神为"感于哀乐，缘事而发"。</li><li id="p3-c4"><b>建安风骨（汉魏风骨）：</b>建安文学风格的形象概括，情调慷慨悲凉，语言刚健爽朗，以曹氏父子、建安七子、蔡琰为代表，刘师培概括为清峻、通脱、骋词、华靡。</li><li id="p3-c5"><b>三曹：</b>曹操（纪事乐府、《薤露行》《蒿里行》）、曹丕（《燕歌行》开创七言闺怨诗先河）、曹植（《白马篇》《赠白马王彪》，"骨气奇高，词采华茂"）。</li><li id="p3-c6"><b>建安七子：</b>孔融、陈琳、王粲、徐干、阮瑀、应玚、刘桢，出曹丕《典论·论文》。王粲为"七子之冠冕"，刘桢与曹植并称"曹刘"。</li><li id="p3-c7"><b>蔡琰与《悲愤诗》：</b>自传体叙事诗，共108句540字，记录汉末乱世，兼具汉乐府风格与文人诗特质。</li><li id="p3-c8"><b>正始之音：</b>240-249年间，曹魏与司马氏争斗背景下的文学，褪去建安豪迈，多抒忧愤，融合玄理，文风深远含蓄。</li><li id="p3-c9"><b>竹林七贤：</b>阮籍、嵇康、山涛、刘伶、阮咸、向秀、王戎，不拘礼法，随性放达。阮籍《咏怀八十二首》开创五言抒情组诗体例；嵇康四言诗成就最高，"越名教而任自然"。</li><li id="p3-c10"><b>太康文学：</b>晋武帝年号（280-289），"三张、二陆、两潘、一左"勃然而兴。陆机为模拟诗风代表，风格繁缛；潘岳与陆机并称"潘江陆海"，善写悼亡诗；左思以"左思风力"著称，《咏史诗》八首借史咏怀。</li><li id="p3-c11"><b>左思风力：</b>钟嵘《诗品》所称，笔力矫健，情调高亢，气势充沛，与建安风骨一脉相承，风格刚健，独立于当时华丽诗风之外。</li><li id="p3-c12"><b>永嘉文学：</b>晋怀帝年号（307-313），玄言诗盛行，"理过其辞，淡乎寡味"。刘琨以慷慨悲歌著称，郭璞以游仙诗抒发坎壈咏怀之情。</li><li id="p3-c13"><b>古诗十九首：</b>东汉文人五言诗巅峰之作，被刘勰誉为"五言之冠冕"，钟嵘称"一字千金"，表现建功立业、幻灭迷惘、生命思考、游子思妇四大主题。</li><li id="p3-c14"><b>游仙诗：</b>以游仙为题材，郭璞为第一位以游仙诗为主创作的诗人，借游仙咏怀，"辞多慷慨，近乎变雅"，继承《诗》《骚》比兴寄托传统。</li><li id="p3-c15"><b>诗体演进：</b>两汉乐府实现由四言向杂言和五言的过渡，楚声改造为三七言，北狄西域乐影响鼓吹曲辞，中土五言歌谣推动诗体变革。东汉后五言取代四言成为新样式，完整七言诗篇也开始产生。</li></ol>
+    </section>
+
+    <section class="lv1" id="p3-c16">
+      <div class="chap">CHAPTER 03</div>
+      <h2 class="sh">三、笔记正文</h2>
+    <section class="lv2" id="p3-c17">
+      <h3>汉乐府诗歌的保存和分类</h3>
+<p>东汉乐府的管理机构有二：一是太子乐署，行政长官为太子乐令，相当于西汉太乐令，隶属太常卿；二是黄门鼓吹署，由承华令掌管，隶属少府。黄门鼓吹之名西汉已有，至东汉由承华令掌管，为天子享宴群臣提供歌诗，实际发挥西汉乐府的作用，东汉乐府诗歌主要由黄门鼓吹署搜集演唱，得以保存。</p>
+<p>两汉乐府诗的传承：魏晋时期旧乐府歌辞仍有沿用，相当数量的两汉乐府诗流传于朝廷内外。六朝总集收录乐府古辞，梁沈约编纂《宋书·乐志》收录尤多。郭茂倩《乐府诗集》将乐府诗分为十二类：郊庙歌辞、燕射歌辞、鼓吹曲辞、横吹曲辞、相和歌辞、清商曲辞、舞曲歌辞、琴曲歌辞、杂曲歌辞、近代曲辞、杂歌谣辞、新乐府辞。汉乐府诗主要保存在郊庙歌辞、鼓吹曲辞、相和歌辞、杂曲歌辞和杂歌谣辞中，以相和歌辞数量最多。</p>
+    </section>
+    <section class="lv2" id="p3-c18">
+      <h3>汉乐府诗的思想内容</h3>
+<p>汉乐府诗"皆感于哀乐，缘事而发"（《汉书·艺文志》），反映日常生活中的具体事件和人们普遍关心的敏感问题（苦乐爱恨生死）。主要主题有三：</p>
+    <section class="lv3" id="p3-c19">
+      <h4>一、反映战争苦难与平民疾苦</h4>
+<p>相和歌辞中的《东门行》《妇病行》《孤儿行》表现平民百姓疾苦，是来自社会最底层的呻吟呼号。《东门行》写家中"盎中无斗米储，还视架上无悬衣"，男主人公被迫拔剑走上反抗道路，夫妇对话是生离死别场面。《妇病行》写病妇临终托孤，丈夫无力赡养遗孤沿街乞讨。《孤儿行》写孤儿受兄嫂虐待，尝尽辛酸。这些作品用白描笔法揭示物质贫穷与劳作艰难，通过对话、行动、内心独白表现心灵痛苦，作者对挣扎在死亡线上的贫民寄予深切同情。</p>
+    </section>
+    <section class="lv3" id="p3-c20">
+      <h4>二、表现男女爱恨</h4>
+<p>爱情婚姻题材在两汉乐府中占较大比重，多来自民间，表达大胆泼辣毫不掩饰。《上邪》（鼓吹曲辞·汉铙歌十八曲）是女子自誓之词："上邪！我欲与君相知，长命无绝衰。山无陵，江水为竭，冬雷震震，夏雨雪，天地合，乃敢与君绝！"连举五种反常自然现象表白矢志不移，抒情力度极大。《有所思》写女主人公闻对方有二心，毅然毁掉礼物"拉杂摧烧之""当风扬其灰"，果断表示"从今以往，勿复相思"，爱恨分明。《相逢行》展示富贵之家"黄金为门，白玉为堂"的奢华景象，与《鸡鸣》《长安有狭斜行》同出一母体。《江南》以采莲为题，清新活泼。《孔雀东南飞》写焦仲卿与刘兰芝恩爱夫妻被外力拆散，双双自杀反抗包办婚姻。《陌上桑》和《羽林郎》写秦罗敷巧对使君、胡姬誓死回绝羽林郎。表现人世苦乐爱恨主要倾向诗经传统（二雅、国风）。</p>
+    </section>
+    <section class="lv3" id="p3-c21">
+      <h4>三、坦率谈及乐生恶死</h4>
+<p>如何超越个体生命的有限性是古人苦苦思索的课题。《薤露》《蒿里》是汉代流行丧歌，送葬时所唱。《薤露》："露晞明朝更复落，人死一去何时归"，认为人命不如草上露水。《蒿里》："蒿里谁家地？聚敛魂魄无贤愚"，以有神论观念写死亡痛苦。铙歌《战城南》哀悼阵亡将士，"野死不葬乌可食"，渲染战场苍凉凄惨。同时以虚幻形式寄托乐生愿望，郊祀歌《日出入》由太阳升降联想个体寿命，幻想驾六龙在天国遨游。杂曲歌辞《艳歌》描绘升天理想画面，各种神灵殷勤备至。《长歌行》《董逃行》则以仙山神药延年益寿。对于生死倾向于楚辞传统，人和神置于同一层面，沟通天人。</p>
+    </section>
+    </section>
+    <section class="lv2" id="p3-c22">
+      <h3>汉乐府诗的叙事艺术成就</h3>
+<p>两汉乐府诗中有叙事诗也有抒情诗，以叙事诗成就更为突出。《诗经》《楚辞》多数为抒情诗，叙事附属于抒情。两汉乐府叙事诗的出现标志中国古代叙事诗的成熟。出现了由第三者叙述故事的作品，有一定性格的人物形象和比较完整的情节，如《陌上桑》《东门行》《孔雀东南飞》。</p>
+<p>叙事题材表现出明显的尚奇倾向：死人现身说法的《战城南》、乌鸦魂魄申诉的《乌生》、腐鱼哭泣写信的《枯鱼过河泣》。陈本礼评《铙歌十八曲》"造语之精，用意之奇，有出于三百、楚骚之外者"。还有来自异域的新鲜事物：汗血马（《天马》）、苜蓿（《蛱蝶行》）、氍毹（《陇西行》）。迎神求仙诗情节完整，人物生动。</p>
+<p>叙事背景多选择酒店、京都等热闹场所。《陇西行》《羽林郎》以酒店妇女为主角，展示市井风情。《相逢行》《长安有狭斜行》选择"夹毂问君家"特写镜头，《陌上桑》以春日采桑为背景。叙事诗多数具有完整情节，《妇病行》有临终托孤、沿街乞讨、孤儿啼索等场面；《孤儿行》通过行贾、行汲、收瓜、运瓜等劳役突出苦难命运；《十五从军征》叙述八十岁退役老兵返回荒芜家园；《孔雀东南飞》两条线索交错展开，情节跌宕起伏。</p>
+<p>人物刻画方面，秦罗敷以机智言词戏弄使君（喜剧），胡姬以生命抗拒调戏（悲剧），显示不同气质。《孔雀东南飞》人物群像个个肖其声情：刘兰芝刚强、焦仲卿忠厚、焦母蛮横、刘兄势利。运用个性化对话、细节描写、环境景物衬托。详略得当，详叙事略抒情，铺陈场面详写，中间过程略写始末，详写服饰仪仗略容貌形体。</p>
+<p>叙事语言质朴自然而带感情。胡应麟评："采摭闾净，非由润色；然而质而不俚，浅而能深，近而能远""天下之文，糜以过之"。"感于哀乐，缘事而发"的现实主义精神影响深远：汉乐府民歌"缘事而发"→建安曹操"借古题写时事"→杜甫"即事名篇，无复依傍"→白居易"歌诗合为事而作"→宋代以后现实主义乐府诗。叙事技巧为后世提供经验：人物对话独白、心理描写和细节刻画、语言朴素生动。仇兆鳌评杜甫"三吏""三别"源出陈琳《饮马长城窟行》的问答设辞。</p>
+    </section>
+    <section class="lv2" id="p3-c23">
+      <h3>汉乐府在诗体演进中的意义</h3>
+<p>两汉乐府诗推动中国古代诗歌样式由四言向杂言和五言过渡。诗歌样式变革往往与流行乐曲声调有关，乐府诗配乐演唱，不同于《诗经》四言句，既有诗歌本身发展必然，也有乐曲因素。曲调来源多方：从楚声改造而成三七言（汉代统治者楚人出身）；鼓吹曲辞收录的铙歌十八首配合北狄西域之乐演唱，曲调与中土音乐差异大；中土流行的五言歌谣也产生重大影响。艺术技巧方面，叙事诗写作技巧、人物对话独白运用、心理描写和细节刻画、语言朴素生动，为后世诗歌提供创作经验。</p>
+    </section>
+    <section class="lv2" id="p3-c24">
+      <h3>东汉文人诗</h3>
+<p>东汉以后文人诗歌创作出现新局面：五言取代四言成为新样式，完整七言诗篇开始产生，多数独立成篇，也有附在赋的结尾。</p>
+    <section class="lv3" id="p3-c25">
+      <h4>一、班固与《咏史》</h4>
+<p>现存东汉文人最早的完整五言诗，咏西汉缇萦救父事，写法类似纪传体史书叙事。钟嵘《诗品》评"东京二百载中，惟有班固《咏史》，质木无文"；又评"孟坚才流，而老于掌故，观其《咏史》，有感叹之词"。班固对五七言诗持认同态度但处于模拟阶段，以史学家笔法写诗，以叙事为主，质实朴素。另有收录在《太平御览》中的佚诗、桓谭《新论·琴道》篇经班固续修部分的五言诗句，风格与《咏史》基本相同。</p>
+    </section>
+    <section class="lv3" id="p3-c26">
+      <h4>二、张衡</h4>
+<p>《同声歌》借鉴民歌表现手法，措辞奇妙，兴寄高远，写妇人自谓幸得充闺房，以喻臣子之事君，开创以女子事夫托喻事君的写法。《四愁诗》得离骚之神韵，美人香草，回环复沓，是后代七言歌行的先声。沈德潜评为"风骚之变格"。张衡五七言诗在技巧上较班固有明显提高。两人对乐府继承方向不同：班固质朴朴实、叙事为主；张衡缛丽华美、抒情为主。</p>
+    </section>
+    <section class="lv3" id="p3-c27">
+      <h4>三、秦嘉与《赠妇诗》</h4>
+<p>秦嘉字士会，陇西人，东汉诗人，桓帝时为郡吏，后任黄门郎，病死于津乡亭。《赠妇诗》三首是东汉文人五言抒情诗成熟的标志。秦嘉客死他乡后，妻徐淑兄劝其改嫁，不从。三首诗都有车驾描写衬托复杂心情："遣车迎子还，空往复空返"表失望，"良马不回鞍，轻车不转毂"表临路怅惘，"肃肃仆夫征，锵锵扬和铃"表无可奈何。</p>
+    </section>
+    <section class="lv3" id="p3-c28">
+      <h4>四、东汉末年文人诗基调的转变</h4>
+<p>由温柔敦厚的中和之美转向控诉、呐喊和对现实的猛烈批判。郦炎（150-177）字文胜，范阳人，存五言《见志诗》二首，抒发怀才不遇的感慨。赵壹《刺世疾邪赋》末附《疾邪诗》二首，"文籍虽满腹，不如一囊钱"，传达不平之气。蔡邕有《翠鸟诗》。</p>
+    </section>
+    </section>
+    <section class="lv2" id="p3-c29">
+      <h3>古诗十九首</h3>
+<p>一般被认为是东汉文人诗的巅峰之作，沿用《文选》中原题《古诗》。作者疑为枚乘，但李善注指出"词兼两汉"不可信，实出自汉代文人之手，非一人一时之作，最迟不晚于桓帝时期。被刘勰誉为"五言之冠冕"，钟嵘称"惊心动魄，可谓几乎一字千金"。</p>
+<p>四大主题：</p><ol start="1"><li>表现及时建功立业的壮志，如《今日良宴会》"何不策高足，先据要路津"、《回车驾言迈》。</li><li>表现追求幻灭后心灵的迷惘与痛苦，如《西北有高楼》"不惜歌者苦，但伤知音稀"、《青青陵上柏》《明月皎夜光》。</li><li>表现对个体生命的唯物认识和新的人生选择，如《驱车上东门》"人生忽如寄，寿无金石固……不如饮美酒，被服纨与素"、《东城高且长》《生年不满百》。</li><li>表现游子思妇相思离别之苦，其余十一首都属此类，除《涉江采芙蓉》《明月何皎皎》等少量从羁旅男子角度落笔外，绝大多数从女性角度着墨，《迢迢牵牛星》《行行重行行》为其中最佳者。</li></ol>
+<p>《迢迢牵牛星》通篇采用比兴手法，想象丰富（对织女形象和心灵的刻画），叠音词运用增强形象性和音律性。体现生命意识觉醒，更关注个人情感与思考（离别、忧虑人生无常、失意）。</p>
+<p>艺术特色：一是长于抒情，最常用手法是将叙事、写景、抒情融而为一；二是继承诗骚比兴传统，常以比兴、象征手法曲婉传达深沉寄托；三是语言浅近自然、明白晓畅而又意蕴丰厚，"深衷浅貌"，不作艰深之语，无冷僻之词，用最明白晓畅的语言道出真情至理，高度概括且富有表现力。叠字巧妙连用（《青青河畔草》《迢迢牵牛星》），双关语自然融入。胡应麟评"蓄神奇于温厚，寓感怆于和平，意愈浅愈深，词愈近愈远，篇不可句摘，句不可字求"。</p>
+    </section>
+    <section class="lv2" id="p3-c30">
+      <h3>魏晋南北朝文学绪论</h3>
+<p>从魏晋开始，历经南北朝，至唐代前期，是中国文学中古期第一段，以五七言古近体诗兴盛为标志。五古在魏晋南北朝进入高潮，七古和五七言近体在唐代前期臻于鼎盛。魏晋南北朝文学从汉末建安（195-200）开始，以隋文帝统一中国（589）为标志结束。</p>
+<p>社会历史概况：政治上实行门阀制度，士族与庶族寒门以宗族血统为根本区别，庶族仕进道路被堵塞。社会特点为战乱和分裂，饥馑、瘟疫及人口大规模迁徙夺走大量生命。思想文化上，继战国百家争鸣后又一个思想解放时代：玄学兴起（关于宇宙本体讨论和名理辨析，与老庄思想有关，东晋后吸取佛学，是思辨哲学，打破汉代繁琐经学统治）；佛学兴起（东晋十六国迅速发展，佛经翻译极盛，增加文学故事性，丰富文学语言）；道教兴盛（讲炼丹求仙养生，无严格戒律，以方术帮助享乐，影响文学精神，士人追慕隐逸、向往山林、倾向神鬼变异之谈）。</p>
+<p>文学特征：文学自觉化（独立成科、个人书写、文体分类、文笔之分、文学集团活跃、文学批评）；追求美的创造（"诗赋欲丽""诗缘情而绮靡""赋体物而浏亮"，南朝四声发现及运用，用事对偶讲究，追求新变风气）；题材开拓（陶渊明田园诗、谢灵运谢朓山水诗、宫体诗、边塞诗）。文学发展历程：建安文学（三曹、建安七子——建安风骨）→正始文学（嵇康、阮籍——竹林七贤——正始之音）→两晋文学（西晋太康诗风，东晋玄言诗与陶渊明）→南北朝文学（宋谢灵运鲍照，齐梁永明体与宫体诗，北朝庾信）。</p>
+    </section>
+    <section class="lv2" id="p3-c31">
+      <h3>建安文学</h3>
+<p>建安风骨（汉魏风骨）是对建安文学风格的形象概括，诗歌情调慷慨悲凉，语言刚健爽朗，以曹氏父子、建安七子、蔡琰为代表。风骨出刘勰《文心雕龙》，风指文章生命力感染力、内在精神和内容，骨指表现力、语言准确明晰刚健。内涵特征为功业意识与慷慨文风、生命意识与悲凉文风。刘师培概括为清峻、通脱、骋词、华靡。成因为战乱易建功亦易飘零。</p>
+<p>曹操（155-220）字孟德，沛国谯郡人，建安元年受封丞相，官渡之战击败袁绍统一北方，曹丕称帝后追尊为武帝。思想儒法兼取、礼刑互用，取用人才不拘资限品行，史称"治世之能臣，乱世之奸雄"。文化艺术修养深厚，经学有造诣，精通书法音乐围棋药理建筑，鲁迅称其为"改造文章的祖师"。现存22首诗都是乐府诗，与汉乐府"感于哀乐，缘事而发"精神一脉相承。题材内容以纪事为主，以乐府古题写时事，反映汉末战乱现实，《薤露行》写董卓入据洛阳，《蒿里行》写军阀混战，《苦寒行》写行军艰苦。</p>
+<p>曹丕与《燕歌行》。《燕歌行》属相和歌平调曲，"秋风""别日"二曲言时序迁换、行役不归、妇人怨旷。原诗"秋风萧瑟天气凉，草木摇落露为霜……牵牛织女遥相望，尔独何辜限河梁"，有诉说不尽的凄苦哀怨之情，爱用妇女口吻。钟惺评"婉变细秀，有公子气，有文人气"；陈祚明评"如西子捧心"。贡献在于开创七言闺怨诗先河，将汉乐府代抒闺怨传统加以文人化改造，代言体诗歌对后世影响深远（李白《长干行》、金昌绪《春怨》等）。</p>
+<p>曹植（192-232）字子建，曹操与卞皇后第三子，曹丕同母弟，封陈王，谥"思"，世称陈思王，建安文学代表人物，代表作《洛神赋》《白马篇》《七哀诗》。早年有"绣虎"雅号，一度受曹操信任几被立为太子，后曹丕即位屡改封地，明帝时上表自试终不为用，太和六年抑郁而终。前期作品有游宴唱和之作（《名都篇》）、抒写友情之作（《赠丁仪》《赠王粲》《送应氏》）。后期作品有离别之悲、忧生之嗟、悼亡之恨（《赠白马王彪》《三良诗》《远游篇》《朔风歌》《野田黄雀行》）。</p>
+<p>《白马篇》通过描述"幽并游侠儿"的高超武艺和爱国精神，寄托建功立业的渴望，洋溢乐观浪漫情调。方东树评"此诗奇警，实出屈子《九歌·国殇》"。《野田黄雀行》有汉乐府民歌质朴风味，拔剑捎网、黄雀谢恩情节受寓言色彩作品影响，运用叠字及顶真修辞。《赠白马王彪》为后期代表作，写于兄弟被迫分手时，叙事写景与抒情相结合重在抒情，章法上采用首尾相衔的顶针格使感情表达曲折深入，多次采用问答句式推进诗思。文学成就：钟嵘《诗品》评"骨气奇高，词采华茂，情兼雅怨，体被文质"，达风骨与文采完美结合；兼擅各类文体诗体，尤其长于五言，是第一位大力写作五言诗的文人；使以叙事为主的乐府诗转为叙事和抒情紧密结合。</p>
+    </section>
+    <section class="lv2" id="p3-c32">
+      <h3>建安七子和蔡琰</h3>
+<p>"七子"之称出曹丕《典论·论文》，为孔融、陈琳、王粲、徐干、阮瑀、应玚、刘桢。孔融建安十三年被杀，实际只有六人参加邺下文学活动。建安二十二年冬北方发生疫病，"亲故多罗其灾，徐、陈、应、刘一时俱逝"，除孔融、阮瑀早死外，五人死于疫病。东汉末年三十年间全国性大瘟疫共十二次，人口从5650万锐减至1600余万。</p>
+<p>王粲（177-217）字仲宣，山阳高平人，七子中成就最高，与曹植并称"曹王"，刘勰称"七子之冠冕"。少有才名，博闻强记，过目不忘。初平二年往荆州依刘表，建安十三年归曹操，建安二十二年从征孙权北还途中病卒。赋今存20多篇，《登楼赋》摒弃汉赋铺张扬厉传统，写景与抒情紧密结合。四言五言兼善，《七哀诗》三首尤以第一首著名："出门无所见，白骨蔽平原"，以高度概括与典型事件特写相结合，"饥妇弃子"特写镜头震撼人心，沈德潜评为"杜少陵《无家别》《垂老别》之祖"。诗风感情深沉、慷慨悲壮，"自伤"是其情感特征，锺嵘《诗品》说潘岳、张协、张华、刘琨、卢谌等皆源出于他。</p>
+<p>刘桢（180-217）字公干，东平宁阳人，祖父刘梁官至尚书令。博学有才，警悟辩捷，品性耿直。文学成就主要在五言诗，曹丕称"其五言诗之善者，妙绝时人"，与曹植并称"曹刘"，与王粲合称"刘王"。刘熙载评"公干气胜，仲宣情胜"，钟嵘评"仗气爱奇，动多振绝，贞骨凌霜，高风跨俗""陈思以下，桢称独步"。诗分赠答诗（《赠从弟》三首，分别用蘋藻、松树、凤凰为喻抒写坚贞高洁）和游乐诗（《公宴诗》《斗鸡诗》《射鸢诗》）。《赠从弟》其二"亭亭山上松，瑟瑟谷中风……岂不罹凝寒，松柏有本性"，借松咏志运用象征手法。</p>
+<p>蔡琰（约174-239）字文姬，蔡邕之女，有才辩通音律。初嫁卫仲道，夫亡归家，遭乱被掳南匈奴居十二年生二子，后被曹操赎回改嫁董祀。五言《悲愤诗》可信度高，骚体《悲愤诗》多认为非其所作，《胡笳十八拍》存伪作争议。五言《悲愤诗》为自传体叙事诗，共108句540字，记录汉末乱世，具备诗史特质。吴闿生评"文姬肺腑之言"，沈德潜评"情真情深"，贺贻孙评"叙事真切动人"。艺术特点：兼具汉乐府风格与文人诗特质，叙事抒情相融，擅长细节描写，情感层次丰富，对后世叙事诗影响深远。</p>
+    </section>
+    <section class="lv2" id="p3-c33">
+      <h3>正始之音与竹林七贤</h3>
+<p>正始之音时间在240-249年，延伸至西晋立国前。背景为曹魏与司马氏政权争斗，名士多遭迫害。诗风褪去建安豪迈，多抒忧愤，融合玄理，文风深远含蓄。竹林七贤成员为阮籍、嵇康、山涛、刘伶、阮咸、向秀、王戎，不拘礼法，随性放达，喜好饮酒清谈。后期人员立场分化，阮籍、嵇康文学成就最高。</p>
+<p>阮籍（210-263）字嗣宗，世称阮步兵，阮瑀之子，推崇老庄思想，处事谨慎避祸。存《咏怀八十二首》《大人先生传》。怀揣济世理想受时局影响避世度日，外在狂放内心审慎，兼具儒家思想与老庄观念。《咏怀诗》内容分三类：抒发内心忧惧愁苦、讽喻时局批判虚伪礼法、向往隐逸求仙生活。其一"夜中不能寐，起坐弹鸣琴……徘徊将何见？忧思独伤心"。艺术特征：行文隐晦多用比兴寄托，留存建安文学风骨，开创五言抒情组诗体例。《大人先生传》塑造超然世外形象批判社会现实，受《庄子》寓言、楚辞神游、汉赋铺张影响，文体杂糅韵文散文，风格独特。</p>
+<p>嵇康（223-262）字叔夜，三国魏谯郡铚县人，思想家、音乐家和文学家，竹林七贤精神领袖。娶曹操曾孙女为妻，官至曹魏中散大夫，世称嵇中散。因得罪钟会遭陷害被司马昭处死。幼年丧父由母兄抚养，博览群书，身高七尺八寸，容貌出众但不注重打扮，"龙章凤姿，天质自然""土木形骸，不自藻饰"。隐于竹林，天性灵巧擅长打铁。服食养生，认为导养得理可尽性命。偶得《广陵散》于华阳亭，表现聂政刺杀韩王后自刎的悲壮故事。绝交山涛（拒绝荐引尚书吏部郎，实为羞辱司马氏集团，亦可能为保全山涛）。仗义执言（吕巽奸污吕安妻，嵇康调停后吕巽倒打一耙，嵇康写《与吕长悌绝交书》被牵连入狱）。临死托孤于山涛，"山公尚在，汝不孤矣"。广陵绝响：三千太学生请愿，临刑弹奏《广陵散》，叹"《广陵散》从今以后要失传了"。</p>
+<p>嵇康核心思想："越名教而任自然""每非汤武而薄周孔""刚肠嫉恶，轻肆直言，遇事便发"。家世儒学，"学不师授，博洽多闻，长而好老庄之业"。个性刚峻激烈、旷达狂放自由懒散，鄙视权贵（拒绝与钟会交往，"何所闻而来，何所见而去""闻所闻而来，见所见而去"），对司马氏采取不合作态度。</p>
+<p>诗歌创作现存53首，以四言成就最高，是继曹操之后的又一批成功之作。以表现追求自然、高蹈独立、厌弃功名富贵的人生观为主要内容。《幽愤诗》作于狱中，自述遭遇与理想，风格爽利清峻。《赠秀才入军》十八章想象其兄嵇喜军中生活，其九"良马既闲……顾盼生姿"前四句静态后四句动态；其十四"目送归鸿，手挥五弦……俯仰自得，游心太玄"想象行军休息情形，写出游乐于天地之间、游心老庄大道而忘怀人世的境界，情思旷远。</p>
+<p>散文《与山巨源绝交书》拒绝山涛荐引，申明赋性疏懒不堪礼法约束。思想内核强调放任自然，语言奋笔直书、说理透彻、文词犀利，洋溢不与世俗同流合污的兀傲情绪。刘勰评"嵇志清峻，阮旨遥深"，钟嵘评"清远""峻切"，刘师培评"文如剥茧，无不尽之意"。</p>
+    </section>
+    <section class="lv2" id="p3-c34">
+      <h3>西晋太康文学</h3>
+<p>公元265年司马炎建立西晋。西晋文学包括太康文学和永嘉文学。太康（280-289）时期，钟嵘《诗品》评"三张、二陆、两潘、一左，勃尔而兴，踵武前王，风流未沫，亦文章之中兴也"。三张为张载、张协、张亢；二陆为陆机、陆云；两潘为潘岳、潘尼；一左为左思。两晋文学总体特征：渐趋雅化（尊儒崇文为立国基本国策，炫博学识务求典雅）；益尚华美（士族享乐淫逸，弃却建安刚健正始壮丽渐流入绮靡）；崇尚真情（宗白华"晋人向外发现了自然，向内发现了自己的深情"）。</p>
+<p>陆机（261-303）字士衡，吴郡华亭人，西晋文学家、书法家。祖父陆逊，父亲陆抗，与弟陆云并称"二陆"，与顾荣、陆云合称"洛阳三俊"。弱冠时吴亡退居故里，九年后携弟入洛受张华赏识，"克吴之役，利获二俊"名动一时。曾任平原内史，世称"陆平原"。参与贾谧"二十四友"，后投成都王颖参与讨伐长沙王乂，战败遭诬陷被害。临刑叹"欲闻华亭鹤唳，可复得乎？"。</p>
+<p>陆机是西晋模拟诗风最典型的代表作家，尝试乐府、古诗各种题材格式，模拟诗今存约四十余首，超过今存诗歌总数之半。模拟之作很少体现个人思想经历情志，多以形似为主，目的似为表现模拟功力。表现手法喜用华丽词藻与对偶句式，带明显贵族化特征，对偶过分追求使作品呆板少变化。诗风繁缛，与过分追求呈才炫博有关，张华评"子之作文而患多才"，刘勰评"缀辞尤繁"。《拟古诗》十二首模拟古诗十九首，格调变朴素为文雅，显示诗歌文人化倾向，总体不及原作，但钟嵘列为"五言之警策"。一生追求功名执着但坚持道义节操有欠缺，诗歌内容肤浅感情浮泛。"诗缘情而绮靡"（《文赋》）为其重要文学主张。精于语言提炼，善于写景即景抒情，具有情景交融效果。被誉为"太康之英"。</p>
+<p>潘岳（247-300）字安仁，荥阳中牟人，中国古代十大美男子之首。少以才颖知名，举秀才十年不得官，后出任河阳、怀令，依附权贵杨骏，杨骏被诛除名，元康中谄事贾谧为"二十四友"之首，后被孙秀诬陷夷灭三族。"掷果盈车"源于其美姿容，"潘鬓"谓中年鬓发初白（三十二岁仕途不顺妻女病亡作《秋兴赋》），任河阳县令令满县栽桃花称"花县令"。妻子杨氏早逝后写悼亡诗赋情谊真挚缠绵，未再娶，"檀郎""檀奴"成为女性心中完美情人形象。</p>
+<p>潘岳在文学上与陆机并称"潘江陆海"，表现个人感情生活的作品往往真挚，重视家庭生活与亲情。《内顾诗》为任河阳令时思念妻子之作，《悼亡诗》三首悼念亡妻杨氏（书法家杨肇之女，卒于298年），另有《哀永逝文》《悼亡赋》等。《悼亡诗》其一分为三部分：第一部分写守丧一年后即将离家返回任所心情；第二部分写临行触景生情"望庐思其人，入室想所历"，吴淇评"周惶忡惊惕"五字"似复而实一字有一字之情"；第三部分写丧偶孤独"如彼翰林鸟，双栖一朝只。如彼游川鱼，比目中路折"，引《庄子》鼓盆而歌故事对比说明庄子通晓天命而潘岳未能达观。创作特点富于感情，陈祚明评"安仁情深之子，每一涉笔，淋漓倾注"，沈德潜评"其情自深"。</p>
+<p>左思（250-305）字太冲，齐国临淄人。少学琴书皆不成，貌寝口讷而辞藻壮丽。泰始八年妹左棻入宫拜修仪，移家京师官秘书郎，追随贾谧预"二十四友"之列。永康元年贾谧诛左棻病逝，退居宜春里，后居冀州病卒。《三都赋》用十年写成，主动要求担任秘书郎以查阅藏书，登门拜访著作郎张载，家中到处置笔纸，曾受陆机轻视嘲笑。问世后分别抄送权贵文坛名流，盛誉大起"洛阳纸贵"，皇甫谧作序，张载、刘逵作注，卫权作略解，陆机叹服停笔。王鸣盛评其"抑吴都、蜀都而申魏都，以晋承魏统"。刘勰评"尽锐于《三都》，拔萃于《咏史》"。</p>
+<p>《咏史诗》八首为左思代表诗作，抒发寒士不平之鸣，表现由热衷用世到放弃仕进的过程，风格豪放浑成，独立于当时士族文化氛围之外。咏史诗新发展：非概括历史事件人物而是借以咏怀，何焯评"题云《咏史》，其实乃咏怀也"。"左思风力"出钟嵘《诗品》，与建安风骨一脉相承，风格刚健感情深沉，和当时流行华丽诗风迥然不同，情调高亢气势充沛笔力矫健，颇具积极浪漫主义色彩。</p>
+    </section>
+    <section class="lv2" id="p3-c35">
+      <h3>永嘉文学</h3>
+<p>永嘉（307-313）为晋怀帝司马炽年号，西晋即将灭亡的大乱时期。伴随玄学兴起，诗坛刮起玄言诗风，《诗品》载"永嘉时，贵黄老，稍尚虚谈，于时篇什，理过其辞，淡乎寡味"。能摆脱玄言诗影响的有刘琨和郭璞。永嘉之乱后晋室南迁建立东晋，百余年间玄言诗占据诗坛。东西晋之际代表作家为慷慨悲歌的刘琨和以游仙诗为主导的郭璞，专述老庄哲理的代表为孙绰和许询。东晋末年山水诗兴起，陶渊明田园诗给晋宋之际诗坛带来新生机。</p>
+<p>刘琨（271-318）字越石，中山魏昌人，西汉中山靖王刘胜之后。工于诗赋，少有文名，为"二十四友"之一。八王之乱时效力诸王累迁并州刺史，永嘉之乱后据守晋阳九年抵御前赵后赵，晋愍帝即位拜司空大将军。并州为石勒所陷后投奔段匹磯约为兄弟，惨遭杀害。太兴三年平反追赠侍中太尉谥号愍。诗歌现存仅三首：四言《答卢谌》、五言《重赠卢谌》和《扶风歌》。风格以刚劲清拔之气抒写英雄失路之悲，独树一帜。《重赠卢谌》写于被段匹磯所拘后万念俱灰之时，"托意非常，摅畅幽愤"以激励卢谌，用太公望、留侯、重耳、小白等典故，结尾"何意百炼刚，化为绕指柔"成为千古名句。</p>
+<p>郭璞与游仙诗。游仙诗以"游仙"为名最早始于曹植，但题材可上溯战国时期。早期代表有曹操《气出唱》三首《精列》、曹植《五游咏》《远游篇》等。郭璞《游仙诗》今存19首其中9首为残篇，以文采富丽著称，辞藻华美。沈德潜评"辞多慷慨，近乎变雅""瑰伟非常"，钟嵘评"彪炳可玩"，刘勰评"景纯艳逸，足冠中兴"。思想内容上借游仙以咏怀，不仅描写仙人之迹亦多写隐逸生活，并非纯粹表达对仙境向往，而是抒发"坎壈咏怀"之情（人生际遇不顺的愤懑与感慨）。比兴寄托，借游仙达到精神超脱，以"隐"作为精神庇佑。代表诗句"京华游侠窟，山林隐遁栖。朱门何足荣，未若托蓬莱"。朱自清断定郭璞是第一位以游仙诗为主创作的诗人，继承《诗》《骚》比兴寄托传统。</p>
+    </section>
+    </section>
+
+    <section class="lv1" id="p3-c36">
+      <div class="chap">CHAPTER 04</div>
+      <h2 class="sh">四、考点梳理</h2>
+    <section class="lv2" id="p3-c37">
+      <h3>名词解释</h3>
+<ol><li id="p3-c38"><b>乐府诗：</b>汉代音乐管理机构采集配乐演唱的诗歌，郭茂倩《乐府诗集》分十二类，汉乐府核心精神为"感于哀乐，缘事而发"，标志着中国古代叙事诗的成熟。</li><li id="p3-c39"><b>建安风骨：</b>对建安文学风格的形象概括，诗歌情调慷慨悲凉，语言刚健爽朗，以曹氏父子、建安七子、蔡琰为代表。刘师培概括为清峻、通脱、骋词、华靡。</li><li id="p3-c40"><b>竹林七贤：</b>魏晋时期阮籍、嵇康、山涛、刘伶、阮咸、向秀、王戎七位名士的并称，不拘礼法，随性放达，喜好饮酒清谈，代表正始文学的最高成就。</li><li id="p3-c41"><b>左思风力：</b>钟嵘《诗品》对左思诗歌风格的概括，指笔力矫健、情调高亢、气势充沛，与建安风骨一脉相承，独立于当时华丽诗风之外。</li><li id="p3-c42"><b>古诗十九首：</b>东汉文人五言诗巅峰之作，被刘勰誉为"五言之冠冕"，非一人一时之作，表现建功立业、幻灭迷惘、生命思考、游子思妇四大主题。</li><li id="p3-c43"><b>游仙诗：</b>以游仙为题材的诗歌，郭璞为第一位以游仙诗为主创作的诗人，借游仙咏怀，继承《诗》《骚》比兴寄托传统。</li><li id="p3-c44"><b>太康文学：</b>西晋晋武帝太康年间（280-289）的文学，代表作家为"三张、二陆、两潘、一左"，钟嵘评为"文章之中兴"。</li><li id="p3-c45"><b>玄言诗：</b>永嘉至东晋时期盛行的一种诗歌，以阐述老庄哲理为主，"理过其辞，淡乎寡味"，代表作家为孙绰、许询。</li><li id="p3-c46"><b>潘江陆海：</b>西晋诗人潘岳与陆机的并称，形容二人文才如江海般丰沛，潘岳善写悼亡诗富于感情，陆机诗风繁缛善用华丽词藻。</li><li id="p3-c47"><b>洛阳纸贵：</b>左思《三都赋》写成后广为传抄，致使洛阳纸张价格上涨，后用以比喻作品广受欢迎、风行一时。</li></ol>
+    </section>
+    <section class="lv2" id="p3-c48">
+      <h3>问答题</h3>
+<ol><li id="p3-c49"><b>简述汉乐府诗的思想内容。答：</b>汉乐府"感于哀乐，缘事而发"，三大主题：（1）反映战争苦难与平民疾苦，如《东门行》《妇病行》《孤儿行》；（2）表现男女爱恨，大胆不掩饰，如《上邪》《有所思》《孔雀东南飞》；（3）坦率谈及乐生恶死，如《薤露》《蒿里》《战城南》及升仙幻想诗。</li><li id="p3-c50"><b>简述汉乐府叙事艺术成就。答：</b>（1）标志中国古代叙事诗成熟，出现第三人称叙事、完整情节和性格人物；（2）尚奇倾向（《战城南》《枯鱼过河泣》）；（3）情节完整（《孔雀东南飞》双线交错）；（4）人物刻画生动（罗敷机智、胡姬刚烈）；（5）语言质朴自然"质而不俚，浅而能深"；（6）现实主义精神影响深远。</li><li id="p3-c51"><b>简述古诗十九首的艺术特色。答：</b>（1）长于抒情，将叙事、写景、抒情融而为一；（2）继承诗骚比兴传统，以比兴象征曲婉传达深沉寄托；（3）语言浅近自然、明白晓畅而意蕴丰厚，"深衷浅貌"，高度概括且富有表现力；（4）叠字巧妙连用，双关语自然融入。</li><li id="p3-c52"><b>简述曹植的文学成就。答：</b>（1）钟嵘评"骨气奇高，词采华茂，情兼雅怨，体被文质"，达风骨与文采完美结合；（2）兼擅各类文体诗体，尤其长于五言，是第一位大力写作五言诗的文人；（3）使以叙事为主的乐府诗转为叙事和抒情紧密结合；（4）前期作品乐观浪漫（《白马篇》），后期作品忧生之嗟（《赠白马王彪》）。</li><li id="p3-c53"><b>简述嵇康的思想与文学风格。答：</b>核心思想"越名教而任自然""非汤武而薄周孔"，个性刚峻激烈、旷达狂放、鄙视权贵。诗歌现存53首以四言成就最高，表现追求自然高蹈独立的人生观。散文《与山巨源绝交书》说理透彻文词犀利。刘勰评"嵇志清峻"，钟嵘评"清远""峻切"。</li><li id="p3-c54"><b>简述左思《咏史诗》的创新之处。答：</b>传统咏史诗概括历史事件人物加以咏叹，左思则借史咏怀，抒发寒士不平之鸣，表现由热衷用世到放弃仕进的过程。何焯评"题云《咏史》，其实乃咏怀也"。风格豪放浑成，"左思风力"与建安风骨一脉相承。</li></ol>
+    </section>
+    <section class="lv2" id="p3-c55">
+      <h3>论述题方向</h3>
+<ol><li id="p3-c56">论述从汉乐府到建安文学的现实主义传统及其影响。答题要点：汉乐府"缘事而发"→曹操"借古题写时事"→杜甫"即事名篇"→白居易"歌诗合为事而作"→宋代以后。建安风骨的慷慨悲凉与汉乐府精神一脉相承，各时期代表作家作品的具体分析。</li><li id="p3-c57">论述三曹诗歌的各自特色及文学史地位。答题要点：曹操以乐府古题写时事的纪事特色；曹丕《燕歌行》开创七言闺怨诗先河及代言体影响；曹植"骨气奇高词采华茂"的风格、五言诗贡献及前后期创作变化。三人共同构成建安文学核心。</li><li id="p3-c58"><b>论述两汉至魏晋诗歌体式的演变。答题要点：</b>四言向杂言五言过渡的动因（乐曲声调、楚声、北狄西域乐、中土五言歌谣）；东汉文人五言诗发展（班固质木无文→张衡技巧提高→秦嘉成熟→古诗十九首巅峰）；七言诗萌生（《四愁诗》《燕歌行》）；魏晋南北朝五古高潮及七古发展。</li><li id="p3-c59">论述郭璞游仙诗的特征与文学史意义。答题要点：游仙诗溯源（曹植命名，战国题材）；郭璞为第一位以游仙诗为主创作的诗人；借游仙咏怀而非纯粹写仙境，抒发"坎壈"之情；比兴寄托继承《诗》《骚》传统；文采富丽"辞多慷慨，近乎变雅"；历代评价（沈德潜、钟嵘、刘勰、朱自清）。</li><li id="p3-c60"><b>论述魏晋南北朝文学自觉化的表现。答题要点：</b>文学独立成学科（与经学分离）；个人书写意识增强；文体分类与文笔之分；文学集团活跃（邺下文人、竹林七贤、二十四友）；文学批评兴起（《典论·论文》《文赋》《诗品》《文心雕龙》）；追求美的创造（"诗赋欲丽""诗缘情而绮靡"、四声发现、用事对偶）。</li></ol>
+    </section>
+    </section>
+      <div class="totop"><a href="#p3-c1">回到顶部</a></div>
+    </section>
+    <section class="view" id="p4" data-view="p4" data-label="第四篇" hidden>
+    <section class="lv1" id="p4-c1">
+      <div class="chap">CHAPTER 01</div>
+      <h2 class="sh">一、整体脉络</h2>
+<p class="lead">本篇笔记以时间为经、文学思潮和代表作家为纬，系统梳理东晋至齐梁文学发展，可分四大板块。</p>
+<p>第一板块为东晋文学。东晋104年间玄言诗盛行是其基本特征，代表作家孙绰、许询，诗味不浓但以景物表现哲理之作催化了山水诗兴起。王羲之兰亭之会及《兰亭集序》标志诗人开始留意山水审美，预示山水诗将兴。东晋末年陶渊明出现，开创田园诗新题材，将玄理改为日常哲理，将"自然"提升为美的至境，标志着古朴诗歌的高度。</p>
+<p>第二板块为南北朝民歌。南朝民歌清丽缠绵，多写爱情，以吴歌、西曲为主，《西洲曲》为艺术最高成就；北朝民歌粗犷豪放，广泛反映社会现实，《木兰诗》《敕勒歌》为代表。二者在内容、风格、手法、形式、用语上差异显著，根源在于地理环境、政治环境、民族性格等不同，但在现实主义精神、体制短小、口语创作等方面又有共同之处。</p>
+<p>第三板块为南朝诗风转变。刘勰"庄老告退，而山水方滋"概括从玄言诗到山水诗的转变。谢灵运第一位大力写作山水诗，完成玄言诗到山水诗的转变，精工富艳但存在玄言尾巴等不足。鲍照以寒士身份抒发不平，创制七言歌行，对唐诗影响深远。陶渊明结束一代诗风，谢灵运开启一代新诗风，二者嬗递反映两代诗风转变。</p>
+<p>第四板块为永明体与齐梁诗坛。齐梁时期以皇家为中心的诗人集团形成，诗歌偏重形式和技巧创新。沈约、谢朓、王融以四声制韵形成"永明体"，注重四声八病之说。四声发现源于传统音韵学发展、诗赋创作经验积累及佛经翻译考文审音。沈约提出"三易"说，谢朓将山水诗发展到情景交融境界。永明体为唐诗完善奠定基础。</p>
+    </section>
+
+    <section class="lv1" id="p4-c2">
+      <div class="chap">CHAPTER 02</div>
+      <h2 class="sh">二、重点知识点</h2>
+<ol><li id="p4-c3"><b>玄言诗：</b>东晋在玄学影响下流行的"寄言上德，托意玄珠"之作，代表孙绰、许询。以玄学方法体悟玄理，锺嵘评"理过其辞，淡乎寡味"，但以景物表现哲理之作催化山水诗兴起。流行原因：文人心态追求宁静闲适、玄学清谈盛行、佛教影响（玄释合流）。</li><li id="p4-c4"><b>兰亭之会与《兰亭集序》：</b>永和九年（353）三月三日王羲之等四十余人"修禊"饮酒赋诗。《兰亭集序》前半写山水之美与吟咏之乐，后半感叹人生短促，"死生亦大矣""固知一死生为虚诞，齐彭殇为妄作"。兰亭诗艺术水平不高，但标志诗人开始留意山水审美，预示山水诗兴起。</li><li id="p4-c5"><b>陶渊明：</b>开创田园诗新题材，将"自然"提升为美的至境，将玄理改为日常哲理。风格平淡自然与诗意淳美统一，情、景、理统一，另有豪迈雄健一面（"金刚怒目"式）。代表作《归园田居》《饮酒》《读山海经》《咏荆轲》《五柳先生传》《桃花源记》《归去来兮辞》。苏轼评"质而实绮，癨而实腴"，朱熹评"自豪放，但豪放得来不觉耳"。</li><li id="p4-c6"><b>田园诗与山水诗区别：</b>田园诗主体写农村生活、农夫和农耕；山水诗主要写自然风景，与行旅联系。陶渊明仅《游斜川》一首山水诗，田园诗是新增题材。</li><li id="p4-c7"><b>南朝乐府民歌：</b>保存于《乐府诗集·清商曲辞》，分吴歌（326首，以建康为中心的长江下游）和西曲（142首，以江陵为中心的长江中游和汉水流域）。绝大部分为情歌，体制小巧多五言四句，语言清新自然，大量运用双关语。《西洲曲》为艺术最高成就。</li><li id="p4-c8"><b>北朝民歌：</b>保存于《乐府诗集·横吹曲辞》的《梁鼓角横吹曲》，多为北魏以后作品，以鲜卑语歌辞居多后译为汉语。内容广泛：北方风光（《敕勒歌》）、征战行役（《陇头歌辞》）、豪侠尚武（《企喻歌辞》）、羁旅思乡、爱情婚姻等。《木兰诗》与《西洲曲》并称最高成就。</li><li id="p4-c9"><b>谢灵运：</b>第一位大力写作山水诗的诗人，完成从玄言诗到山水诗的转变。风格精工富艳，"寓目辄书"，移步换形。代表作《登池上楼》"池塘生春草，园柳变鸣禽"。不足：玄言尾巴、过度用典、雕琢过甚、情意压抑。钟嵘评"谢客为元嘉之雄"。</li><li id="p4-c10"><b>鲍照：</b>寒士出身，钟嵘评"才秀人微，故取湮当代"。创制七言歌行，打破句句押韵旧模式，以七言为主杂以其他句式，隔句用韵。代表作《拟行路难》十八首。风格俊逸豪放、奇矫凌厉，杜甫评"俊逸鲍参军"。题材涵盖边塞征戍、游子思妇、弃妇诗、百姓疾苦、山水诗等。</li><li id="p4-c11"><b>永明体：</b>齐武帝永明时期形成的诗体，又称新体诗。将音律声韵与对偶之风结合，注重四声八病之说。代表作家沈约、谢朓、王融等。四声发现源于传统音韵学发展、诗赋创作经验积累及佛经翻译考文审音。为唐诗奠定基础。</li><li id="p4-c12"><b>沈约：</b>永明体主要倡导者，提出为文"三易"说（易见事、易识字、易读诵），诗歌长于清怨，代表作《登玄畅楼》《别范安成》。齐梁文坛公认领袖。</li><li id="p4-c13"><b>谢朓（小谢）：</b>与谢灵运并以山水诗见长，曾任宣城太守。将山水诗发展到情景交融境界——谢灵运以景入理情与景割裂，谢朓以情观景由景入情，摆脱玄言成分，形成清新流丽风格。为"文章八友"之一，被萧遥光害死于狱中，卒年三十六。</li></ol>
+    </section>
+
+    <section class="lv1" id="p4-c14">
+      <div class="chap">CHAPTER 03</div>
+      <h2 class="sh">三、笔记正文</h2>
+    <section class="lv2" id="p4-c15">
+      <h3>（一）东晋文学概况与玄言诗</h3>
+<p>西晋亡于"八王之乱"及北方少数民族内侵。公元317年司马睿在建康即位，开启东晋。东晋104年玄言诗盛行是其基本特征，至东晋末年陶渊明出现才改变文坛面貌。玄言诗指在玄学思想影响下流行的"寄言上德，托意玄珠"之作，代表作家孙绰、许询，以玄学方法体悟玄理，诗味不浓，但以景物表现哲理之作为山水诗出现起催化作用。流行原因：文人心态——无力恢复中原，追求宁静闲适与脱俗潇洒；玄学清谈盛行；佛教影响（玄释合流）——名士与僧人交往甚密，但现存玄言诗中佛学痕迹不多。锺嵘《诗品序》评"理过其辞，淡乎寡味""皆平典似道德论，建安风力尽矣"。孙绰（314-371），字兴公，著《遂初赋》《天台山赋》，与许询为"一时名流"，自称情致不及许询而文才有余。《秋日诗》引《庄子·逍遥游》《论语·子罕》，如"垂纶在林野，交情远市朝。澹然古怀心，濠上岂伊遥"。</p>
+    </section>
+    <section class="lv2" id="p4-c16">
+      <h3>（二）王羲之与兰亭唱和</h3>
+<p>王羲之（303—361），字逸少，"书圣"，琅琊人后迁会稽山阴。兰亭之会：永和九年（353）三月三日，四十余人"修禊"饮酒赋诗。修禊起源于古人于三月上旬巳日在东流水上洗濯拔除不祥的习俗，后发展为暮春水边宴饮游嬉。《兰亭集序》前半写山川之美、饮酒吟咏之乐，后半由乐转悲感叹人生短促，核心感叹"死生亦大矣！岂不痛哉！""固知一死生为虚诞，齐彭殇为妄作。"兰亭诗艺术水平不高，但标志诗人开始留意山水审美并从山水中体悟玄理，预示山水诗将要兴起。</p>
+    </section>
+    <section class="lv2" id="p4-c17">
+      <h3>（三）陶渊明</h3>
+    <section class="lv3" id="p4-c18">
+      <h4>文学地位与贡献</h4>
+<p>陶诗沿袭魏晋古朴作风而进入更纯熟境地，标志古朴诗歌所能达到的高度。将"自然"提升为美的至境；将玄言诗注疏老庄的玄理改为日常生活中的哲理；使诗歌与日常生活结合，开创田园诗新题材；为后世士大夫筑起精神家园。</p>
+    </section>
+    <section class="lv3" id="p4-c19">
+      <h4>魏晋风流代表</h4>
+<p>《五柳先生传》《归去来兮辞》《归园田居》《时运》等为其艺术化人生的写照。辞去彭泽县令、对王弘的态度、抚弄无弦琴、葛巾漉酒等趣闻亦是其表现，酒是人生艺术化的媒介。据《文选·陶渊明传》：王弘欲识之不能致，命故人庞通之赍酒具于半道邀之；颜延之经过浔阳日造渊明饮，留二万钱悉遣送酒家；九月九日把菊坐，弘送酒至即酌醉归；蓄无弦琴一张，每酒适辄抚弄以寄其意；若先醉便语客"我醉欲眠，卿可去"，其真率如此。</p>
+    </section>
+    <section class="lv3" id="p4-c20">
+      <h4>作品结集与流传</h4>
+<p>梁萧统编《陶渊明集》并写序作传，已佚。今存宋代刻本均在此基础上重编。今存诗121首，赋、文、赞、述等12篇。研究传本有宋汤汉《陶靖节先生诗》、元李公焕《笺注陶渊明集》、清陶澍《陶靖节先生集》、逯钦立及袁行霈《陶渊明集笺注》等。诗歌按题材有不同分法：二类（田园、咏怀）、三类（田园、咏怀、哲理）、五类（田园、咏怀、咏史、行役、赠答）。</p>
+    </section>
+    <section class="lv3" id="p4-c21">
+      <h4>田园诗</h4>
+<p>主体写农村生活、农夫和农耕，是陶渊明为中国文学增添的新题材。《归园田居》其一写田园景物恬美与悠然心境，"羁鸟恋旧林，池鱼思故渊""久在樊笼里，复得返自然"为名句。其三写躬耕劳动与对真善美理想的执着追求，"晨兴理荒秽，带月荷锄归"为美好月夜归耕图，平淡中富于情趣。苏轼评"质而实绮，癨而实腴"，近藤元粹称"五古中之精金良玉"。《庚戌岁九月中于西田获早稻》说明自耕自给合乎人生大道，坚定躬耕决心。《怨诗楚调示庞主簿邓治中》以哀怨基调叙述不幸遭遇和饥寒贫困，对天地鬼神发生怀疑。</p>
+    </section>
+    <section class="lv3" id="p4-c22">
+      <h4>咏怀咏史诗</h4>
+<p>主要有《饮酒》《杂诗》《咏贫士》《读山海经》等，围绕出仕与归隐矛盾，表现壮志未遂的苦闷和不与统治者同流合污的品格。《读山海经》其一写隐居耕种之余泛览图书的乐趣，纯用白描。其十"精卫衔微木，将以填沧海。刑天舞干戚，猛志固常在"歌颂顽强斗争精神，寄托慷慨不平情怀。《咏荆轲》作于晋宋易代之后，歌咏荆轲刺秦王壮举，笔墨淋漓、慷慨悲壮，塑造铲强除暴英雄形象。</p>
+    </section>
+    <section class="lv3" id="p4-c23">
+      <h4>行役诗</h4>
+<p>宦游期间作品，主题为悲叹行役辛苦、表达对仕宦厌倦、诉说对田园的思念和归隐决心。如"目倦川途异，心念山泽居"（《始作镇军参军经曲阿作》）、"诗书敦宿好，林园无世情"（《辛丑岁七月赴假还江陵夜行涂口》）。</p>
+    </section>
+    <section class="lv3" id="p4-c24">
+      <h4>赠答诗</h4>
+<p>以真挚感情、家常内容、隽永意味、不火热也不冷淡的语调塑造仁厚长者形象。《停云》"霭霭停云，濛濛时雨"写相思之情，《答庞参军》有欢聚回顾、离别伤感、殷切叮咛，语重情深。</p>
+    </section>
+    <section class="lv3" id="p4-c25">
+      <h4>哲理诗</h4>
+<p>《形影神》《连雨独饮》《拟挽歌辞》，可视为玄言诗但与东晋流行的不同——是将生活中的体验提炼到哲学高度。</p>
+    </section>
+    <section class="lv3" id="p4-c26">
+      <h4>艺术特征之一：平淡自然与诗意淳美统一</h4>
+<p>胡应麟"开千古平淡之宗"。内容上写亲身经历、真情实感，不矫情不矫饰，真率自然。陈师道"渊明不为诗，写其胸中之妙耳"，施德操"随其所见，指点成诗"。手法上多用白描，用语通俗平易，平淡中见警策。元好问"一语天然万古新，豪华落尽见真淳"，苏轼"质而实绮，癨而实腴"。意境上很难找到奇特意象，是"境与意会"的产物，纯净淡泊之真境界。</p>
+    </section>
+    <section class="lv3" id="p4-c27">
+      <h4>艺术特征之二：情、景、理统一</h4>
+<p>《饮酒》其五"采菊东篱下，悠然见南山。山气日夕佳，飞鸟相与还。此中有真意，欲辨已忘言"，描写和谐静谧环境，体悟自然乐趣和人生真谛。王安石评"自有诗人以来，无此四句"，张戒评"此味不可及也"。南山永恒、山气美好、飞鸟自由（景）体现自然伟大圆满自在自足的本质（理），体现诗人平和淡泊怡然自得之情（情）。</p>
+    </section>
+    <section class="lv3" id="p4-c28">
+      <h4>艺术特征之三：豪迈雄健</h4>
+<p>鲁迅指出除"悠然见南山"外还有"精卫衔微木""刑天舞干戚""猛志固常在"之类的"金刚怒目"式。朱熹评"自豪放，但豪放得来不觉耳。其露出本相者，是《咏荆轲》一篇"。主要体现在咏史咏怀诗中，表现内心不平与愤激。</p>
+    </section>
+    <section class="lv3" id="p4-c29">
+      <h4>艺术渊源</h4>
+<p>钟嵘《诗品》"其源出于应璩，又协左思风力"，源于《古诗》又绍阮籍之遗音。</p>
+    </section>
+    <section class="lv3" id="p4-c30">
+      <h4>散文与辞赋</h4>
+<p>散文记传赞述五篇和疏祭文四篇，辞赋三篇。《五柳先生传》写"不戚戚于贫贱，不汲汲于富贵"品格，引黔娄之妻言（黔娄为战国齐人，坚辞不受宰相和卿之聘）。《桃花源记》作于刘裕废杀晋恭帝之后，借助创作寄托政治理想与美好情趣。</p>
+    </section>
+    <section class="lv3" id="p4-c31">
+      <h4>文学史地位与影响</h4>
+<p>当时仅以隐士著称，文学创作未获高度评价，平淡风格与崇尚华丽不合。萧统首位发现其文学价值，至宋朝经苏轼、朱熹弘扬及汤汉诠释才确立崇高地位。是中国士大夫精神归宿，"不为五斗米折腰"成精神堡垒，白居易、苏轼、陆游、辛弃疾等均受影响。第一个把田园生活带进诗中，创造平淡自然而韵味隽永的风格，出现"拟陶""和陶"作品。沈德潜评唐人祖述者：王维清腴、孟浩然闲远、储光羲朴实、韦应物冲和、柳宗元峻洁。</p>
+    </section>
+    <section class="lv3" id="p4-c32">
+      <h4>意象与象征</h4>
+<p>酒助成物我两忘境界，菊成象征高情远致意象，"孤云"为孤独者自白（"万族各有托，孤云独无依"）。</p>
+    </section>
+    </section>
+    <section class="lv2" id="p4-c33">
+      <h3>（四）南朝乐府民歌</h3>
+<p>保存于郭茂倩《乐府诗集·清商曲辞》，分吴歌（326首，以建康为中心的长江下游，多为女子吟唱）和西曲（142首，以江陵为中心的长江中游和汉水流域，多写商人妇离别和劳动者爱情，风格较明快）。绝大部分为情歌，主题狭窄。形式特点：体制小巧多五言四句，语言清新自然（《大子夜歌》"慷慨吐清音，明转出天然"），大量运用双关语——同音异字（藕/偶、莲/怜、丝/思、碑/悲、篱/离）和同音同字（匹、散、关、苦）。</p>
+<p>情歌为主的原因：南朝统治者采集民歌为满足纵情声色需要（宋后废帝太乐千余人、齐武帝后宫万余人、梁武帝自择吴声西曲女妓等）；江南自然环境优美、经济充裕，民歌多产生于城市，出自商贾、妓女、船户和市民之口。重要吴声歌曲有《子夜歌》（42首）、《子夜四时歌》（75首）、《华山畿》（25首）、《读曲歌》（89首），风格艳丽柔弱、哀怨缠绵。西曲如《石城乐》《莫愁乐》《那呵滩》（男女对唱）、《拔蒲》（与《诗经·卷耳》异曲同工），情调开朗明快。</p>
+<p>《西洲曲》为《杂曲歌辞》中抒情长诗，可能经文人加工，写青年女子相思之情，穿插季节景物变化和女主人公活动描绘，细腻缠绵而委婉含蓄。四句一换韵，运用连珠格修辞法，形成回环婉转旋律。沈德潜评"续续相生，连跗接萼，摇曳无穷，情味愈出"，为南朝民歌艺术性最高一篇。</p>
+    </section>
+    <section class="lv2" id="p4-c34">
+      <h3>（五）北朝民歌</h3>
+<p>保存于《乐府诗集·横吹曲辞》的《梁鼓角横吹曲》，多为北魏以后作品，原大都是北方少数民族歌唱，以鲜卑语居多后译为汉语，是北方各民族共同创造的文化硕果。《敕勒歌》反映游牧生活，描绘北国草原辽阔壮美："天苍苍，野茫茫，风吹草低见牛羊。"敕勒即高车族，北齐斛律金所唱，本鲜卑语译为齐言。元好问评"慷慨悲歌绝不传，穹庐一曲本天然"，胡应麟评"浑朴苍茫暗合前古"。《陇头歌辞》描绘北方旅人艰苦："念吾一身，飘然旷野""寒不能语，舌卷入喉"。豪侠尚武精神："健儿须快马，快马须健儿"（《折杨柳歌辞》）、"新买五尺刀，一日三摩挲"（《琅琊王歌辞》），女子亦不让须眉（《李波小妹歌》"妇女尚如此，男子那可逢"）。战争题材有《陇上歌》等，思乡之作有"鹿鸣思长草，愁人思故乡"等，反映疾苦的如"长嘴饱满短嘴饥"。爱情婚姻题材坦率直截，与南朝缠绵婉转不同。《木兰诗》艺术特点：描写有繁有简、剪裁详略得当（出征准备和归来详写，战场以"朔气传金柝，寒光照铁衣"数语带过）；通过行动和气氛烘托刻画心理性格，叙事与抒情结合；善用排比对偶问答句式，生动活泼、清新刚健，不失民歌本色。</p>
+    </section>
+    <section class="lv2" id="p4-c35">
+      <h3>（六）南北朝民歌比较</h3>
+<p>区别：内容上南曲几乎清一色情歌，北歌还写大漠风光、征战行役、羁旅乡思等；风格上南曲婉约绮靡缠绵哀怨，北歌豪放粗犷坦率爽朗；手法上南曲多用双关象征暗示，北歌多袒露直率；形式上南曲多为整齐四言五言，北歌灵活运用四五七言和杂言；用语上南曲绮丽精工，北歌质朴刚健。差异原因：地理环境（最重要）、政治环境、民族性格、文化背景、生活习俗不同。共同之处：现实主义精神一脉相承；体制短小以五言四句最常见；都用口语创作生活气息浓郁；内容多偏重爱情婚姻。</p>
+    </section>
+    <section class="lv2" id="p4-c36">
+      <h3>（七）南朝诗风转变与谢灵运</h3>
+<p>三关说（曹植）以元嘉、元和、元祐为诗运转关。南朝"性情渐隐，声色大开"，"庄老告退，而山水方滋"，谢灵运把诗从玄言诗中解放出来。山水诗兴盛原因：自然审美观念变化（魏晋士人发现自然之美并拟人化）；文人士大夫崇尚山林隐逸；相对安定社会环境（江南经济发展士族大造别墅）；文学自身发展（曹操《观沧海》为第一首较完整山水诗，五言诗成熟）；直接来源于玄言诗启迪。</p>
+<p>谢灵运是带有悲剧色彩的人物，个性坦率任性、狂傲不羁，自恃高门在晋宋易代之际常怀不平，"为性偏激，多欲礼度"，进退失据"在魏阙则念江湖，在江湖则怀魏阙"。与会稽太守孟𫖮不和乃至冲突，被上疏谓有"异志"。后任临川内史不理政务，兴兵叛逸赋诗"韩亡子房奋，秦帝鲁连耻"，终被文帝诏于广州行弃市刑，终年四十九岁。其诗歌创作实与这种心态个性相联。</p>
+<p>山水诗特点：精工富艳——意象密集，对偶句多，语言深奥典雅；"寓目辄书"，移步换形。刘勰"情必极貌以写物，辞必穷力而追新"。风格基调明朗奔放，"东海扬帆，风日流丽"。代表作《石壁精舍还湖中作》"山水含清晖"、《登池上楼》"池塘生春草，园柳变鸣禽"。不足：玄言尾巴（末尾拖着玄言说理尾巴损害意境）、过度用典、雕琢过甚（有句无篇）、情意压抑（反映高门士族精神风貌，缺乏建安激情和正始狂放）。地位：第一位大力写作山水诗的诗人，完成玄言诗到山水诗转变。直接影响谢朓、鲍照等，间接影响唐代王维、孟浩然、李白。钟嵘"谢客为元嘉之雄"，《文选》收录其诗四十首（刘宋最多）。陶渊明结束一代诗风，谢灵运开启一代新诗风，二者嬗递反映两代诗风转变。</p>
+    </section>
+    <section class="lv2" id="p4-c37">
+      <h3>（八）鲍照</h3>
+<p>在豪门士族压抑下蹀躞垂翼、有志难伸，沉沦下僚贫病交迫。钟嵘"才秀人微，故取湮当代"。诗歌内容为表现建功立业愿望和抒发寒士备受压抑痛苦，充满对门阀社会的不满与抗争。《拟行路难》其四"泻水置平地"突出"愁"字，平淡外表下蕴含深沉激越感情，沈德潜评"妙在不曾说破，读之自然生愁"。其六"对案不能食，拔剑击柱长叹息""自古圣贤尽贫贱，何况我辈孤且直"比其四直露但并非一泻到底，有张有弛波澜顿挫。音节安排：开首七言长调、中间五言短句、收煞两个长句，节奏相应于情感旋律变化。</p>
+<p>艺术特色：感情起伏跌宕富于变化；韵律上结合隔句用韵不再句句押韵；句式以七言为主长短句结合。风格《南史》"遒丽"，杜甫"俊逸"。题材分类：边塞征戍（《代出自蓟北门行》与建安诗风接近）；游子思妇（哀怨凄怆）；弃妇诗（《代白头吟》一变凄楚情调，对世道人心深刻揭示讽刺，寓有对执政者讥刺）；反映百姓疾苦（《拟古》其六与国风汉魏乐府一脉相承）；山水诗（五言古诗，深秀幽奇严整厚重）。"险俗"风格：《南齐书》"发唱惊挺，操调险急，雕藻淫艳"。"俗"指大量写作征夫思妇及下层士人生活，形式上学习民歌刚健清新风格少用典；"险"指能用新奇想象和独特语汇创造别开生面意境。贡献：七言歌行创制者（打破句句押韵节奏单一，以七言为主杂以其他句式，隔句用韵，对李白颇有影响）；对边塞诗创新（增加边塞风物和征人边愁）。影响：杜甫"俊逸鲍参军"，敖器之"饥鹰独出，奇矫无前"，陆时雍"如五丁凿山"，刘熙载"明远惊遒绝人"。</p>
+    </section>
+    <section class="lv2" id="p4-c38">
+      <h3>（九）永明体与齐梁诗坛</h3>
+<p>中国古代诗歌声律之美经历从自然声律到人为规定施之于创作的过程。齐梁后诗格局新变化：形成以皇家为中心的诗人集团，宫廷诗人将民间情歌引入宫廷大量模仿，偏重对女性审美观照和宫室器物服饰描写，南朝诗歌更偏重艺术形式和技巧创新，为唐诗完善奠定基础。永明体是齐武帝永明时期形成的诗体（又称新体诗），将音律声韵与对偶之风结合，注重四声八病之说。代表作家沈约、谢朓、王融、范云、江淹及何逊、吴均、阴铿。《南齐书·陆厥传》载沈约、谢朓、王融以气类相推毂，周颙善识声韵，以平上去入为四声制韵，世呼"永明体"。</p>
+<p>四声发现：齐梁声律论产生前诗赋已讲声韵（陆机、范晔已提出音声变化和谐要求），但多为自然声韵且与音乐有关。随五言古诗脱离乐府独立发展为不入乐徒歌，摆脱对乐律依附创造诗之声律成为必然。发现原因：传统音韵学发展（孙炎《尔雅音义》、李登《声类》、吕静《韵集》）；诗赋创作经验积累；佛经翻译考文审音（沈括"及竺梵学入中国，其术渐密"）。意义：使诗人具有声律自觉意识；矫正晋宋以来语言艰沉之弊转向清新通畅；篇幅限制促进明净凝练作品出现，对唐诗语言风格产生深远影响。弊端：要求太高，沈约自言"老夫亦不尽辨此"。</p>
+<p>沈约出身世居江东的世族，早年流寓孤贫发愤向学，四十岁后仕途顺畅，齐梁文坛公认领袖。贡献：永明体主要倡导者；较早论及"情""文""质"关系；提出"三易"说（易见事、易识字、易读诵）。诗歌长于清怨，风格朴素无造作，《登玄畅楼》《别范安成》为代表，"一片真气流出，句句转，字字厚，去十九首不远"。谢朓（464—499），字玄晖，与谢灵运并以山水诗见长世称"小谢"，曾任宣城太守。与沈约、王融等为"文章八友"，依附竟陵王萧子良。明帝时颇受重用，因告发岳父王敬则谋反有功升尚书吏部郎，后得罪萧遥光被害死于狱中，卒年三十六，带有悲剧性。创作思想主导为对禄位留恋、对仕途忧惧和对明帝感激。对山水诗发展：谢灵运以景入理情与景割裂，谢朓以情观景由景入情达到情景交融，摆脱玄言成分，形成清新流丽风格。代表作《晚登三山还望京邑》《之宣城郡出新林浦向板桥》。</p>
+    </section>
+    </section>
+
+    <section class="lv1" id="p4-c39">
+      <div class="chap">CHAPTER 04</div>
+      <h2 class="sh">四、考点梳理</h2>
+    <section class="lv2" id="p4-c40">
+      <h3>（一）名词解释</h3>
+<ol><li id="p4-c41"><b>玄言诗：</b>东晋在玄学影响下流行的诗歌，"寄言上德，托意玄珠"，代表孙绰、许询。锺嵘评"理过其辞，淡乎寡味"，以景物表现哲理之作催化山水诗兴起。</li><li id="p4-c42"><b>兰亭之会：</b>永和九年（353）三月三日王羲之等四十余人"修禊"饮酒赋诗，《兰亭集序》标志诗人开始留意山水审美，预示山水诗兴起。</li><li id="p4-c43"><b>田园诗：</b>陶渊明开创的诗歌新题材，主体写农村生活、农夫和农耕，与写自然风景的山水诗不同。</li><li id="p4-c44"><b>吴歌与西曲：</b>南朝乐府民歌两类。吴歌326首产生于以建康为中心的长江下游；西曲142首产生于以江陵为中心的长江中游和汉水流域，风格较明快。</li><li id="p4-c45"><b>《西洲曲》：</b>南朝民歌艺术性最高一篇，写女子相思，四句一换韵，运用连珠格，沈德潜评"续续相生，连跗接萼，摇曳无穷"。</li><li id="p4-c46"><b>《木兰诗》：</b>北朝民歌代表作，与《西洲曲》并称最高成就。叙事诗而抒情成分浓，剪裁详略得当，善用排比对偶问答，不失民歌本色。</li><li id="p4-c47"><b>永明体：</b>齐武帝永明时期形成的诗体（新体诗），将音律声韵与对偶结合，注重四声八病，代表沈约、谢朓、王融等，对近体诗形成有很大影响。</li><li id="p4-c48"><b>四声八病：</b>沈约等人提出的声律理论，四声为平上去入，八病为应避免的八种声律毛病。发现源于音韵学发展、诗赋经验积累、佛经翻译考文审音。</li><li id="p4-c49"><b>三易说：</b>沈约提出，即易见事、易识字、易读诵，主张文章通俗易懂。</li><li id="p4-c50"><b>大小谢：</b>谢灵运（大谢）第一位大力写作山水诗以景入理；谢朓（小谢）将山水诗发展到情景交融境界，形成清新流丽风格。</li><li id="p4-c51"><b>七言歌行：</b>鲍照创制，打破句句押韵旧模式，以七言为主杂以其他句式，隔句用韵，崇尚奔放美，对李白等颇有影响。</li></ol>
+    </section>
+    <section class="lv2" id="p4-c52">
+      <h3>（二）问答题</h3>
+<ol><li id="p4-c53"><b>简述玄言诗流行原因及文学史意义。要点：</b>原因——文人心态追求宁静闲适、玄学清谈盛行、佛教影响（玄释合流）；意义——以景物表现哲理之作催化山水诗兴起。</li><li id="p4-c54"><b>简述陶渊明诗歌艺术特征。要点：</b>平淡自然与诗意淳美统一（白描、通俗平易、平淡中见警策）；情、景、理统一（情趣与理趣并存）；豪迈雄健的另一侧面（"金刚怒目"式，朱熹"自豪放但豪放得来不觉耳"）。</li><li id="p4-c55"><b>简述陶渊明文学史地位与影响。要点：</b>开创田园诗新题材；当时仅以隐士著称，萧统首位发现其价值，宋朝经苏轼朱熹弘扬确立地位；是士大夫精神归宿，"不为五斗米折腰"成精神堡垒；影响王维、孟浩然、韦应物、柳宗元等。</li><li id="p4-c56"><b>比较南北朝民歌异同。要点：</b>区别在内容、风格、手法、形式、用语五方面；差异原因在地理环境（最重要）、政治环境、民族性格、文化背景、生活习俗；共同点在现实主义精神、体制短小、口语创作、偏重爱情婚姻。</li><li id="p4-c57"><b>简述《木兰诗》艺术特色。要点：</b>描写有繁有简剪裁详略得当；通过行动和气氛烘托刻画心理性格，叙事与抒情结合；善用排比对偶问答句式，不失民歌本色。</li><li id="p4-c58"><b>简述谢灵运山水诗特点与不足。要点：</b>特点——精工富艳、"寓目辄书"、移步换形、明朗奔放；不足——玄言尾巴、过度用典、雕琢过甚、情意压抑。</li><li id="p4-c59"><b>简述鲍照诗歌艺术特色与贡献。要点：</b>风格俊逸豪放奇矫凌厉；感情起伏跌宕，隔句用韵，七言为主长短句结合；贡献——创制七言歌行、创新边塞诗；"险俗"风格内涵。</li><li id="p4-c60"><b>简述永明体产生原因及意义。要点：</b>原因——音韵学发展、诗赋经验积累、佛经翻译考文审音；意义——声律自觉意识、矫正语言艰沉转向清新通畅、促进明净凝练、为唐诗奠定基础。</li></ol>
+    </section>
+    <section class="lv2" id="p4-c61">
+      <h3>（三）论述题方向</h3>
+<ol><li id="p4-c62">论述从陶渊明到谢灵运的诗风转变及其文学史意义。可从"性情渐隐，声色大开"切入，论述陶渊明结束一代诗风（古朴平淡、田园题材、情景理统一）与谢灵运开启一代新诗风（精工富艳、山水题材、寓目辄书）的嬗递，分析二者对盛唐诗风形成的积极意义。</li><li id="p4-c63">论述陶渊明诗歌中"平淡自然"与"豪迈雄健"两种风格的统一。结合具体作品分析，引鲁迅"金刚怒目"说和朱熹"自豪放，但豪放得来不觉耳"评语，论述咏史咏怀诗中的不平与愤激。</li><li id="p4-c64">论述南北朝民歌差异的成因及其文化意义。从地理环境（最重要）、政治环境、民族性格、文化背景、生活习俗等方面深入分析，结合具体作品说明南曲婉约绮靡与北歌豪放粗犷的对比。</li><li id="p4-c65">论述鲍照"险俗"风格的内涵及其文学史地位。从"俗"（写征夫思妇下层士人，学习民歌）和"险"（新奇想象独特语汇）展开，结合七言歌行创制和边塞诗创新，论述其对唐诗的影响。</li><li id="p4-c66">论述永明体产生的历史必然性及其对近体诗形成的影响。从自然声律到人为声律的发展、四声发现的三个原因、永明体的意义与弊端展开，论述其对唐诗艺术完善的基础作用。</li></ol>
+    </section>
+    </section>
+      <div class="totop"><a href="#p4-c1">回到顶部</a></div>
+    </section>
+</main>
+</div>
+
+<footer>古代文学笔记（合订本）· 由 md 脚本转换生成 · SPA 单页 · 跨篇搜索 · 树形目录</footer>
+
+<script src="script-main.js"></script>
+<script src="script-anim.js"></script>
+</body>
+</html>
