@@ -242,8 +242,10 @@ function activate(name,scrollTop){
   VIEWS.forEach(function(v){var el=$(v);if(el)el.hidden=(v!==name);});
   [].forEach.call(nav.querySelectorAll('.tree-part'),function(tp){
     tp.hidden=(tp.getAttribute('data-part')!==name);});
+  /* 篇标签用独立的 cur 类：模板 hl() 与移植 spy() 都会重排 #nav 链接上的 on 类，
+     若共用 on 则在篇章内一滚动，当前篇标签就会被清掉（主页因 spy 提前返回而幸存） */
   [].forEach.call(nav.querySelectorAll('.ptab'),function(t){
-    t.classList.toggle('on',t.getAttribute('data-v')===name);});
+    t.classList.toggle('cur',t.getAttribute('data-v')===name);});
   if(scrollTop)window.scrollTo(0,0);
   spy();
 }

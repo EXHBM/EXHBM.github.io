@@ -412,7 +412,7 @@ footer{border-top:1px solid var(--bd);margin-top:24px;padding:24px 30px 48px;
 .ptab{font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--bd2);color:var(--text2);
   text-decoration:none;transition:all .18s ease}
 .ptab:hover{border-color:var(--pri);color:var(--pri)}
-.ptab.on{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.ptab.cur{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
 /* home 视图（古文笔记主页） */
 #home .wrap{max-width:680px;margin:0 auto;padding:36px 8px 60px}
 #home h1{font-size:24px}
