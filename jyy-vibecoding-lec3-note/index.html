@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>软件仓库管理 · 生成式软件工程第三课笔记</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="navmask" id="navMask"></div>
+
+<div class="topbar">
+  <button onclick="location.href='../index.html'" title="返回主页">⌂ <span class="bt">主页</span></button>
+  <button class="btn-nav" id="btnNav" type="button" aria-label="目录">目录</button>
+  <div class="tbox">
+    <div class="ttl">软件仓库管理</div>
+    <div class="sub">生成式软件工程-第三课笔记</div>
+  </div>
+  <div class="sp"></div>
+</div>
+
+<div class="layout">
+
+  <aside class="side" id="side">
+    <div class="search">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/>
+      </svg>
+      <input id="q" type="search" placeholder="搜正文…" autocomplete="off">
+    </div>
+    <nav class="toc" id="toc">
+      <p class="toc-h">目录</p>
+      <a href="#s03">0.3 引入</a>
+      <a href="#s1">1 开始构建一个软件项目</a>
+      <a href="#s10" class="l2">1.0 概念与理解</a>
+      <a href="#s11" class="l2">1.1 一个真正的项目</a>
+      <a href="#s12" class="l2">1.2 版本控制</a>
+      <a href="#s13t">图 2 页首随记</a>
+      <a href="#s13">1.3 Git 简介</a>
+      <a href="#s13a" class="l2">A 两个问题</a>
+      <a href="#s13b" class="l2">B How to?</a>
+      <a href="#s13c" class="l2">Best Practice</a>
+      <a href="#s14t">图 3 页首 Tips</a>
+      <a href="#s14">1.4 Git 的优势</a>
+      <a href="#s15">1.5 Git with AI Agent</a>
+      <a href="#s16">1.6 Hooks（钩子）</a>
+      <a href="#s17">1.7 Git 的本质</a>
+      <a href="#s18">1.8 Git Best Practice</a>
+    </nav>
+  </aside>
+
+  <main class="content" id="content">
+
+    <h1>软件仓库管理</h1>
+    <p class="center">生成式软件工程-第三课笔记 · 手写稿版式重排（修订稿）</p>
+
+    <h2 class="first" id="s03">0. 引入</h2>
+
+    <div class="flow">
+      <div class="flow-main">
+        <span class="lbl">软件的意义：</span>
+        开放的
+        <span class="mono">intent</span>
+        <span class="arw">⟶</span>
+        <span class="mono">spec</span>
+        <span class="arw">⇒</span>
+        <span class="mono">impl</span>
+      </div>
+      <div class="flow-sub"><span class="arw">↳</span>
+        <span class="mono">意图漂移</span>
+      </div>
+    </div>
+
+    <div class="float-note">
+      <p>Trend：AI 的代码，越来越紧凑，可读性↓，人类难以看懂、难以维护。</p>
+    </div>
+
+    <p class="mark">更危险</p>
+
+    <h2 id="s1">1 开始构建一个软件项目</h2>
+
+    <h3 id="s10">1.0 创造力需要正确的（对世界、领域知识）概念和理解</h3>
+    <div class="lv2">
+      <p class="line">
+        <span class="lbl mono">e.g.</span>
+        智驾相比过去已经更复杂，但是也不需要现在开车的人懂原理懂维修。
+      </p>
+      <p class="line">
+        <span class="lbl mono">(e)</span>
+        只需要有Harness的能力，也就是学会驾驭。
+      </p>
+    </div>
+
+    <h3 id="s11">1.1 开始构建一个真正的软件项目</h3>
+
+    <div class="tree">
+      <div class="tree-row">
+        <span class="mark-l">一个目录</span>
+        <span class="mono dir">/main</span>
+      </div>
+
+      <div class="tree-grp">
+        <div class="brace"></div>
+        <div class="tree-body">
+          <p class="file"><span class="mono">.spec.md</span></p>
+          <p class="file"><span class="mono">agents.md</span></p>
+          <p class="file"><span class="mono">scripts.py</span></p>
+          <p class="file"><span class="mono">intent.md</span></p>
+          <p class="file"><span class="mono">README.md</span>
+            <span class="arw">→</span>
+            especially gh / gitlab 等
+          </p>
+        </div>
+        <div class="tree-anno">
+          <p class="anno-main">一组文件 <span class="arw">→</span> 一个可交付的东西</p>
+        </div>
+      </div>
+
+      <div class="tree-down"><span class="arw down">↓</span></div>
+      <div class="tree-row">
+        <span class="mono">/build</span>
+        <span class="arw">→</span>
+        <span class="mono">npm run dev / .exe</span>
+      </div>
+      <div class="tree-row sub">
+        <span class="mono app">(app)</span>
+      </div>
+    </div>
+
+    <p class="cap">目录清单里的文件名与数量为照抄原稿；首行其实是 <span class="mono">.spec.md</span>，原稿那一处是涂改痕、不是省略号。</p>
+
+    <h3 id="s12">1.2 版本控制</h3>
+
+    <div class="cmp">
+      <div class="cmp-row">
+        <div class="cmp-l">
+          <p class="line"><span class="lbl">过去（no git）</span></p>
+        </div>
+        <div class="cmp-m">
+          <span class="mono">All project</span>
+          <span class="brace sm"></span>
+          <div class="cmp-files">
+            <p class="mono">/ver1</p>
+            <p class="mono">/ver1.1</p>
+            <p class="mono">/ver1.1-2026-2</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-fig">
+        <p><span class="arw down">↓</span></p>
+        <p><span class="mono">What happened</span></p>
+        <p><span class="mono">when update</span></p>
+        <p>要靠人自己记。</p>
+        <p>（文件级的人不一定记，也不一定能记。）</p>
+      </div>
+
+      <div class="cmp-row">
+        <div class="cmp-l">
+          <p class="line"><span class="lbl">现在 git</span></p>
+        </div>
+        <div class="cmp-m">
+          <span class="brace sm"></span>
+          <div class="cmp-files">
+            <p class="mono">/main <span class="arw">–</span> git <span class="brace mini"></span></p>
+            <p class="sub-files"><span class="mono">clone</span> · <span class="mono">checkout</span> · <span class="mono">pull</span> · <span class="mono">commit</span></p>
+            <p class="mono">/build</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="line"><span class="arw">←</span>
+      可查任何版本。任何变更、可合并、快照不堆积
+    </p>
+
+    <h2 id="s13t">图 2 页首随记</h2>
+    <div class="lv2">
+      <p class="line"><span class="lbl">Tips：</span>
+        学习意识
+        <strong class="mono imp">more and more Important</strong>
+      </p>
+      <p class="line">
+        [gh 项目、公众号排版文满天飞；deepseek几秒出速览；费曼学习法不再需要一个真人来配合。]
+      </p>
+      <p class="line"><span class="lbl mono">But</span>
+        <span class="mono">AI-slop</span>
+        <span class="arw">vs.</span>
+        <span class="mono">pro-Agent</span>
+        老项目
+        <span class="lbl mono">(e.g.</span> <span class="mono">README</span><span class="lbl mono">)</span>
+      </p>
+      <p class="line">看的多了就会有感觉。</p>
+      <p class="line">「浏览」→ 具体问题</p>
+      <p class="line">思索性探索：</p>
+      <p class="line i2">我能不能实现？是更好 / 便宜？</p>
+      <p class="line i2">是怎么实现的？应该怎么实现？</p>
+      <p class="line i2">为什么能跑通</p>
+      <p class="line i2">脑中过一遍再看具体实现方式 ｜ 关注并抓住细节深挖</p>
+    </div>
+
+    <h2 id="s13">1.3 Git 简介 <span class="cx">（原稿旁注：见 1.7）</span></h2>
+
+    <h3 id="s13a">A　Two Questions：Why Git? How to? And What?</h3>
+    <div class="lv2">
+      <p class="line"><span class="lbl">①</span> <span class="mono">why you should learn?</span></p>
+      <p class="line i2"><span class="lbl mono">e.g.</span> <span class="mono">What is git?</span> <span class="arw">vs.</span> <span class="mono">What'll happen when merge conflict?</span></p>
+      <p class="line i2"><span class="mono">pre-git</span> <span class="arw">vs</span> <span class="mono">git</span>　<span class="cx">（见 1.2 对比图）</span></p>
+      <p class="line"><span class="lbl">②</span> <span class="mono">why git?</span>　人和 <span class="mono">Agent</span> 都会犯错 <span class="arw">→</span> 项目级回溯 <span class="mono">Needed</span></p>
+    </div>
+
+    <h3 id="s13b">B　How to?</h3>
+    <div class="cmd">
+      <div class="cmd-lines">
+        <p class="line"><span class="mono">git init</span>
+          <span class="arw">→</span>
+          得到一个可操作的GitRepo。
+        </p>
+        <p class="line"><span class="mono">git repo</span> 得到
+          <span class="mono">but only empty /git</span>
+        </p>
+        <p class="line"><span class="mono">git add</span> <span class="mono">hello.py</span></p>
+        <p class="line"><span class="mono">git status</span></p>
+        <p class="line dim"><span class="mono">----</span>（输出）</p>
+        <p class="line"><span class="mono">~ git commit -m "message"</span>
+          （提交信息写法）
+        </p>
+      </div>
+      <div class="cmd-tail">
+        <div class="cmd-tail-l">
+          <p class="line">与 <span class="mono">Agent</span> 协作的 <span class="mono">git</span> 做中学
+            <span class="arw">→</span> 追问是否符合 <span class="mono">best practice</span>
+          </p>
+          <p class="line"><span class="mono">or even agents.md</span> 落盘</p>
+        </div>
+        <div class="cmd-tail-r">
+          <p>（有 <span class="mono">best practice</span>）</p>
+          <p>不让 <span class="mono">Agent</span> 完全代劳。</p>
+          <p>每次！记录改动！</p>
+          <p class="mt">Tips：学会追问</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <svg viewBox="0 0 660 240" role="img" aria-label="Git 时间轴：V1、V2、V3 三个版本节点，段间是 commit，V2 下挂着 Tag">
+        <path class="ink" d="M40,124 L620,124" fill="none"/>
+        <path class="ink" d="M44,118 L36,124 L44,130" fill="none"/>
+        <path class="ink" d="M616,118 L624,124 L616,130" fill="none"/>
+        <path class="ink" d="M240,124 L240,86" fill="none"/>
+        <path class="ink" d="M234,94 L240,84 L246,94" fill="none"/>
+        <text class="m msg" x="240" y="72">fix: prevent crash on load</text>
+        <path class="ink" d="M438,124 L438,86" fill="none"/>
+        <path class="ink" d="M432,94 L438,84 L444,94" fill="none"/>
+        <text class="m msg" x="435" y="72">feat: add CSV export</text>
+        <circle class="dot" cx="150" cy="124" r="25"/>
+        <circle class="dot" cx="330" cy="124" r="25"/>
+        <circle class="dot" cx="540" cy="124" r="25"/>
+        <text class="m" x="150" y="130">V1</text>
+        <text class="m" x="330" y="130">V2</text>
+        <text class="m" x="540" y="130">V3</text>
+        <path class="ink" d="M296,150 L296,180 L364,180 L364,150" fill="none"/>
+        <text class="m" x="330" y="200">Tag：v0.0.1</text>
+        <text class="m dim" x="330" y="232">整条线 ＝ Git 可以记录改动、保存快照、做版本管理</text>
+      </svg>
+      <p class="cap">线上每个圈 ＝ 一个版本节点（V1 / V2 / V3）；两点之间 ＝ 一次 commit，写的就是这次 commit 的 message；V2 下面挂的括号 ＝ 给某个版本打的 <span class="mono">Tag</span>；左右两端都能继续 commit。</p>
+      <p class="cap">commit message 按 Git 惯例写：<span class="mono">type: 说明</span>，常用 <span class="mono">feat</span>（新功能）/ <span class="mono">fix</span>（修 bug）/ <span class="mono">docs</span> / <span class="mono">refactor</span> / <span class="mono">chore</span>；用祈使句（<span class="mono">Add…</span> 而不是 <span class="mono">Added…</span>），首行 50 字符以内，末尾不加句号。也就是 <span class="mono">git commit -m "fix: prevent crash on load"</span> 这种。</p>
+    </div>
+
+    <h3 id="s13c">Best Practice</h3>
+    <div class="bst">
+      <p class="line">
+        经验教训 ｜ 对旧设计无法容忍的产物
+      </p>
+      <p class="line i2">
+        <span class="lbl mono">(e.g.</span>
+        不传 /build，不传 api-key
+        <span class="lbl mono">)</span>
+      </p>
+      <p class="line ps">
+        <span class="lbl mono">ps.</span>
+        「项目里有什么」和「项目共同需要什么？」是两件事
+      </p>
+    </div>
+
+    <h2 id="s14t">图 3 页首 Tips</h2>
+    <p class="line"><span class="lbl">Tips：</span>
+      把细节学懂、把细节做好
+    </p>
+
+    <h2 id="s14">1.4 Git 的优势</h2>
+    <ul class="big">
+      <li>避免版本库膨胀 —— 不带构建产物（V1、 V2各自构建一个文件夹的方式会带构建产物，但是如果用了Git就可以把构建产物单独放在Git外的文件夹里面汇总。）</li>
+    </ul>
+    <p class="line i2"><span class="lbl">注：</span>
+      git 里不要 add 构建产物 —— 协作者环境不同就会有问题
+    </p>
+    <ul class="big">
+      <li>版本可回溯　·　功能丰富、效率高（甚至可以对接 gh、gitlab 等）</li>
+    </ul>
+
+    <h2 id="s15">1.5 Git with AI Agent</h2>
+    <p class="line">
+      现在是 <span class="mono">Agent-Native</span> 时代，
+      只要有概念能干什么，
+      就能让 <span class="mono">Agent</span> 做。
+    </p>
+    <p class="line"><span class="lbl mono">But</span> 问题是 <span class="arw">→</span>
+      是你自己能干，还是离了 Agent 你就干不了了
+    </p>
+    <p class="line ans"><span class="arw">↳</span> 解法：
+      与 Agent 协作，学习 best-practice，用到真正的工程中！
+    </p>
+
+    <div class="box note">
+      <span class="bn">agents.md 的用法</span>
+      <p class="body">
+        <span class="mono">agents.md</span> 来帮助学习而不只是代劳，它干完了再回答你
+        <span class="arw">→</span> 是不是 <span class="mono">best-practice</span>；
+        以及你可以先学它做了什么来把这玩意改成 best-practice
+      </p>
+      <p class="body"><span class="arw">↳</span> 有可能带来新知</p>
+    </div>
+
+    <h2 id="s16">1.6 Hooks（钩子）</h2>
+    <p class="line"><span class="mono">if ××× : ×××</span>　
+      自动检测
+    </p>
+    <p class="line i2"><span class="lbl mono">e.g.</span>
+      Stop that SHIT Plugin 本质就是一堆 Hook
+    </p>
+    <p class="line i2">
+      ps.Breakpoint（断点）的本质就是一个用于调试的特殊的临时hook
+    </p>
+    <p class="line tip">
+      <span class="lbl mono">tip：</span>
+      直觉想法同样值得追问　e.g.架构 A or B, why?
+    </p>
+
+    <h2 id="s17">1.7 Git 的本质是持久化项目树</h2>
+    <p class="line i2"><span class="lbl mono">(e)</span>
+      像这种比较难可以不用古法学习 → 让 Agent 直观呈现
+    </p>
+    <div class="reason">
+      <div class="reason-l">
+        <p class="line">
+          “计算机科学定律”之「你想得到的一定有人做了」
+        </p>
+      </div>
+      <div class="reason-r">
+        <p class="line"><span class="mono">Why Agent Better?</span></p>
+        <p class="line i2">
+          甚至可以看本地真实项目看，比如看 git 如何组织、变化……
+        </p>
+      </div>
+    </div>
+
+    <h2 id="s18">1.8 Git Best Practice</h2>
+    <p class="star"><span class="lbl">☆</span> 项目 = 由
+      Atomic（原子性）
+      change 打包后的快照
+    </p>
+    <ul class="big tight">
+      <li>最小更改也好提交！</li>
+      <li>一个 change 对应一个意图</li>
+    </ul>
+    <p class="line i2"><span class="lbl mono">(e)</span>
+      不要面对一片混沌，不能定位
+    </p>
+    <p class="line i2"><span class="lbl mono">(e)</span>
+      冲突需可解决，出问题了可 bisect
+    </p>
+
+
+    <div class="footer-note">
+      <p>本页为生成式软件工程第三课（软件仓库管理）的课堂笔记整理稿。</p>
+      <p>正文结构、缩进层级、括号分组、箭头走向、圈注编号均照原稿落版；字迹转写中认不准处已按最可能读法定稿。</p>
+    </div>
+  </main>
+</div>
+
+<script src="script-main.js" defer></script>
+
+  <div id="sPanel">
+    <div class="sph"><span id="sChev">▾</span><span id="sCount">0 / 0</span>
+      <button type="button" id="sPrev" title="上一个（Shift+Enter）">↑</button>
+      <button type="button" id="sNext" title="下一个（Enter）">↓</button>
+      <button type="button" id="sClose" title="退出搜索（Esc）">✕</button>
+    </div>
+    <div id="sList"></div>
+  </div>
+
+<button class="totop" id="totop" type="button" title="回到顶部" aria-label="回到顶部">↑</button>
+</body>
+</html>
