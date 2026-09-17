@@ -26,58 +26,65 @@
     color: #656d76;
     font-size: 14px;
   }
-  .list {
-    margin-top: 32px;
+  h2.course {
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 650;
+  }
+  .timeline {
+    margin-top: 24px;
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: #d8dee4;
+  }
+  .timeline-item { position: relative; padding-bottom: 32px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute;
+    left: -32px;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #0969da;
+    color: #fff;
     display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  a.card {
-    display: block;
-    background: #ffffff;
-    border: 1px solid #d8dee4;
-    border-radius: 10px;
-    padding: 18px 22px;
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow .15s ease, transform .15s ease;
-  }
-  a.card:hover {
-    box-shadow: 0 4px 14px rgba(31, 35, 40, 0.10);
-    transform: translateY(-1px);
-  }
-  .card h2 {
-    font-size: 17px;
-    font-weight: 600;
-    color: #0969da;
-  }
-  .card p {
-    margin-top: 6px;
-    font-size: 13.5px;
-    color: #656d76;
-    line-height: 1.6;
-  }
-  .card .date {
-    display: block;
-    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
     font-size: 12px;
-    color: #8b949e;
-  }
-  .tags {
-    margin-top: 10px;
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-  .tag {
-    font-size: 11.5px;
+    font-weight: 600;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    z-index: 1;
+  }
+  .item-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .item-title { font-size: 16px; font-weight: 600; }
+  .item-title a { color: #0969da; text-decoration: none; }
+  .item-title a:hover { text-decoration: underline; color: #0550ae; }
+  .item-date { font-size: 12px; color: #8b949e; white-space: nowrap; }
+  .item-desc { margin-top: 6px; font-size: 13.5px; color: #656d76; line-height: 1.6; }
+  .item-tags { margin-top: 8px; font-size: 12px; color: #656d76; }
+  .item-tags code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11.5px;
     color: #0550ae;
     background: #ddf4ff;
     border: 1px solid #54aeff66;
-    border-radius: 999px;
-    padding: 1.5px 9px;
-    line-height: 1.5;
+    border-radius: 0;
+    padding: 1px 6px;
+    margin: 0 2px;
   }
 </style>
 </head>
@@ -85,23 +92,33 @@
 <div class="wrap">
   <header>
     <h1>Exberks的技术笔记</h1>
-    <p>文章目录 · 持续更新</p>
+    <p>课程笔记目录 · 持续更新</p>
   </header>
-  <main class="list">
-    <a class="card" href="jyy-vibecoding-lec2-note-anime/">
-      <h2>生成式软工-上下文工程笔记（可视化）</h2>
-      <p>上下文工程课程笔记</p>
-      <div class="tags">
-        <span class="tag">jyy-vibe-coding</span>
-        <span class="tag">lec2</span>
+  <h2 class="course">生成式软件工程</h2>
+  <main class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot">2</div>
+      <div class="item-header">
+        <h3 class="item-title"><a href="jyy-vibecoding-lec2-note-anime/">提示词与上下文工程</a></h3>
+        <span class="item-date">2026-09-04</span>
       </div>
-      <span class="date">2026-09-04</span>
-    </a>
+      <p class="item-desc">八层上下文、注意力流动、算力换智力、verify 循环等。</p>
+      <div class="item-tags">tag: <code>jyy-vibe-coding</code>, <code>lec2</code></div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot">3</div>
+      <div class="item-header">
+        <h3 class="item-title"><a href="jyy-vibecoding-lec3-note/">软件仓库管理</a></h3>
+        <span class="item-date">2026-09-17</span>
+      </div>
+      <p class="item-desc">Git 本质、commit、best practice、Hooks、Agent 协作。</p>
+      <div class="item-tags">tag: <code>jyy-vibe-coding</code>, <code>lec3</code></div>
+    </div>
   </main>
 </div>
 <script>
-/* 本地 file:// 预览时把卡片链接从目录形式改写为 index.html；线上 https 保持文件夹链接，URL 不带文件名 */
-if(location.protocol==='file:'){[].forEach.call(document.querySelectorAll('a.card'),function(a){
+/* 本地 file:// 预览时把标题链接从目录形式改写为 index.html；线上 https 保持目录链接，URL 不带文件名 */
+if(location.protocol==='file:'){[].forEach.call(document.querySelectorAll('.item-title a'),function(a){
   var h=a.getAttribute('href');if(/\/$/.test(h))a.setAttribute('href',h+'index.html');});}
 </script>
 </body>
