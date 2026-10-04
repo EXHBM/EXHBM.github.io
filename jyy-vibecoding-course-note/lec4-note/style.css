@@ -64,7 +64,6 @@ a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(69,97,12
 .toc>a.l3{font-size:.73rem;color:#8b9199;padding-left:30px}
 .toc>a:hover{color:var(--accent)}
 .toc>a.on{color:var(--accent);font-weight:600;border-left-color:var(--accent)}
-.side-tip{margin-top:1.3rem;font-size:.67rem;color:#9aa0a6;line-height:1.85}
 
 /* ── 题头 ── */
 h1{font-family:var(--sans);font-size:calc(1.5rem * var(--art));font-weight:700;text-align:center;
@@ -140,7 +139,6 @@ h4{font-family:var(--sans);font-size:calc(.88rem * var(--art));font-weight:700;c
     transition:opacity .2s,transform .2s,visibility .2s}
   .side.open{opacity:1;visibility:visible;transform:none;pointer-events:auto}
   .side .toc-h{display:none}
-  .side-tip{max-height:26vh;overflow:auto}
 }
 @media (max-width:560px){
   .figure{padding-left:0}
