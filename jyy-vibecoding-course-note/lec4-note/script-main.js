@@ -153,7 +153,7 @@
   }
   function setCur(i, scroll) {
     if (!matches.length) { return; }
-    if (scroll) { sPanel.classList.add('collapsed'); }
+    if (scroll) { closeNav(); sPanel.classList.add('collapsed'); }
     if (mcur > -1 && matches[mcur]) { matches[mcur].classList.remove('cur'); }
     mcur = ((i % matches.length) + matches.length) % matches.length;
     matches[mcur].classList.add('cur');
@@ -176,7 +176,6 @@
     var v = q.value.trim().toLowerCase();
     if (!v) { sPanel.classList.remove('open'); sList.innerHTML = ''; matches = []; mcur = -1; return; }
     walk(main, function (nd) { hitNode(nd, v); });
-    closeNav();
     buildPanel(v);
     placePanel();
     sPanel.classList.add('open');
