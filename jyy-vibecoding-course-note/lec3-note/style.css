@@ -111,7 +111,7 @@ ul.tight>li{margin-bottom:.1rem}
 
 /* ── 原稿转写 / 引文图版（照 lec4-note 的 .hand） ── */
 .hand{font-family:var(--mono);font-size:.84rem;line-height:1.88;color:#3a4046;
-  background:rgba(120,132,144,.045);border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:rgba(120,132,144,.08);border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   border-radius:0;padding:11px 14px;margin:.9rem 0 1rem;white-space:pre-wrap;overflow-x:auto;break-inside:avoid}
 .hand+.hand{border-top:0}
 
