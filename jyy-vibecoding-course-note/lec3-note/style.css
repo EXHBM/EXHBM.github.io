@@ -68,10 +68,10 @@ p.center{font-family:var(--sans);text-align:center;font-size:.84rem;color:var(--
 /* ── 标题层级 ── */
 h2{font-family:var(--sans);font-size:1.16rem;font-weight:700;color:var(--pri-d);
   padding-bottom:.4rem;margin:1.9rem 0 1rem;border-bottom:2px solid var(--pri-l);
-  break-after:avoid;scroll-margin-top:20px}
+  break-after:avoid;scroll-margin-top:calc(var(--topbar-h,52px) + 14px)}
 h2.first{margin-top:0}
 h3{font-family:var(--sans);font-size:.95rem;font-weight:700;color:var(--pri-d);
-  margin:1.35rem 0 .4rem;break-after:avoid;scroll-margin-top:20px}
+  margin:1.35rem 0 .4rem;break-after:avoid;scroll-margin-top:calc(var(--topbar-h,52px) + 14px)}
 .cx{font-family:var(--sans);font-size:.76rem;font-weight:400;color:#9aa0a6}
 
 /* ── 正文 ── */

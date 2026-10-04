@@ -78,13 +78,13 @@ p.center.subtitle::after{content:"";display:block;width:56px;height:3px;margin:.
 /* ── 标题层级 ── */
 h2{font-family:var(--sans);font-size:calc(1.16rem * var(--art));font-weight:700;color:var(--pri-d);
   padding-bottom:.4rem;margin:1.9rem 0 1rem;border-bottom:2px solid var(--pri-l);
-  break-after:avoid;scroll-margin-top:20px}
+  break-after:avoid;scroll-margin-top:calc(var(--topbar-h,52px) + 14px)}
 h2.first{margin-top:0}
 h2.sec{font-size:1.05rem;border-bottom-width:1px}
 h3{font-family:var(--sans);font-size:calc(.95rem * var(--art));font-weight:700;color:var(--pri-d);
-  margin:1.35rem 0 .4rem;break-after:avoid;scroll-margin-top:20px}
+  margin:1.35rem 0 .4rem;break-after:avoid;scroll-margin-top:calc(var(--topbar-h,52px) + 14px)}
 h4{font-family:var(--sans);font-size:calc(.88rem * var(--art));font-weight:700;color:var(--pri-d);
-  margin:1.1rem 0 .35rem;break-after:avoid;scroll-margin-top:20px}
+  margin:1.1rem 0 .35rem;break-after:avoid;scroll-margin-top:calc(var(--topbar-h,52px) + 14px)}
 
 /* ── 正文 ── */
 .line{font-size:calc(.98rem * var(--art));line-height:1.95;margin:.16rem 0;text-align:left;text-indent:2em}
