@@ -6,7 +6,7 @@
 :root{
   --pri:#1e6091; --pri-d:#184e77; --pri-l:#f0f5fa;
   --ok:#0d766e; --ok-l:#f0fdfa;
-  --warn:#854d0e; --warn-l:#fefce8;
+  --warn:#854d0e; --warn-l:#f4f1e6;   /* 提示框底：刻意压暗去亮（2026-10-04 小主定），勿改回 #fefce8 */
   --red:#991b1b; --red-l:#fef2f2;
   --ink:#1f2328; --sub:#6b7280; --line:#e3e6ea; --paper:#f6f7f9;
   --term:#8a4b1f; --hand:#b4bac0;
