@@ -5,9 +5,8 @@
 
 :root{
   --pri:#1e6091; --pri-d:#184e77; --pri-l:#f0f5fa;
-  --ok:#0d766e; --ok-l:#f0fdfa;
-  --warn:#854d0e; --warn-l:#f9f7ef;   /* 警示浅底：已刻意调暗去亮；当前无引用（原 .box.note 已换皮为普通 .hand 图版，用的是 .hand 默认中性灰洗） */
-  --red:#991b1b; --red-l:#fef2f2;
+  --ok:#0d766e;
+  --red:#991b1b;
   --ink:#1f2328; --sub:#6b7280; --line:#e3e6ea; --paper:#f6f7f9;
   --term:#8a4b1f; --hand:#b4bac0;
   --mono:ui-monospace,"Cascadia Mono",Consolas,"Courier New",monospace;
@@ -56,8 +55,6 @@ a{color:var(--pri);text-decoration:none;border-bottom:1px solid rgba(30,96,145,.
 .toc>a.l2{font-size:.74rem;color:#7d838b;padding-left:22px}
 .toc>a:hover{color:var(--pri)}
 .toc>a.on{color:var(--pri-d);font-weight:700;border-left-color:var(--pri)}
-.side-tip{margin-top:1.5rem;font-size:.7rem;color:#9aa0a6;line-height:1.9}
-.side-tip a{font-size:.7rem}
 
 /* ── 题头 ── */
 h1{font-family:var(--sans);font-size:1.5rem;font-weight:700;text-align:center;
@@ -75,7 +72,6 @@ h3{font-family:var(--sans);font-size:.95rem;font-weight:700;color:var(--pri-d);
 .cx{font-family:var(--sans);font-size:.76rem;font-weight:400;color:#9aa0a6}
 
 /* ── 正文 ── */
-p.body{font-size:1rem;text-indent:2em;text-align:justify;margin:0 0 .95rem}
 .line{font-size:.98rem;line-height:1.95;margin:.16rem 0;text-align:left}
 .line.i2{padding-left:1.9em}
 .line.dim{color:#9aa0a6}
@@ -95,19 +91,6 @@ ul.big{list-style:none;margin:.2rem 0 .3rem;padding-left:1.9em}
 ul.big>li{font-size:.98rem;line-height:1.95;margin-bottom:.16rem;position:relative}
 ul.big>li::before{content:"·";position:absolute;left:-1em;color:var(--pri)}
 ul.tight>li{margin-bottom:.1rem}
-
-/* ── 提示框 ── */
-.box{font-size:.93rem;line-height:1.8;text-align:justify;
-  background:#fbfcfd;border:1px solid #e0e4e8;border-left:3px solid var(--pri);
-  border-radius:8px;padding:11px 14px;margin:.55rem 0 1.15rem;break-inside:avoid}
-.box>.bn{display:block;font-family:var(--sans);font-weight:700;color:var(--pri);margin:0 0 .3em}
-.box p.body{font-size:.93rem;margin:0 0 .5rem}
-.box p.body:last-child{margin-bottom:0}
-.box.tip{border-left-color:#475569;background:#f8fafc;border-color:#e2e8f0}
-.box.tip>.bn{color:#475569}
-.box.note{border-left-color:var(--warn);background:var(--warn-l);border-color:rgba(133,77,14,.22)}
-.box.note>.bn{color:var(--warn)}
-.box em{font-style:normal;color:var(--warn);border-bottom:1px dashed rgba(133,77,14,.6)}
 
 /* ── 原稿转写 / 引文图版（照 lec4-note 的 .hand） ── */
 .hand{font-family:var(--mono);font-size:.84rem;line-height:1.88;color:#3a4046;
@@ -174,7 +157,6 @@ ul.tight>li{margin-bottom:.1rem}
 .timeline circle.dot{fill:var(--paper);stroke:#4d545b;stroke-width:1.6}
 .timeline text.m{font-family:var(--mono);font-size:13px;fill:#42505c;text-anchor:middle}
 .timeline text.m.msg{font-size:12px}
-.timeline text.m.st{text-anchor:start}
 .timeline text.m.dim{fill:#aeb4ba}
 
 /* ── Best Practice ── */
@@ -191,17 +173,6 @@ ul.tight>li{margin-bottom:.1rem}
   background:var(--paper);color:#8d97a1;font-family:var(--mono);font-size:.95em;
   line-height:1;padding:0 .14em}
 .reason-r p{margin:0}
-
-/* ── 附录表格 ── */
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
-table.qlist{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:.79rem}
-table.qlist th{text-align:left;font-weight:700;color:#5b6169;background:#eceff2;
-  padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
-table.qlist td{padding:7px 10px;border-bottom:1px solid #eef1f4;vertical-align:top;line-height:1.7}
-table.qlist tr:last-child td{border-bottom:0}
-table.qlist td.idx{color:#9aa0a6;font-variant-numeric:tabular-nums;white-space:nowrap}
-table.qlist td.mine{font-family:var(--serif);font-size:.83rem;min-width:12em}
-table.qlist td.where{color:#5b6169;min-width:9em}
 
 /* ── 页脚 ── */
 .footer-note{margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line);
@@ -233,8 +204,6 @@ table.qlist td.where{color:#5b6169;min-width:9em}
     transition:opacity .2s,transform .2s,visibility .2s}
   .side.open{opacity:1;visibility:visible;transform:none;pointer-events:auto}
   .side .toc-h{display:none}
-  .side .side-tip{margin-top:.9rem}
-  .side-tip{max-height:26vh;overflow:auto}
   .cmp-l{flex-basis:100%}
   .side-fig{margin-left:1.4em}
   .cmd-tail-r{flex-basis:100%;border-left:0;padding-left:0}
@@ -255,7 +224,7 @@ table.qlist td.where{color:#5b6169;min-width:9em}
   .layout{display:block;max-width:none;padding:0}
   .content{max-width:none;padding:0}
   h2,h3{break-after:avoid}
-  .timeline,.tablewrap,.reason{break-inside:avoid}
+  .timeline,.reason{break-inside:avoid}
 }
 
 /* 第三批：特别强调的英文 */
