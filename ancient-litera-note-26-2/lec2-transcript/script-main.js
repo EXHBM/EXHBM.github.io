@@ -1,4 +1,4 @@
-/* 古代文学3 律诗的定型与初唐四杰：移动端目录 / 回顶部 / 目录滚动跟踪 / 全文搜索 */
+/* 古代文学3 律诗的定型与初唐四杰：移动端目录 / 回顶部 / 目录滚动跟踪 / 标题·正文·图注搜索 */
 (function () {
   'use strict';
   function byId(i) { return document.getElementById(i); }
@@ -72,6 +72,11 @@
     sPanel.style.left = Math.round(left) + 'px';
     sPanel.style.top = Math.round(r.bottom + 8) + 'px';
   }
+  /* ── 搜索范围隔离：只有 标题 / 正文 / 图注 参与索引 ──
+     段首与标题时间码（.ts/.hts）、课件标记（.tag）、存疑附录（details.uncbox）
+     整体不索引，避免搜「01」命中一堆时间码、或命中折叠中看不见的附录。 */
+  var SCOPE_SEL = 'h1, h2, h3, h4, p.body, li, figcaption';
+  var SKIP_SEL = '.ts, .hts, .tag, details.uncbox';
   function walk(n, f) {
     var c = n.childNodes, i, x;
     for (i = 0; i < c.length; i++) {
@@ -79,6 +84,7 @@
       if (x.nodeType === 3) { f(x); }
       else if (x.nodeType === 1) {
         if (/^(SCRIPT|STYLE|svg|TEXTAREA|INPUT)$/i.test(x.tagName)) { continue; }
+        if (x.matches && x.matches(SKIP_SEL)) { continue; }
         if (x.tagName === 'MARK' && !x.classList.contains('rep')) { continue; }
         walk(x, f);
       }
@@ -175,7 +181,9 @@
     clearMarks();
     var v = q.value.trim().toLowerCase();
     if (!v) { sPanel.classList.remove('open'); sList.innerHTML = ''; matches = []; mcur = -1; return; }
-    walk(main, function (nd) { hitNode(nd, v); });
+    [].forEach.call(main.querySelectorAll(SCOPE_SEL), function (el) {
+      walk(el, function (nd) { hitNode(nd, v); });
+    });
     buildPanel(v);
     placePanel();
     sPanel.classList.add('open');
