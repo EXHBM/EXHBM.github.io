@@ -31,7 +31,7 @@ a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(69,97,12
 .mono{font-family:var(--mono);font-size:.92em;letter-spacing:-.01em}
 
 /* ── 布局 ── */
-.layout{max-width:1076px;margin:0 auto 0 max(0px,calc(50% - 616px));padding:0 22px 90px;
+.layout{max-width:1076px;margin:0 auto 0 max(0px,calc(50% - 652px));padding:0 22px 90px;
   display:grid;grid-template-columns:276px minmax(0,1fr);gap:34px;align-items:start}
 .content{font-size:calc(1rem * var(--art));max-width:44em;margin-left:auto;padding:34px 0 0;min-width:0}
 
