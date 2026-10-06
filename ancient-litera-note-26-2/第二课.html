@@ -175,9 +175,44 @@ td.n{font-family:var(--sans);font-size:.78rem;color:var(--sub);white-space:nowra
   body{background:#fff}
   .page{max-width:none;padding:0}
 }
+
+/* ── 返回栏目主页 ── */
+.backhome{
+  position:fixed;top:14px;left:16px;z-index:60;
+  font-family:var(--sans);font-size:.82rem;font-weight:600;
+  color:var(--pri);background:#fff;border:1px solid var(--line);
+  border-radius:8px;padding:5px 12px;cursor:pointer;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+}
+.backhome:hover{background:var(--pri-l);border-color:#cbd9e6}
+
+/* ── 存疑附录：可展开 ── */
+details.uncbox{
+  margin:1.9rem 0 1.2rem;border:1px solid var(--line);border-radius:8px;
+  background:#fff;overflow:hidden;
+}
+details.uncbox>summary{
+  cursor:pointer;list-style:none;padding:.72rem 1rem;
+  font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--pri-d);
+}
+details.uncbox>summary::-webkit-details-marker{display:none}
+details.uncbox>summary::before{
+  content:"▸";display:inline-block;width:1.05em;color:var(--pri);
+}
+details.uncbox[open]>summary::before{content:"▾"}
+details.uncbox>summary:hover{background:var(--pri-l)}
+details.uncbox[open]{padding-bottom:.9rem}
+details.uncbox>p{margin-left:1rem;margin-right:1rem}
+details.uncbox>table{width:calc(100% - 2rem);margin-left:1rem;margin-right:1rem}
+
+@media print{
+  details.uncbox{break-inside:auto}
+  .backhome{display:none}
+}
 </style>
 </head>
 <body>
+<button class="backhome" type="button" onclick="location.href='index.html'">⌂ 实录主页</button>
 <div class="page">
 <h1>第二课</h1>
 <p class="center">隋唐五代文学 · 课堂实录</p>
@@ -369,7 +404,8 @@ td.n{font-family:var(--sans);font-size:.78rem;color:var(--sub);white-space:nowra
 <p class="body">所以没有污秽，没有人来相信我的高洁，我又向谁来表白我高洁的情意呢，“谁为表予心”，充满了一种激愤，显然最后对于自己身处的这个情境，它是具有一种强烈的不满，想要有所诉求。但是又未得有效途径的这种激愤。所以这首五言律对仗不仅工整，而且也赋予了变化，通过咏物来自喻身世，用古法而入律体。所以先是物、人相分，彼此对举，慢慢又合拢。最后蝉和人完全的合在了一起。所以以寄托之法就实现了这个“蝉即人、人即蝉”，所以清代的施补华，他在他的这个《岘佣说诗》中就讲“三百篇比兴居多”，就讲到《诗经》之中有很多的以物写人这样的一些诗篇，“唐人犹得此意”，他就举到了唐代，有三首著名的咏蝉诗，其一是虞世南的“居高声自远，非是藉秋风”，骆宾王则是讲“露重飞难进，风多响易沈”，认为这是患难人语，就是表达一种激愤的情绪，那虞世南的这种“居高声自远”，这就是借蝉来表达一种高洁的精神，李商隐则有“本以高难饱，徒劳恨费声”，这是一种牢骚之语。所以你看唐人同样写蝉。但是借这个蝉表达了不同的情思，好，这是我们提到的骆宾王他五律的作品。</p>
 <h3>杨炯《从军行》　<span class="hts">1:33:17–1:35:17</span></h3>
 <p class="body">在《在狱咏蝉》下面我们再来看这个杨炯的《从军行》这首诗我们简单的说一下，《从军行》这也是一个乐府古题，也是乐府古题。所以杨炯的这首诗歌也是用乐府古题来写律诗，而且《从军行》这个古题，在《乐府诗集》里解题之中表明了它是多反映军旅战争之事。但是杨炯的这一首《从军行》则表现了一种投笔从戎的豪情壮志。所以他在诗歌中讲，“烽火照西京，心中自不平”，听闻朝廷有战事，内心就涌动起了这个心，去<span class="unc">〔原音不清〕</span>，诗歌的最后一联讲，“宁为百夫长，胜作一书生”，所以“百夫长”这是古代军队之中比较低级的一个军官，就是类似于这种班长排长这样的低级军官。但是杨炯说我宁愿去做这样的低级的军官，也不想再当一个什么事情也出不了力的这样的一个书生，“胜作一书生”，所以这首诗歌的一首一尾，它就形成了一个点题和升华的这样的一个艺术效果，诗歌之中的中间两联，这是对于战争场景的一种想象，是杨炯他自己的一种想象，这种想象是为了映衬他自己的这样的一种豪情壮志，我们就可以发现了，在四杰的笔下写个人，写他们个人的一种基本<span class="unc">〔情感〕</span>，写他们对于送别的感受，写他们的理想、壮志，内容题材就丰富起来了，生动起来了。所以这是四杰和宫廷诗人的一个明显的不同，好，我们今天先讲到这里，我们下次再来看四杰的七言歌行，大家下次记得把作品选带上。</p>
-<h2 id="sec15">附：本稿中保留的存疑之处</h2>
+<details class="uncbox" id="sec15">
+<summary>附：本稿中保留的存疑之处</summary>
 <p class="body">按“最小改动、不能判断则保留”的原则，以下位置原音不清或语义不明，<b>一律保留原貌并以<span class="unc">〔〕</span>标注</b>，未作臆改。</p>
 <table>
 <thead><tr><th>段号</th><th>时间点</th><th>原文</th><th>说明</th></tr></thead>
@@ -390,6 +426,7 @@ td.n{font-family:var(--sans);font-size:.78rem;color:var(--sub);white-space:nowra
 </tbody>
 </table>
 <p class="body"><span class="unc">〔说明〕</span>第 018 与 046 两张课件对《野望》首句用字不一致（薄暮望／薄雾望），<b>两者并存</b>，正文以 <code>薄（暮／雾）望</code> 并列标注，不作裁定。</p>
+</details>
 </div>
 </body>
 </html>

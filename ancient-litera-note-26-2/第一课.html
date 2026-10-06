@@ -175,9 +175,44 @@ td.n{font-family:var(--sans);font-size:.78rem;color:var(--sub);white-space:nowra
   body{background:#fff}
   .page{max-width:none;padding:0}
 }
+
+/* ── 返回栏目主页 ── */
+.backhome{
+  position:fixed;top:14px;left:16px;z-index:60;
+  font-family:var(--sans);font-size:.82rem;font-weight:600;
+  color:var(--pri);background:#fff;border:1px solid var(--line);
+  border-radius:8px;padding:5px 12px;cursor:pointer;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+}
+.backhome:hover{background:var(--pri-l);border-color:#cbd9e6}
+
+/* ── 存疑附录：可展开 ── */
+details.uncbox{
+  margin:1.9rem 0 1.2rem;border:1px solid var(--line);border-radius:8px;
+  background:#fff;overflow:hidden;
+}
+details.uncbox>summary{
+  cursor:pointer;list-style:none;padding:.72rem 1rem;
+  font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--pri-d);
+}
+details.uncbox>summary::-webkit-details-marker{display:none}
+details.uncbox>summary::before{
+  content:"▸";display:inline-block;width:1.05em;color:var(--pri);
+}
+details.uncbox[open]>summary::before{content:"▾"}
+details.uncbox>summary:hover{background:var(--pri-l)}
+details.uncbox[open]{padding-bottom:.9rem}
+details.uncbox>p{margin-left:1rem;margin-right:1rem}
+details.uncbox>table{width:calc(100% - 2rem);margin-left:1rem;margin-right:1rem}
+
+@media print{
+  details.uncbox{break-inside:auto}
+  .backhome{display:none}
+}
 </style>
 </head>
 <body>
+<button class="backhome" type="button" onclick="location.href='index.html'">⌂ 实录主页</button>
 <div class="page">
 <h1>第一课</h1>
 <p class="center">隋唐五代文学 · 课堂实录</p>
@@ -480,7 +515,8 @@ td.n{font-family:var(--sans);font-size:.78rem;color:var(--sub);white-space:nowra
 <p class="body">而在京城宫廷之中所形成的这一批宫廷诗人，无论是上官仪，还是后面我们提到的杜审言、沈佺期、宋之问等人，他们的特点就在于延续了南朝的诗风，更重视追求一种形式去表达，这样的一种表达的华美和雕琢，就是他们在诗歌的形式方面所做的探索，所取得的成就要更高。</p>
 <p class="body">所以这里就引发了一个问题：这些、这一批初唐的宫廷诗人，他们对于唐诗的发展究竟做出了怎样的贡献呢？</p>
 <p class="body">我们今天先讲到这里，明天我们沿着这个问题来继续讲解。我们今天先下课。</p>
-<h2 id="sec7">附：本稿中保留的存疑之处</h2>
+<details class="uncbox" id="sec7">
+<summary>附：本稿中保留的存疑之处</summary>
 <p class="body">按“最小改动、不能判断则保留”的原则，以下位置原音不清或语意不明，<b>一律保留原貌并以<span class="unc">〔〕</span>标注</b>，未作臆改。如需进一步核实，建议回听对应时间点的音频。</p>
 <table>
 <thead><tr><th>段号</th><th>时间点</th><th>原文</th><th>说明</th></tr></thead>
@@ -496,6 +532,7 @@ td.n{font-family:var(--sans);font-size:.78rem;color:var(--sub);white-space:nowra
 <tr><td class="n">1577</td><td class="n">01:28:23</td><td>被纳入了这个<span class="unc">〔掖庭〕</span>之中</td><td>原作“嗯无忌”，依上官仪家口没官史实推补为“掖庭”</td></tr>
 </tbody>
 </table>
+</details>
 </div>
 </body>
 </html>
