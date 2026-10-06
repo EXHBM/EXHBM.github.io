@@ -2,232 +2,47 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>隋唐大一统与唐代文学的繁荣 · 古代文学3 课程实录</title>
-<style>
-:root{
-  --pri:#1e6091; --pri-d:#184e77; --pri-l:#f0f5fa;
-  --ok:#0d766e; --ok-l:#f0fdfa;
-  --warn:#854d0e; --warn-l:#fefce8;
-  --red:#991b1b; --red-l:#fef2f2;
-  --ink:#35322d; --sub:#6b7280; --line:#e8e6df; --paper:#fcfcfa;
-  --term:#8a4b1f;
-  --sans:"Noto Sans SC",system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
-  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:var(--serif);
-  background:var(--paper); color:var(--ink); line-height:1.85;
-  -webkit-print-color-adjust:exact; print-color-adjust:exact;
-}
-.page{max-width:44em;margin:0 auto;padding:44px 26px 56px}
-
-/* ── 题头 ── */
-h1{
-  font-family:var(--sans);
-  font-size:1.62rem;font-weight:700;text-align:center;line-height:1.5;
-  letter-spacing:.01em;margin-bottom:.4rem;
-}
-p.center{
-  font-family:var(--sans);
-  text-indent:0;text-align:center;font-size:.86rem;color:var(--pri);
-  font-weight:600;margin:0 0 .35rem;
-}
-p.meta{
-  font-family:var(--sans);
-  text-align:center;font-size:.8rem;color:#9aa0a6;margin-bottom:2.2rem;
-}
-p.meta::after{
-  content:"";display:block;width:56px;height:3px;margin:.9rem auto 0;border-radius:2px;
-  background:linear-gradient(90deg,#8fa6b8,var(--pri));
-}
-
-/* ── 标题层级 ── */
-h2{
-  font-family:var(--sans);
-  font-size:1.22rem;font-weight:700;color:var(--pri-d);
-  padding-bottom:.4rem;margin:1.9rem 0 1.1rem;
-  border-bottom:2px solid var(--pri-l);
-  break-after:avoid;page-break-after:avoid;
-}
-h2.first{margin-top:0}
-h2 .hts,h3 .hts{
-  font-size:.74rem;font-weight:500;color:#9aa0a6;letter-spacing:.02em;
-  font-family:var(--sans);white-space:nowrap;
-}
-h3{
-  font-family:var(--sans);
-  font-size:.97rem;font-weight:700;color:var(--pri-d);letter-spacing:.01em;
-  margin:1.4rem 0 .45rem;break-after:avoid;page-break-after:avoid;
-}
-
-/* ── 正文 ── */
-p.body{font-size:1.03rem;text-indent:2em;text-align:justify;margin:0 0 1rem}
-p.body.lead{text-indent:0}
-.ts{
-  display:inline-block;min-width:7.7em;
-  font-family:var(--sans);font-size:.74rem;font-weight:400;
-  color:#9aa0a6;letter-spacing:.01em;text-indent:0;
-}
-ul,ol{margin:0 0 1.05rem;padding-left:1.85em}
-li{font-size:.99rem;margin-bottom:.32rem;text-align:justify}
-li::marker{color:var(--pri)}
-code{
-  font-family:ui-monospace,Consolas,monospace;font-size:.9em;
-  background:#f1f5f9;color:var(--pri-d);padding:1px 5px;border-radius:3px;
-}
-a{color:var(--pri);text-decoration:none;border-bottom:1px solid rgba(30,96,145,.3)}
-
-/* 存疑夹注：原音不清处，灰底保留原貌 */
-.unc{
-  font-size:.93em;color:#475569;
-  background:#f1f5f9;border:1px solid #e2e8f0;border-bottom:1px dotted #94a3b8;
-  padding:1px 5px;border-radius:4px;white-space:nowrap;
-}
-
-/* ── 课件图块：独占排版行、通栏全宽 ── */
-figure.fig{
-  margin:1.15rem 0 1.4rem;break-inside:avoid;page-break-inside:avoid;
-}
-figure.fig img{
-  display:block;width:100%;height:auto;
-  border:1px solid #dcd9d1;border-radius:6px;
-}
-figure.fig figcaption{
-  font-family:var(--sans);font-size:.76rem;line-height:1.65;
-  color:#8b9096;text-align:center;text-indent:0;
-  margin-top:.45rem;padding:0 .5em;
-}
-figure.fig figcaption .tag{
-  display:inline-block;color:var(--pri);font-weight:600;
-  background:var(--pri-l);border-radius:4px;padding:0 6px;margin-right:.35em;
-}
-figure.figrow{
-  margin:1.15rem 0 1.4rem;display:grid;grid-template-columns:1fr 1fr;
-  gap:0 13px;break-inside:avoid;page-break-inside:avoid;
-}
-figure.figrow figure.fig{margin:0}
-
-/* ── 说明框 ── */
-.box{
-  font-size:.93rem;line-height:1.8;text-indent:0;text-align:justify;
-  background:#fffdf9;border:1px solid #ded8cc;border-left:3px solid var(--pri);
-  border-radius:8px;padding:11px 14px;margin:.2rem 0 1.5rem;
-  break-inside:avoid;
-}
-.box>.bn{
-  display:block;font-weight:700;color:var(--pri);margin:0 0 .3em;
-  font-family:var(--sans);
-}
-.box.note{border-left-color:#475569;background:#f8fafc;border-color:#e2e8f0}
-.box.note>.bn{color:#475569}
-.box ul{margin:.3rem 0 .2rem;padding-left:1.6em;list-style:none}
-.box li{font-size:.9rem;margin-bottom:.3rem;padding-left:.9em;text-indent:-.9em}
-.box li::before{content:"·";color:var(--pri);font-weight:700;margin-right:.45em}
-
-/* ── 目录 ── */
-nav.toc{
-  background:#fbfbf9;border:1px solid var(--line);border-radius:8px;
-  padding:14px 18px 12px;margin:0 0 1.9rem;break-inside:avoid;
-}
-nav.toc .tn{
-  font-family:var(--sans);font-size:.76rem;font-weight:700;color:var(--pri);
-  letter-spacing:.18em;margin-bottom:.5rem;
-}
-nav.toc ol{list-style:none;padding-left:0;margin:0;counter-reset:t}
-nav.toc li{
-  counter-increment:t;font-size:.94rem;margin-bottom:.3rem;
-  padding-left:1.5em;text-indent:-1.5em;
-}
-nav.toc li::before{
-  content:counter(t) ".";color:var(--pri);font-family:var(--sans);
-  font-size:.8rem;font-weight:700;margin-right:.55em;
-}
-nav.toc a{border-bottom:none}
-
-/* ── 表格 ── */
-table{
-  width:100%;border-collapse:collapse;margin:.4rem 0 1.4rem;
-  font-size:.86rem;break-inside:auto;
-}
-th,td{
-  border:1px solid #e3e0d8;padding:6px 9px;text-align:left;
-  vertical-align:top;line-height:1.7;
-}
-th{
-  font-family:var(--sans);font-weight:700;font-size:.8rem;color:var(--pri-d);
-  background:var(--pri-l);
-}
-tbody tr{break-inside:avoid;page-break-inside:avoid}
-tbody tr:nth-child(even){background:#fbfbf9}
-td.n{font-family:var(--sans);font-size:.78rem;color:var(--sub);white-space:nowrap}
-
-/* ── 页脚 ── */
-.footer-note{
-  margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--line);
-  font-size:.8rem;color:#9aa0a6;line-height:1.9;
-}
-.footer-note p{margin-bottom:6px;text-indent:0}
-
-@page{size:A4}
-@media print{
-  body{background:#fff}
-  .page{max-width:none;padding:0}
-}
-
-/* ── 返回栏目主页 ── */
-.backhome{
-  position:fixed;top:14px;left:16px;z-index:60;
-  font-family:var(--sans);font-size:.82rem;font-weight:600;
-  color:var(--pri);background:#fff;border:1px solid var(--line);
-  border-radius:8px;padding:5px 12px;cursor:pointer;
-  box-shadow:0 1px 4px rgba(0,0,0,.06);
-}
-.backhome:hover{background:var(--pri-l);border-color:#cbd9e6}
-
-/* ── 存疑附录：可展开 ── */
-details.uncbox{
-  margin:1.9rem 0 1.2rem;border:1px solid var(--line);border-radius:8px;
-  background:#fff;overflow:hidden;
-}
-details.uncbox>summary{
-  cursor:pointer;list-style:none;padding:.72rem 1rem;
-  font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--pri-d);
-}
-details.uncbox>summary::-webkit-details-marker{display:none}
-details.uncbox>summary::before{
-  content:"▸";display:inline-block;width:1.05em;color:var(--pri);
-}
-details.uncbox[open]>summary::before{content:"▾"}
-details.uncbox>summary:hover{background:var(--pri-l)}
-details.uncbox[open]{padding-bottom:.9rem}
-details.uncbox>p{margin-left:1rem;margin-right:1rem}
-details.uncbox>table{width:calc(100% - 2rem);margin-left:1rem;margin-right:1rem}
-
-@media print{
-  details.uncbox{break-inside:auto}
-  .backhome{display:none}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button class="backhome" type="button" onclick="location.href='../index.html'">⌂ 实录主页</button>
+<div class="navmask" id="navMask"></div>
+
+<div class="topbar">
+  <button onclick="location.href='../index.html'" title="返回实录主页">⌂ <span class="bt">主页</span></button>
+  <div class="tbox">
+    <div class="ttl">隋唐大一统与唐代文学的繁荣</div>
+    <div class="sub">古代文学3 · 第一课 · 课堂实录</div>
+  </div>
+  <div class="sp"></div>
+</div>
+
+<div class="layout">
+
+  <aside class="side" id="side">
+    <div class="search">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/>
+      </svg>
+      <input id="q" type="search" placeholder="搜正文…" autocomplete="off">
+    </div>
+    <nav class="toc" id="toc">
+      <p class="toc-h">目录</p>
+      <a href="#sec1">一、开篇与课程说明</a>
+      <a href="#sec2">二、隋唐大一统的建立</a>
+      <a href="#sec3">三、唐代文学繁荣的表现</a>
+      <a href="#sec4">四、唐代文学繁荣的原因</a>
+      <a href="#sec5">五、唐诗发展的阶段性：四唐说的形成　[01:04:48–01:10:17]</a>
+      <a href="#sec6">六、第一章　隋及初唐诗歌　[01:10:17–01:34:26]</a>
+      <a href="#sec7">附：本稿中保留的存疑之处</a>
+    </nav>
+  </aside>
+
+  <main class="content" id="content">
 <div class="page">
 <h1>隋唐大一统与唐代文学的繁荣</h1>
 <p class="center">隋唐五代文学 · 第一课 · 课堂实录</p>
-<nav class="toc">
-<div class="tn">目录</div>
-<ol>
-<li><a href="#sec1">一、开篇与课程说明</a></li>
-<li><a href="#sec2">二、隋唐大一统的建立</a></li>
-<li><a href="#sec3">三、唐代文学繁荣的表现</a></li>
-<li><a href="#sec4">四、唐代文学繁荣的原因</a></li>
-<li><a href="#sec5">五、唐诗发展的阶段性：四唐说的形成　[01:04:48–01:10:17]</a></li>
-<li><a href="#sec6">六、第一章　隋及初唐诗歌　[01:10:17–01:34:26]</a></li>
-<li><a href="#sec7">附：本稿中保留的存疑之处</a></li>
-</ol>
-</nav>
 <h2 id="sec1" class="first">一、开篇与课程说明　<span class="hts">00:55–03:47</span></h2>
 <p class="body lead"><span class="ts">00:55–01:05</span>好了，上课铃打过了，我们就开始上课了。这个学期由我来为大家主讲我们中国文学的第三段。</p>
 <p class="body lead"><span class="ts">01:05–02:30</span>我们这段文学主要学习的是唐宋文学。所以这个可能对于大家来说相对是更加熟悉的一段文学史，从内容上讲，熟悉感增强了。但是因为有了一种熟悉感，有时候大家就会轻视他——明明我以前已经接触了很多的唐诗宋词，我对这段文学史可能是比较了解了。但是其实这里有一个问题就在于，可能大家之前对于唐诗宋词的认知，更多的是从单个的文本入手的，那么由这个文本牵涉到了和这个文本相关的一些作家、时代相关的一些内容。但是作为文学史的学习，我们更多的是要把这些大家曾经熟悉的文本，放在一个文学发展的进程过程之中，再来做一个重新的审视。所以我们当然也会涉及到大家所熟悉的一些经典、大家经典名篇，这个是绕不过去的一个话题。但是在这个基础上，我们也会再做一个拓展，尽量的帮助大家能够全面客观、深刻深入的认知唐宋文学发展的这样的一个全貌。所以我们这是这个学期课程学习小小的一个初衷。</p>
@@ -530,5 +345,22 @@ details.uncbox>table{width:calc(100% - 2rem);margin-left:1rem;margin-right:1rem}
 </table>
 </details>
 </div>
+  </main>
+</div>
+
+<script src="script-main.js" defer></script>
+
+  <button class="btn-nav" id="btnNav" type="button" aria-label="目录">目录</button>
+  <div id="sPanel">
+    <div class="sph"><span id="sChev">▾</span><span id="sCount">0 / 0</span>
+      <button type="button" id="sPrev" title="上一个（Shift+Enter）">↑</button>
+      <button type="button" id="sNext" title="下一个（Enter）">↓</button>
+      <button type="button" id="sClose" title="退出搜索（Esc）">✕</button>
+    </div>
+    <div id="sList"></div>
+  </div>
+
+<button class="totop" id="totop" type="button" title="回到顶部" aria-label="回到顶部">↑</button>
+
 </body>
 </html>
